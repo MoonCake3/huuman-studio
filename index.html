@@ -9,26 +9,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="lang-en">
     <!-- Header / Navigation -->
     <header class="header">
         <div class="container">
             <div class="logo">
                 <span class="logo-icon">✦</span>
-                <span class="logo-text">HUUMAN STUDIO</span>
+                <span class="logo-text" data-th="HUUMAN STUDIO" data-en="HUUMAN STUDIO">HUUMAN STUDIO</span>
             </div>
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="#about">OM</a></li>
-                    <li><a href="#services">TJÄNSTER</a></li>
-                    <li><a href="#portfolio">PORTFOLIO</a></li>
-                    <li><a href="#contact">KONTAKT</a></li>
+                    <li><a href="#about" data-th="เกี่ยวกับเรา" data-en="ABOUT">เกี่ยวกับเรา</a></li>
+                    <li><a href="#services" data-th="บริการ" data-en="SERVICES">บริการ</a></li>
+                    <li><a href="#portfolio" data-th="ผลงาน" data-en="PORTFOLIO">ผลงาน</a></li>
+                    <li><a href="#contact" data-th="ติดต่อ" data-en="CONTACT">ติดต่อ</a></li>
                 </ul>
             </nav>
             <div class="nav-actions">
+                <button class="lang-toggle" id="langToggle" title="Switch language">
+                    <span class="lang-th">ไทย</span>
+                    <span class="lang-en" style="display:none;">EN</span>
+                </button>
                 <a href="https://instagram.com/huuman.essentials" class="btn-book" target="_blank" rel="noopener noreferrer">
                     <span class="btn-icon">📅</span>
-                    <span class="btn-text">BOKA</span>
+                    <span class="btn-text" data-th="จอง" data-en="BOOK">จอง</span>
                 </a>
             </div>
         </div>
@@ -39,26 +43,26 @@
         <div class="hero-bg">
             <div class="hero-overlay"></div>
         </div>
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1558649845-32158df70721?w=1200&q=80" alt="Creative studio team working" class="hero-img">
+        </div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">EST. 2026</div>
+                <div class="hero-badge" data-th="ก่อตั้ง 2026" data-en="EST. 2026">ก่อตั้ง 2026</div>
                 <h1 class="hero-title">
-                    <span>CREATE</span>
-                    <span>WITHOUT</span>
-                    <span>LIMITS</span>
+                    <span data-th="สร้าง" data-en="CREATE">สร้าง</span>
+                    <span data-th="อย่าง" data-en="WITHOUT">อย่าง</span>
+                    <span data-th="ไร้ขีดจำกัด" data-en="LIMITS">ไร้ขีดจำกัด</span>
                 </h1>
-                <p class="hero-subtitle">
-                    Vi formar digitala upplevelser som inspirerar, engagerar och transformerer. 
-                    Varje projekt är en unik berättelse som väntar på att bli berättad.
-                </p>
+                <p class="hero-subtitle" data-th="เราสร้างประสบการณ์ดิจิทัลที่สร้างแรงบันดาลใจ สร้างความสนใจ และเปลี่ยนแปลง งานทุกโครงการคือเรื่องราวที่รอได้รับการเล่า" data-en="We shape digital experiences that inspire, engage, and transform. Every project is a unique story waiting to be told.">เราสร้างประสบการณ์ดิจิทัลที่สร้างแรงบันดาลใจ สร้างความสนใจ และเปลี่ยนแปลง งานทุกโครงการคือเรื่องราวที่รอได้รับการเล่า</p>
                 <div class="hero-actions">
                     <a href="#portfolio" class="btn-primary">
                         <span class="btn-icon">→</span>
-                        SE VÅRT ARBETE
+                        <span data-th="ดูผลงาน" data-en="SEE WORK">ดูผลงาน</span>
                     </a>
                     <a href="https://instagram.com/huuman.essentials" class="btn-secondary" target="_blank" rel="noopener noreferrer">
                         <span class="btn-icon">✉</span>
-                        KONTAKTA OSS
+                        <span data-th="ติดต่อ" data-en="CONTACT">ติดต่อ</span>
                     </a>
                 </div>
             </div>
@@ -69,36 +73,32 @@
     <section id="about" class="section about">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">01</span>
-                <h2 class="section-title">OM OSS</h2>
+                <span class="section-number" data-th="01" data-en="01">01</span>
+                <h2 class="section-title" data-th="เกี่ยวกับเรา" data-en="ABOUT US">เกี่ยวกับเรา</h2>
                 <div class="section-line"></div>
             </div>
             <div class="about-grid">
                 <div class="about-image">
                     <div class="about-image-placeholder">
-                        <img src="https://images.unsplash.com/photo-1618005828978-208e5801469a?w=800&q=80" alt="Studio workspace">
+                        <img src="https://images.unsplash.com/photo-1618005828978-208e5801469a?w=800&q=80" alt="Creative workspace">
                     </div>
                 </div>
                 <div class="about-content">
-                    <h3 class="about-heading">Mänskligt skapande, digital perfection.</h3>
-                    <p class="about-text">
-                        HUUMAN STUDIO grundades på övertygelsen om att det bästa digitala skapandet börjar med att förstå människan bakom varje projekt. Vi är en grupp passionerade skapare som tror på att teknik ska tjäna berättelsen, inte tvärtom.
-                    </p>
-                    <p class="about-text">
-                        Vårt arbete spänner över webbdesign, varumärkesidentitet och interaktiva upplevelser — alltid med ett engagemang för detalj, elegans och meningsfullt skapande.
-                    </p>
+                    <h3 class="about-heading" data-th="การสร้างโดยมนุษย์ ความสมบูรณ์แบบดิจิทัล" data-en="Human creation, digital perfection.">การสร้างโดยมนุษย์ ความสมบูรณ์แบบดิจิทัล</h3>
+                    <p class="about-text" data-th="HUUMAN STUDIO ก่อตั้งขึ้นบนความเชื่อว่าการสร้างดิจิทัลที่ดีที่สุดเริ่มต้นจากการเข้าใจมนุษย์เบื้องหลังโครงการ เราคือทีมผู้สร้างที่มีความหลงใหลซึ่งเชื่อว่าเทคโนโลยีควรจะสื่อถึงเรื่องราว ไม่ใช่ในทางตรงกันข้าม" data-en="HUUMAN STUDIO was founded on the belief that the best digital creation begins with understanding the human behind each project. We are a team of passionate creators who believe technology should serve the story, not the other way around.">HUUMAN STUDIO ก่อตั้งขึ้นบนความเชื่อว่าการสร้างดิจิทัลที่ดีที่สุดเริ่มต้นจากการเข้าใจมนุษย์เบื้องหลังโครงการ เราคือทีมผู้สร้างที่มีความหลงใหลซึ่งเชื่อว่าเทคโนโลยีควรจะสื่อถึงเรื่องราว ไม่ใช่ในทางตรงกันข้าม</p>
+                    <p class="about-text" data-th="งานของเราครอบคลุมตั้งแต่ดีไซน์เว็บ ดีไซน์เอกลักษณ์ และประสบการณ์โต้ตอบ — ด้วยความมุ่งมั่นในรายละเอียด ความ 우아함 และความคิดสร้างสรรค์ที่มีความหมาย" data-en="Our work spans web design, brand identity, and interactive experiences — always with a commitment to detail, elegance, and meaningful creativity.">งานของเราครอบคลุมตั้งแต่ดีไซน์เว็บ ดีไซน์เอกลักษณ์ และประสบการณ์โต้ตอบ — ด้วยความมุ่งมั่นในรายละเอียด ความ 우아함 และความคิดสร้างสรรค์ที่มีความหมาย</p>
                     <div class="about-stats">
                         <div class="stat">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Projekt</span>
+                            <span class="stat-number" data-th="50+" data-en="50+">50+</span>
+                            <span class="stat-label" data-th="โครงการ" data-en="PROJECTS">โครงการ</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">12</span>
-                            <span class="stat-label">Klienter</span>
+                            <span class="stat-number" data-th="12" data-en="12">12</span>
+                            <span class="stat-label" data-th="ลูกค้า" data-en="CLIENTS">ลูกค้า</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">3</span>
-                            <span class="stat-label">År</span>
+                            <span class="stat-number" data-th="3" data-en="3">3</span>
+                            <span class="stat-label" data-th="ปี" data-en="YEARS">ปี</span>
                         </div>
                     </div>
                 </div>
@@ -110,8 +110,8 @@
     <section id="services" class="section services">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">02</span>
-                <h2 class="section-title">VÅRA TJÄNSTER</h2>
+                <span class="section-number" data-th="02" data-en="02">02</span>
+                <h2 class="section-title" data-th="บริการของเรา" data-en="OUR SERVICES">บริการของเรา</h2>
                 <div class="section-line"></div>
             </div>
             <div class="services-grid">
@@ -121,10 +121,8 @@
                             <path d="M12 19V5m0 0l-7 7m7-7l7 7"/>
                         </svg>
                     </div>
-                    <h3 class="service-title">Webbdesign</h3>
-                    <p class="service-text">
-                        Moderna, responsiva hemsidor som kombinerar estetik med funktionalitet. Varje design är skräddarsydd efter ditt varumärke och dina mål.
-                    </p>
+                    <h3 class="service-title" data-th="ดีไซน์เว็บ" data-en="WEB DESIGN">ดีไซน์เว็บ</h3>
+                    <p class="service-text" data-th="เว็บไซต์สมัยใหม่ ตอบโจทย์ทุกอุปกรณ์ ที่ผสมผสานความสวยงามกับฟังก์ชันการทำงาน ทุกดีไซน์ถูกออกแบบเฉพาะสำหรับแบรนด์และเป้าหมายของคุณ" data-en="Modern, responsive websites that combine aesthetics with functionality. Every design is custom-crafted for your brand and goals.">เว็บไซต์สมัยใหม่ ตอบโจทย์ทุกอุปกรณ์ ที่ผสมผสานความสวยงามกับฟังก์ชันการทำงาน ทุกดีไซน์ถูกออกแบบเฉพาะสำหรับแบรนด์และเป้าหมายของคุณ</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -132,10 +130,8 @@
                             <path d="M9.53 16.122a3 3 0 005.364-2.364l-3.5-3.5A1 1 0 0113 10.622V15a1 1 0 001 1h5v1h-2l-2 2v-2.472a1 1 0 00-.622-.378L14.5 15H13a1 1 0 01-1-1v-2.128l3.5-3.5z"/>
                         </svg>
                     </div>
-                    <h3 class="service-title">Varumärkesidentitet</h3>
-                    <p class="service-text">
-                        Kompletta identitetsdesign från grunden — från logotype till helhetskänsla. Vi bygger varumärken som minns och efterfrågas.
-                    </p>
+                    <h3 class="service-title" data-th="เอกลักษณ์แบรนด์" data-en="BRAND IDENTITY">เอกลักษณ์แบรนด์</h3>
+                    <p class="service-text" data-th="ออกแบบเอกลักษณ์แบบครบวงจรตั้งแต่เริ่มต้น — จากโลโก้ไปจนถึงเอกลักษณ์โดยรวม เราสร้างแบรนด์ที่จดจำได้และถูกค้นหา" data-en="Complete identity design from scratch — from logo to overall identity. We build brands that are remembered and sought after.">ออกแบบเอกลักษณ์แบบครบวงจรตั้งแต่เริ่มต้น — จากโลโก้ไปจนถึงเอกลักษณ์โดยรวม เราสร้างแบรนด์ที่จดจำได้และถูกค้นหา</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -143,10 +139,8 @@
                             <path d="M15.75 6a3 3 0 013 3m0 0v7.5m0-15a3 3 0 013 2.232V15a3 3 0 01-3 3m0 0h-3m3 0v7.5A2.25 2.25 0 0110.5 21h-6a2.25 2.25 0 01-2.25-2.25V6.732A3 3 0 016 3.482V6a3 3 0 013-3"/>
                         </svg>
                     </div>
-                    <h3 class="service-title">Digital upplevelse</h3>
-                    <p class="service-text">
-                        Interaktiva webbplatser och upplevelser som engagerar besökarna. Från micro-interactions till komplexa webbapplikationer.
-                    </p>
+                    <h3 class="service-title" data-th="ประสบการณ์ดิจิทัล" data-en="DIGITAL EXPERIENCE">ประสบการณ์ดิจิทัล</h3>
+                    <p class="service-text" data-th="เว็บไซต์และประสบการณ์โต้ตอบที่สร้างความสนใจให้ผู้เยี่ยมชม ตั้งแต่ไมโคร์-อินเทอร์แอคชันไปจนถึงเว็บแอปพลิเคชันที่ซับซ้อน" data-en="Interactive websites and experiences that engage visitors. From micro-interactions to complex web applications.">เว็บไซต์และประสบการณ์โต้ตอบที่สร้างความสนใจให้ผู้เยี่ยมชม ตั้งแต่ไมโคร์-อินเทอร์แอคชันไปจนถึงเว็บแอปพลิเคชันที่ซับซ้อน</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -154,10 +148,8 @@
                             <path d="M6.75 12a.75.75 0 11-.75-.75M17.25 12a.75.75 0 11.75.75m-12 0a.75.75 0 11.75-.75m12 0a.75.75 0 11-.75.75"/>
                         </svg>
                     </div>
-                    <h3 class="service-title">Konsultation</h3>
-                    <p class="service-text">
-                        Strategisk rådgivning och vägledning för ditt digitala projekt. Vi hjälper dig att navigera i domen och fatta de bästa besluten.
-                    </p>
+                    <h3 class="service-title" data-th="ที่ปรึกษา" data-en="CONSULTATION">ที่ปรึกษา</h3>
+                    <p class="service-text" data-th="คำปรึกษาเชิงกลยุทธ์และแนวทางสำหรับโครงการดิจิทัลของคุณ เราช่วยให้คุณเดินทางในโลกดิจิทัลและตัดสินใจที่ดีที่สุด" data-en="Strategic consultation and guidance for your digital project. We help you navigate the digital landscape and make the best decisions.">คำปรึกษาเชิงกลยุทธ์และแนวทางสำหรับโครงการดิจิทัลของคุณ เราช่วยให้คุณเดินทางในโลกดิจิทัลและตัดสินใจที่ดีที่สุด</p>
                 </div>
             </div>
         </div>
@@ -167,8 +159,8 @@
     <section id="portfolio" class="section portfolio">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">03</span>
-                <h2 class="section-title">VIKTIGA PROJEKTER</h2>
+                <span class="section-number" data-th="03" data-en="03">03</span>
+                <h2 class="section-title" data-th="ผลงานที่โดดเด่น" data-en="NOTABLE PROJECTS">ผลงานที่โดดเด่น</h2>
                 <div class="section-line"></div>
             </div>
             <div class="portfolio-grid">
@@ -178,9 +170,9 @@
                     </div>
                     <div class="portfolio-overlay">
                         <div class="portfolio-info">
-                            <span class="portfolio-category">Webbdesign</span>
-                            <h3 class="portfolio-title">LUMINA</h3>
-                            <p class="portfolio-desc">Fullständig webbplats för ljus- och energibranschen</p>
+                            <span class="portfolio-category" data-th="ดีไซน์เว็บ" data-en="WEB DESIGN">ดีไซน์เว็บ</span>
+                            <h3 class="portfolio-title" data-th="LUMINA" data-en="LUMINA">LUMINA</h3>
+                            <p class="portfolio-desc" data-th="เว็บไซต์สมบูรณ์สำหรับอุตสาหกรรมแสงและพลังงาน" data-en="Complete website for the light and energy industry">เว็บไซต์สมบูรณ์สำหรับอุตสาหกรรมแสงและพลังงาน</p>
                         </div>
                     </div>
                 </div>
@@ -190,9 +182,9 @@
                     </div>
                     <div class="portfolio-overlay">
                         <div class="portfolio-info">
-                            <span class="portfolio-category">Varumärke</span>
-                            <h3 class="portfolio-title">NOIR ÉCLAT</h3>
-                            <p class="portfolio-desc">Premium varumärkesidentitet för lyxparfymeriet</p>
+                            <span class="portfolio-category" data-th="แบรนด์" data-en="BRAND">แบรนด์</span>
+                            <h3 class="portfolio-title" data-th="NOIR ÉCLAT" data-en="NOIR ÉCLAT">NOIR ÉCLAT</h3>
+                            <p class="portfolio-desc" data-th="เอกลักษณ์แบรนด์ระดับพรีเมียมสำหรับร้านน้ำหอมหรูหรา" data-en="Premium brand identity for a luxury perfume house">เอกลักษณ์แบรนด์ระดับพรีเมียมสำหรับร้านน้ำหอมหรูหรา</p>
                         </div>
                     </div>
                 </div>
@@ -202,16 +194,16 @@
                     </div>
                     <div class="portfolio-overlay">
                         <div class="portfolio-info">
-                            <span class="portfolio-category">Digital upplevelse</span>
-                            <h3 class="portfolio-title">NEXUS</h3>
-                            <p class="portfolio-desc">Interaktiv plattform för kreativa samarbeten</p>
+                            <span class="portfolio-category" data-th="ประสบการณ์ดิจิทัล" data-en="DIGITAL EXPERIENCE">ประสบการณ์ดิจิทัล</span>
+                            <h3 class="portfolio-title" data-th="NEXUS" data-en="NEXUS">NEXUS</h3>
+                            <p class="portfolio-desc" data-th="แพลตฟอร์มโต้ตอบสำหรับการทำงานร่วมกันเชิงสร้างสรรค์" data-en="Interactive platform for creative collaborations">แพลตฟอร์มโต้ตอบสำหรับการทำงานร่วมกันเชิงสร้างสรรค์</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="portfolio-cta">
                 <a href="https://instagram.com/huuman.essentials" class="btn-cta" target="_blank" rel="noopener noreferrer">
-                    <span>Se fler projekt →</span>
+                    <span data-th="ดูงานเพิ่มเติม →" data-en="SEE MORE WORK →">ดูงานเพิ่มเติม →</span>
                 </a>
             </div>
         </div>
@@ -221,44 +213,44 @@
     <section id="contact" class="section contact">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">04</span>
-                <h2 class="section-title">KOM I KONTAKT</h2>
+                <span class="section-number" data-th="04" data-en="04">04</span>
+                <h2 class="section-title" data-th="ติดต่อเรา" data-en="GET IN TOUCH">ติดต่อเรา</h2>
                 <div class="section-line"></div>
             </div>
             <div class="contact-content">
                 <div class="contact-text">
-                    <p class="contact-intro">Vi är alltid öppna för nya projekt och samarbeten. Låt oss höra från dig och låt oss skapa något som spelar roll.</p>
+                    <p class="contact-intro" data-th="เราย always เปิดรับโครงการและความร่วมมือใหม่ๆ บอกเล่าให้เราฟัง และมาช่วยกันสร้างสิ่งที่สำคัญ" data-en="We are always open to new projects and collaborations. Let us hear from you and let us create something that matters.">เราย always เปิดรับโครงการและความร่วมมือใหม่ๆ บอกเล่าให้เราฟัง และมาช่วยกันสร้างสิ่งที่สำคัญ</p>
                     <div class="contact-details">
                         <div class="contact-item">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <path d="M21.75 6.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM18 6.75a3.75 3.75 0 01-3.75 3.75M12 15a3.75 3.75 0 01-3.75-3.75M12 15a3.75 3.75 0 013.75-3.75M12 15a3.75 3.75 0 00-3.75 3.75M21.75 17.25a3.75 3.75 0 01-3.75-3.75M12 15a3.75 3.75 0 003.75-3.75"/>
                             </svg>
-                            <span>Instagram: @huuman.essentials</span>
+                            <span data-th="Instagram: @huuman.essentials" data-en="Instagram: @huuman.essentials">Instagram: @huuman.essentials</span>
                         </div>
                         <div class="contact-item">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <path d="M2.25 15.75l5.159-5.159a9 9 0 1112.728 12.728l-5.159 5.159-2.29-2.29a6.75 6.75 0 11-9.52-9.52l2.29 2.29z"/>
                             </svg>
-                            <span>Bangkok, Thailand</span>
+                            <span data-th="Bangkok, Thailand" data-en="Bangkok, Thailand">Bangkok, Thailand</span>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form">
                     <form class="form">
                         <div class="form-group">
-                            <label for="name">Namn</label>
-                            <input type="text" id="name" class="form-input" placeholder="Ditt namn...">
+                            <label for="name" data-th="ชื่อ" data-en="Name">ชื่อ</label>
+                            <input type="text" id="name" class="form-input" placeholder="ชื่อของคุณ..." data-th-placeholder="ชื่อของคุณ..." data-en-placeholder="Your name...">
                         </div>
                         <div class="form-group">
-                            <label for="email">E-post</label>
-                            <input type="email" id="email" class="form-input" placeholder="din@epost.com...">
+                            <label for="email" data-th="อีเมล" data-en="Email">อีเมล</label>
+                            <input type="email" id="email" class="form-input" placeholder="อีเมลของคุณ..." data-th-placeholder="อีเมลของคุณ..." data-en-placeholder="Your email...">
                         </div>
                         <div class="form-group">
-                            <label for="message">Meddelande</label>
-                            <textarea id="message" class="form-input" rows="4" placeholder="Berätta om ditt projekt..."></textarea>
+                            <label for="message" data-th="ข้อความ" data-en="Message">ข้อความ</label>
+                            <textarea id="message" class="form-input" rows="4" placeholder="เล่าเกี่ยวกับโครงการของคุณ..." data-th-placeholder="เล่าเกี่ยวกับโครงการของคุณ..." data-en-placeholder="Tell us about your project..."></textarea>
                         </div>
                         <button type="submit" class="btn-submit">
-                            <span>SKICKA</span>
+                            <span data-th="ส่ง" data-en="SEND">ส่ง</span>
                             <span class="btn-arrow">→</span>
                         </button>
                     </form>
@@ -274,23 +266,23 @@
                 <div class="footer-brand">
                     <div class="logo">
                         <span class="logo-icon">✦</span>
-                        <span class="logo-text">HUUMAN STUDIO</span>
+                        <span class="logo-text" data-th="HUUMAN STUDIO" data-en="HUUMAN STUDIO">HUUMAN STUDIO</span>
                     </div>
-                    <p class="footer-tagline">Mänskligt skapande, digital perfection.</p>
+                    <p class="footer-tagline" data-th="การสร้างโดยมนุษย์ ความสมบูรณ์แบบดิจิทัล" data-en="Human creation, digital perfection.">การสร้างโดยมนุษย์ ความสมบูรณ์แบบดิจิทัล</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-link-item">
-                        <span class="footer-link-title">Instagram</span>
+                        <span class="footer-link-title" data-th="Instagram" data-en="Instagram">Instagram</span>
                         <a href="https://instagram.com/huuman.essentials" target="_blank" rel="noopener noreferrer">@huuman.essentials</a>
                     </div>
                     <div class="footer-link-item">
-                        <span class="footer-link-title">Kontakt</span>
-                        <a href="#contact">Boka tid</a>
+                        <span class="footer-link-title" data-th="ติดต่อ" data-en="Contact">ติดต่อ</span>
+                        <a href="#contact" data-th="จองเวลา" data-en="Book a time">จองเวลา</a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 HUUMAN STUDIO. Alla rättigheter förbehållna.</p>
+                <p data-th="© 2026 HUUMAN STUDIO. สงวนลิขสิทธิ์ทั้งหมด." data-en="© 2026 HUUMAN STUDIO. All rights reserved.">© 2026 HUUMAN STUDIO. สงวนลิขสิทธิ์ทั้งหมด.</p>
             </div>
         </div>
     </footer>
