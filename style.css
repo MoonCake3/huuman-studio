@@ -159,6 +159,7 @@ img {
     gap: 12px;
 }
 
+/* Language Toggle Button */
 .lang-toggle {
     display: flex;
     align-items: center;
@@ -170,23 +171,28 @@ img {
     border-radius: 4px;
     cursor: pointer;
     transition: var(--transition);
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 11px;
+    font-weight: 600;
     color: var(--text-secondary);
     font-family: 'Inter', sans-serif;
+    letter-spacing: 0.05em;
+    position: relative;
 }
 
 .lang-toggle:hover {
     border-color: var(--accent);
     color: var(--accent);
+    background: rgba(192, 160, 96, 0.05);
 }
 
 .lang-toggle .lang-th {
     display: block;
+    line-height: 1;
 }
 
 .lang-toggle .lang-en {
     display: none;
+    line-height: 1;
 }
 
 body.lang-th .lang-toggle .lang-th {
@@ -205,6 +211,7 @@ body.lang-en .lang-toggle .lang-en {
     display: block;
 }
 
+/* Booking Button */
 .btn-book {
     display: inline-flex;
     align-items: center;
@@ -269,8 +276,8 @@ body.lang-en .lang-toggle .lang-en {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.15;
-    filter: grayscale(30%);
+    opacity: 0.12;
+    filter: grayscale(40%);
 }
 
 .hero-content {
@@ -879,7 +886,7 @@ body.lang-en .lang-toggle .lang-en {
 @media (max-width: 768px) {
     .header .container {
         flex-wrap: wrap;
-        gap: 16px;
+        justify-content: space-between;
     }
     .nav-list {
         display: none;
