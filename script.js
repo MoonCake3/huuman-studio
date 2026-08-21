@@ -1,6 +1,71 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Language toggle functionality
+    const langToggle = document.getElementById('langToggle');
+    const htmlElement = document.documentElement;
+    const bodyElement = document.body;
+
+    // Load saved language or default to English
+    const savedLang = localStorage.getItem('huuman-studio-lang') || 'en';
+    if (savedLang === 'th') {
+        htmlElement.setAttribute('lang', 'th');
+        bodyElement.classList.add('lang-th');
+        bodyElement.classList.remove('lang-en');
+    } else {
+        htmlElement.setAttribute('lang', 'en');
+        bodyElement.classList.add('lang-en');
+        bodyElement.classList.remove('lang-th');
+    }
+
+    // Apply language to all elements with data-th and data-en attributes
+    function applyLanguage(lang) {
+        const elements = document.querySelectorAll('[data-th], [data-en], [data-th-placeholder], [data-en-placeholder]');
+
+        elements.forEach(function(el) {
+            if (lang === 'th') {
+                // Use Thai text
+                if (el.hasAttribute('data-th')) {
+                    el.textContent = el.getAttribute('data-th');
+                }
+                if (el.hasAttribute('data-th-placeholder') && el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = el.getAttribute('data-th-placeholder');
+                }
+            } else {
+                // Use English text
+                if (el.hasAttribute('data-en')) {
+                    el.textContent = el.getAttribute('data-en');
+                }
+                if (el.hasAttribute('data-en-placeholder') && el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = el.getAttribute('data-en-placeholder');
+                }
+            }
+        });
+
+        // Save language preference
+        localStorage.setItem('huuman-studio-lang', lang);
+    }
+
+    // Set initial language
+    applyLanguage(savedLang);
+
+    // Toggle language on button click
+    langToggle.addEventListener('click', function() {
+        const currentLang = bodyElement.classList.contains('lang-th') ? 'th' : 'en';
+        const newLang = currentLang === 'th' ? 'en' : 'th';
+
+        if (newLang === 'th') {
+            htmlElement.setAttribute('lang', 'th');
+            bodyElement.classList.add('lang-th');
+            bodyElement.classList.remove('lang-en');
+        } else {
+            htmlElement.setAttribute('lang', 'en');
+            bodyElement.classList.add('lang-en');
+            bodyElement.classList.remove('lang-th');
+        }
+
+        applyLanguage(newLang);
+    });
+
     // Smooth scroll for navigation links
-    const navLinks = document.querySelectorAll('.nav-list a');
     const scrollLinks = document.querySelectorAll('a[href^="#"]');
 
     scrollLinks.forEach(function(link) {
