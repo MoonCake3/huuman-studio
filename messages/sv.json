@@ -1,0 +1,135 @@
+{
+  "nav": {
+    "work": "Arbete",
+    "services": "Tjänster",
+    "transformation": "Transformation",
+    "packages": "Investering",
+    "studio": "Studio",
+    "process": "Process",
+    "requestDemo": "Begär Demo"
+  },
+  "intro": {
+    "line1": "BYGG DET SOM",
+    "line2": "INTE FINNS ÄN.",
+    "sub": "Kreativt Teknikstudio."
+  },
+  "hero": {
+    "headline1": "VI BYGGER DIGITALA",
+    "headline2": "SYSTEM SOM DRIVER",
+    "headline3": "FÖRETAG FRAMÅT.",
+    "sub": "Premiumwebbplatser, AI-system och automatisering byggda för företag som vägrar se vanliga ut.",
+    "cta1": "BEGÄR EN DEMO",
+    "cta2": "UTFORSKA HUUMAN"
+  },
+  "services": {
+    "label": "Tjänster",
+    "01": { "number": "01", "title": "PREMIUMWEBBPLATSER", "sub": "Webbplatser designade som digitala upplevelser, inte mallar." },
+    "02": { "number": "02", "title": "AI BUSINESS OS", "sub": "Ett visuellt operativsystem för information, agenter, arbetsflöden och intelligenta beslut." },
+    "03": { "number": "03", "title": "AUTOMATISERING & TILLVÄXT", "sub": "Ouppsatta åtgärder blir ett elegant automatiserat system." },
+    "04": { "number": "04", "title": "HANTERADE AI-OPERATIONER", "sub": "Ett intelligent operationslager som kontinuerligt arbetar runt ditt företag." }
+  },
+  "work": {
+    "label": "Utvalt Arbete",
+    "viewProject": "Visa Projekt",
+    "concept": "KONCEPT",
+    "projects": [
+      { "id": "serenity", "title": "Serenity Spa & Wellness", "category": "Spa & Massage", "year": "2024" },
+      { "id": "solaris", "title": "Solaris Energi", "category": "Sol / Förnybar Energi", "year": "2024" },
+      { "id": "villa-aether", "title": "Villa Aether", "category": "Hotell & Villor", "year": "2024" },
+      { "id": "lumina-dental", "title": "Lumina Dental", "category": "Tandvård / Skönhetskliniker", "year": "2024" },
+      { "id": "apex-performance", "title": "Apex Performance", "category": "Gym & Fitness", "year": "2024" },
+      { "id": "meridian-estates", "title": "Meridian Fastigheter", "category": "Fastigheter", "year": "2024" },
+      { "id": "ember-kitchen", "title": "Ember Kök", "category": "Restaurang / Café", "year": "2024" },
+      { "id": "iron-temple", "title": "Iron Temple Muay Thai", "category": "Muay Thai / Fitness", "year": "2024" }
+    ]
+  },
+  "transformation": {
+    "label": "Transformationen",
+    "headline": "SE VAD DITT FÖRETAG SKULLE KUNNA BLI.",
+    "before": {
+      "title": "INNAN",
+      "points": ["Generisk webbplats", "Manuella operationer", "Svag digital identitet", "Osynlig online"]
+    },
+    "after": {
+      "title": "EFTER HUUMAN",
+      "points": ["Premiumdigital närvaro", "Automatiserade system", "AI-assisterade operationer", "Starkare konverteringsresa"]
+    },
+    "cta": "BEGÄR DIN DEMO",
+    "sub": "HUUMAN skapar ett personligt koncept innan du förbinder dig."
+  },
+  "philosophy": {
+    "line1": "INTERNET HAR",
+    "line2": "TILLRÄCKLIGT",
+    "line3": "MED MALLAR.",
+    "line4": "VI BYGGER",
+    "line5": "DET FOLK",
+    "line6": "MINNS."
+  },
+  "packages": {
+    "label": "Investering",
+    "headline": "VÄLJ DITT SYSTEM",
+    "core": {
+      "name": "CORE",
+      "setup": "49 000",
+      "monthly": "9 900",
+      "currency": "THB",
+      "description": "Premiumwebbplats + AI-affärsfundament. Den kompletta digitala startpunkten.",
+      "features": ["Premiumwebbdesign & bygge", "AI-chatbot-integration", "Grundläggande automatiseringsinställning", "Analysdashboard", "3 månaders support"]
+    },
+    "growth": {
+      "name": "GROWTH",
+      "setup": "89 000",
+      "monthly": "19 900",
+      "currency": "THB",
+      "description": "Allt i Core + utökade AI-system och tillväxtautomatisering.",
+      "features": ["Allt i Core", "AI Business OS-installation", "Avancerade automatiseringsflöden", "CRM-integration", "Leadgenereringssystem", "6 månaders support"]
+    },
+    "sovereign": {
+      "name": "SOVEREIGN",
+      "setup": "149 000+",
+      "monthly": "29 900–49 900",
+      "currency": "THB",
+      "description": "Fullständig digital suveränitet. Anpassade AI-operationer, fullständig automatiseringsstack.",
+      "features": ["Allt i Growth", "Anpassad AI Business OS", "Hanterade AI-operationer", "Dedikerat AI-team", "Anpassade integrationer", "Prioritetssupport"]
+    },
+    "custom": {
+      "name": "ANPASSAD AI OS",
+      "setup": "Anpassad",
+      "monthly": "Anpassad",
+      "currency": "",
+      "description": "Webbplats + Business OS Core-paket för 79 000 THB. Eller helt anpassat förslag för enterprise.",
+      "features": ["Anpassad omfattning & leverans", "Enterprise-integrationer", "White-label-alternativ", "Fullständiga hanterade operationer", "Dedikerat kontoteam"]
+    },
+    "cta": "BÖRJA MED EN DEMO"
+  },
+  "process": {
+    "label": "Hur Det Fungerar",
+    "headline": "HUUMAN-PROCESSEN",
+    "steps": [
+      { "number": "01", "title": "UPPTÄCK", "desc": "Vi lär oss om ditt företag, din publik och dina ambitioner." },
+      { "number": "02", "title": "KONCEPT", "desc": "Vi bygger ditt personliga koncept och riktning." },
+      { "number": "03", "title": "DEMO", "desc": "Du granskar en fungerande demo innan du förbinder dig." },
+      { "number": "04", "title": "BYGG", "desc": "Full produktionsbuild med ditt team i loopen." },
+      { "number": "05", "title": "LANSERA", "desc": "Cinematisk lansering. System live. Världen ser dig." },
+      { "number": "06", "title": "UTVECKLAS", "desc": "AI lär sig, automatiseringar expanderar. Alltid förbättras." }
+    ],
+    "contact": "Anslut via Instagram, E-post eller Google Meet."
+  },
+  "footer": {
+    "headline1": "DITT FÖRETAG SKULLE",
+    "headline2": "KUNNA SE ANNORLUNDA",
+    "headline3": "UT IMORGON.",
+    "cta": "BEGÄR EN DEMO",
+    "instagram": "Instagram (@huuman.essentials)",
+    "email": "marketingwsean@gmail.com",
+    "location": "Thailand · Sverige · Worldwide",
+    "copy": "HUUMAN STUDIO"
+  },
+  "cursor": { "view": "SE", "open": "ÖPPNA", "drag": "DRA", "explore": "UTFORSKA" },
+  "meta": {
+    "title": "HUUMAN STUDIO — Kreativt Teknikstudio",
+    "description": "Premiumwebbplatser, AI-system och automatisering byggda för företag som vägrar se vanliga ut. Thailand · Sverige · Worldwide.",
+    "ogTitle": "HUUMAN STUDIO",
+    "ogDescription": "Vi bygger digitala system som driver företag framåt."
+  }
+}
