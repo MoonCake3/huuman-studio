@@ -1,292 +1,523 @@
-<!DOCTYPE html>
-<html lang="sv">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HUUMAN STUDIO</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HUUMAN Studio · Websites and AI concierges for luxury hospitality in Thailand</title>
+<meta name="description" content="HUUMAN Studio designs websites and AI concierges for luxury villas, boutique hotels and prestige real estate in Thailand. More direct bookings, fewer OTA commissions, answers in Thai, English and Chinese.">
+<meta name="theme-color" content="#131209">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HUUMAN Studio · The digital address for Thailand's finest properties">
+<meta property="og:description" content="Websites and AI concierges for luxury villas, boutique hotels and prestige real estate. Built to be booked direct.">
+<meta property="og:image" content="https://huuman-studio.vercel.app/img/og.jpg">
+<meta property="og:url" content="https://huuman-studio.vercel.app/">
+<link rel="canonical" href="https://huuman-studio.vercel.app/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+<link rel="preload" as="image" href="img/villa.webp" imagesrcset="img/villa.webp 2048w, img/villa-4k.webp 3840w" imagesizes="100vw">
+<link rel="stylesheet" href="style.css">
+<script>
+  // Decide on cinematic mode before first paint, so the intro never flashes
+  try {
+    var d = document.documentElement;
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches && !/still/.test(location.search)) {
+      d.classList.add("motion");
+      try { if (sessionStorage.getItem("hs-intro")) d.classList.add("intro-seen"); } catch (e) {}
+      setTimeout(function () { if (!window.gsap) d.classList.remove("motion"); }, 5000);
+    }
+  } catch (e) {}
+</script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "HUUMAN Studio",
+    "url": "https://huuman-studio.vercel.app/",
+    "logo": "https://huuman-studio.vercel.app/brand/huuman-monogram-2048.png",
+    "image": "https://huuman-studio.vercel.app/img/og.jpg",
+    "description": "Websites, AI concierges and direct booking systems for luxury villas, boutique hotels and prestige real estate in Thailand.",
+    "founder": {
+      "name": "Sean",
+      "@type": "Person",
+      "jobTitle": "Founder, Creative Director"
+    },
+    "areaServed": [
+      "Phuket",
+      "Bangkok",
+      "Koh Samui",
+      "Chiang Mai",
+      "Pattaya",
+      "Thailand"
+    ],
+    "knowsLanguage": [
+      "th",
+      "en",
+      "zh"
+    ],
+    "email": "marketingwsean@gmail.com"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "name": "How much does a commission cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every property is priced individually after the audit, based on your room rates, occupancy and how many enquiries you receive. You get three options with clear assumptions. There are no hidden monthly fees."
+        },
+        "@type": "Question"
+      },
+      {
+        "name": "Will this replace Booking.com and Agoda?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, and it should not. OTAs are good for discovery. Our goal is to move returning guests, referrals and social media traffic to direct bookings, where you keep the full rate."
+        },
+        "@type": "Question"
+      },
+      {
+        "name": "Does the AI concierge replace my reservations team?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It handles the repetitive questions at any hour and hands over every serious enquiry with the details already collected. Your team spends time on guests who are ready to book."
+        },
+        "@type": "Question"
+      },
+      {
+        "name": "What if the concierge gives a wrong answer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It only answers from information you approve. When it is unsure, it says so and passes the guest to your team. You can read every conversation."
+        },
+        "@type": "Question"
+      },
+      {
+        "name": "How long does it take to launch?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Start commission usually launches within two to three weeks of approval. Larger sites take six to ten weeks, depending on photography and content."
+        },
+        "@type": "Question"
+      },
+      {
+        "name": "Can you work with our existing booking engine?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We connect to most booking engines and channel managers used in Thailand. If yours has no connection, we design around it."
+        },
+        "@type": "Question"
+      },
+      {
+        "name": "Do you provide photography?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We art direct every shoot and can arrange a photographer. When your existing images are strong, we work with them."
+        },
+        "@type": "Question"
+      },
+      {
+        "name": "How do payments work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Smaller commissions are paid in advance. Larger ones are paid half at approval and half at launch, by Thai bank transfer or PromptPay. Care plans are billed monthly in advance."
+        },
+        "@type": "Question"
+      }
+    ]
+  }
+]
+</script>
 </head>
-<body class="lang-en">
-    <!-- Header / Navigation -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <span class="logo-icon">✦</span>
-                <span class="logo-text" data-th="HUUMAN STUDIO" data-en="HUUMAN STUDIO">HUUMAN STUDIO</span>
-            </div>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="#about" data-th="เกี่ยวกับเรา" data-en="ABOUT">เกี่ยวกับเรา</a></li>
-                    <li><a href="#services" data-th="บริการ" data-en="SERVICES">บริการ</a></li>
-                    <li><a href="#portfolio" data-th="ผลงาน" data-en="PORTFOLIO">ผลงาน</a></li>
-                    <li><a href="#contact" data-th="ติดต่อ" data-en="CONTACT">ติดต่อ</a></li>
-                </ul>
-            </nav>
-            <div class="nav-actions">
-                <button class="lang-toggle" id="langToggle" title="Switch language">
-                    <span class="lang-th">ภาษาไทย</span>
-                    <span class="lang-en" style="display:none;">EN</span>
-                </button>
-                <a href="https://instagram.com/huuman.essentials" class="btn-book" target="_blank" rel="noopener noreferrer">
-                    <span class="btn-icon">📅</span>
-                    <span class="btn-text" data-th="จอง" data-en="BOOK">จอง</span>
-                </a>
-            </div>
-        </div>
-    </header>
+<body>
+<a class="skip" href="#main">Skip to content</a>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg">
-            <div class="hero-overlay"></div>
-        </div>
-        <div class="hero-image-container">
-            <img src="https://images.unsplash.com/photo-1558649845-32158df70721?w=1200&q=80" alt="Creative studio team working" class="hero-img">
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge" data-th="ก่อตั้ง 2026" data-en="EST. 2026">ก่อตั้ง 2026</div>
-                <h1 class="hero-title">
-                    <span data-th="สร้าง" data-en="CREATE">สร้าง</span>
-                    <span data-th="อย่าง" data-en="WITHOUT">อย่าง</span>
-                    <span data-th="ไร้ขีดจำกัด" data-en="LIMITS">ไร้ขีดจำกัด</span>
-                </h1>
-                <p class="hero-subtitle" data-th="เราสร้างประสบการณ์ดิจิทัลที่สร้างแรงบันดาลใจ สร้างความสนใจ และเปลี่ยนแปลง งานทุกโครงการคือเรื่องราวที่รอได้รับการเล่า" data-en="We shape digital experiences that inspire, engage, and transform. Every project is a unique story waiting to be told.">เราสร้างประสบการณ์ดิจิทัลที่สร้างแรงบันดาลใจ สร้างความสนใจ และเปลี่ยนแปลง งานทุกโครงการคือเรื่องราวที่รอได้รับการเล่า</p>
-                <div class="hero-actions">
-                    <a href="#portfolio" class="btn-primary">
-                        <span class="btn-icon">→</span>
-                        <span data-th="ดูผลงาน" data-en="SEE WORK">ดูผลงาน</span>
-                    </a>
-                    <a href="https://instagram.com/huuman.essentials" class="btn-secondary" target="_blank" rel="noopener noreferrer">
-                        <span class="btn-icon">✉</span>
-                        <span data-th="ติดต่อ" data-en="CONTACT">ติดต่อ</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Cinematic preloader -->
+<div class="loader" aria-hidden="true">
+  <div class="loader-bar loader-top"></div><div class="loader-bar loader-bottom"></div>
+  <div class="loader-center"><div class="loader-word"><svg class="logo" viewBox="-6 -6 622 116" aria-hidden="true"><defs><clipPath id="capLoad"><rect x="-10" y="0" width="640" height="100"/></clipPath></defs><g fill="none" stroke="currentColor" stroke-width="7" stroke-miterlimit="10"><g clip-path="url(#capLoad)"><path class="d" d="M3.5 0V100"/><path class="d" d="M3.5 50H75.5"/><path class="d" d="M75.5 0V100"/><path class="d" d="M266.5 100V-2L312.5 78L358.5 -2V100"/><path class="d" d="M402.2 110L449 -12L495.8 110"/><path class="d" d="M539.5 110V-2L606.5 102V-10"/></g><path class="d" d="M75.5 64A36 36 0 0 0 147.5 64V0"/><path class="d you" stroke="#C2A274" d="M147.5 64A36 36 0 0 0 219.5 64V0"/></g></svg></div><div class="loader-line"><span></span></div><div class="loader-meta"><span>Studio</span><span class="loader-count">000</span></div></div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"></div>
+<div class="curtain" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><span class="cursor-label">View</span></div>
+<div class="cursor-dot" aria-hidden="true"></div>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number" data-th="01" data-en="01">01</span>
-                <h2 class="section-title" data-th="เกี่ยวกับเรา" data-en="ABOUT US">เกี่ยวกับเรา</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="about-grid">
-                <div class="about-image">
-                    <div class="about-image-placeholder">
-                        <img src="https://images.unsplash.com/photo-1618005828978-208e5801469a?w=800&q=80" alt="Creative workspace">
-                    </div>
-                </div>
-                <div class="about-content">
-                    <h3 class="about-heading" data-th="การสร้างโดยมนุษย์ ความสมบูรณ์แบบดิจิทัล" data-en="Human creation, digital perfection.">การสร้างโดยมนุษย์ ความสมบูรณ์แบบดิจิทัล</h3>
-                    <p class="about-text" data-th="HUUMAN STUDIO ก่อตั้งขึ้นบนความเชื่อว่าการสร้างดิจิทัลที่ดีที่สุดเริ่มต้นจากการเข้าใจมนุษย์เบื้องหลังโครงการ เราคือทีมผู้สร้างที่มีความหลงใหลซึ่งเชื่อว่าเทคโนโลยีควรจะสื่อถึงเรื่องราว ไม่ใช่ในทางตรงกันข้าม" data-en="HUUMAN STUDIO was founded on the belief that the best digital creation begins with understanding the human behind each project. We are a team of passionate creators who believe technology should serve the story, not the other way around.">HUUMAN STUDIO ก่อตั้งขึ้นบนความเชื่อว่าการสร้างดิจิทัลที่ดีที่สุดเริ่มต้นจากการเข้าใจมนุษย์เบื้องหลังโครงการ เราคือทีมผู้สร้างที่มีความหลงใหลซึ่งเชื่อว่าเทคโนโลยีควรจะสื่อถึงเรื่องราว ไม่ใช่ในทางตรงกันข้าม</p>
-                    <p class="about-text" data-th="งานของเราครอบคลุมตั้งแต่ดีไซน์เว็บ ดีไซน์เอกลักษณ์ และประสบการณ์โต้ตอบ — ด้วยความมุ่งมั่นในรายละเอียด ความ 우아함 และความคิดสร้างสรรค์ที่มีความหมาย" data-en="Our work spans web design, brand identity, and interactive experiences — always with a commitment to detail, elegance, and meaningful creativity.">งานของเราครอบคลุมตั้งแต่ดีไซน์เว็บ ดีไซน์เอกลักษณ์ และประสบการณ์โต้ตอบ — ด้วยความมุ่งมั่นในรายละเอียด ความ 우아함 และความคิดสร้างสรรค์ที่มีความหมาย</p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <span class="stat-number" data-th="50+" data-en="50+">50+</span>
-                            <span class="stat-label" data-th="โครงการ" data-en="PROJECTS">โครงการ</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number" data-th="12" data-en="12">12</span>
-                            <span class="stat-label" data-th="ลูกค้า" data-en="CLIENTS">ลูกค้า</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number" data-th="3" data-en="3">3</span>
-                            <span class="stat-label" data-th="ปี" data-en="YEARS">ปี</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Fluid island nav -->
+<header class="nav-wrap">
+  <nav class="nav" aria-label="Main">
+    <a href="#top" class="brand" aria-label="HUUMAN Studio home"><svg class="logo" viewBox="-6 -6 622 116" aria-hidden="true"><defs><clipPath id="capNav"><rect x="-10" y="0" width="640" height="100"/></clipPath></defs><g fill="none" stroke="currentColor" stroke-width="7" stroke-miterlimit="10"><g clip-path="url(#capNav)"><path class="d" d="M3.5 0V100"/><path class="d" d="M3.5 50H75.5"/><path class="d" d="M75.5 0V100"/><path class="d" d="M266.5 100V-2L312.5 78L358.5 -2V100"/><path class="d" d="M402.2 110L449 -12L495.8 110"/><path class="d" d="M539.5 110V-2L606.5 102V-10"/></g><path class="d" d="M75.5 64A36 36 0 0 0 147.5 64V0"/><path class="d you" stroke="#C2A274" d="M147.5 64A36 36 0 0 0 219.5 64V0"/></g></svg></a>
+    <ul class="nav-links">
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#concierge">Concierge</a></li>
+      <li><a href="#studies">Studies</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#consult" class="btn btn-sm btn-light nav-cta">Private consultation</a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </nav>
+</header>
+<div class="menu" id="menu" aria-hidden="true">
+  <ul>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#concierge">Concierge</a></li>
+    <li><a href="#studies">Studies</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#consult" class="menu-cta">Private consultation</a></li>
+  </ul>
+</div>
 
-    <!-- Services Section -->
-    <section id="services" class="section services">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number" data-th="02" data-en="02">02</span>
-                <h2 class="section-title" data-th="บริการของเรา" data-en="OUR SERVICES">บริการของเรา</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 19V5m0 0l-7 7m7-7l7 7"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title" data-th="ดีไซน์เว็บ" data-en="WEB DESIGN">ดีไซน์เว็บ</h3>
-                    <p class="service-text" data-th="เว็บไซต์สมัยใหม่ ตอบโจทย์ทุกอุปกรณ์ ที่ผสมผสานความสวยงามกับฟังก์ชันการทำงาน ทุกดีไซน์ถูกออกแบบเฉพาะสำหรับแบรนด์และเป้าหมายของคุณ" data-en="Modern, responsive websites that combine aesthetics with functionality. Every design is custom-crafted for your brand and goals.">เว็บไซต์สมัยใหม่ ตอบโจทย์ทุกอุปกรณ์ ที่ผสมผสานความสวยงามกับฟังก์ชันการทำงาน ทุกดีไซน์ถูกออกแบบเฉพาะสำหรับแบรนด์และเป้าหมายของคุณ</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M9.53 16.122a3 3 0 005.364-2.364l-3.5-3.5A1 1 0 0113 10.622V15a1 1 0 001 1h5v1h-2l-2 2v-2.472a1 1 0 00-.622-.378L14.5 15H13a1 1 0 01-1-1v-2.128l3.5-3.5z"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title" data-th="เอกลักษณ์แบรนด์" data-en="BRAND IDENTITY">เอกลักษณ์แบรนด์</h3>
-                    <p class="service-text" data-th="ออกแบบเอกลักษณ์แบบครบวงจรตั้งแต่เริ่มต้น — จากโลโก้ไปจนถึงเอกลักษณ์โดยรวม เราสร้างแบรนด์ที่จดจำได้และถูกค้นหา" data-en="Complete identity design from scratch — from logo to overall identity. We build brands that are remembered and sought after.">ออกแบบเอกลักษณ์แบบครบวงจรตั้งแต่เริ่มต้น — จากโลโก้ไปจนถึงเอกลักษณ์โดยรวม เราสร้างแบรนด์ที่จดจำได้และถูกค้นหา</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M15.75 6a3 3 0 013 3m0 0v7.5m0-15a3 3 0 013 2.232V15a3 3 0 01-3 3m0 0h-3m3 0v7.5A2.25 2.25 0 0110.5 21h-6a2.25 2.25 0 01-2.25-2.25V6.732A3 3 0 016 3.482V6a3 3 0 013-3"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title" data-th="ประสบการณ์ดิจิทัล" data-en="DIGITAL EXPERIENCE">ประสบการณ์ดิจิทัล</h3>
-                    <p class="service-text" data-th="เว็บไซต์และประสบการณ์โต้ตอบที่สร้างความสนใจให้ผู้เยี่ยมชม ตั้งแต่ไมโคร์-อินเทอร์แอคชันไปจนถึงเว็บแอปพลิเคชันที่ซับซ้อน" data-en="Interactive websites and experiences that engage visitors. From micro-interactions to complex web applications.">เว็บไซต์และประสบการณ์โต้ตอบที่สร้างความสนใจให้ผู้เยี่ยมชม ตั้งแต่ไมโคร์-อินเทอร์แอคชันไปจนถึงเว็บแอปพลิเคชันที่ซับซ้อน</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M6.75 12a.75.75 0 11-.75-.75M17.25 12a.75.75 0 11.75.75m-12 0a.75.75 0 11.75-.75m12 0a.75.75 0 11-.75.75"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title" data-th="ที่ปรึกษา" data-en="CONSULTATION">ที่ปรึกษา</h3>
-                    <p class="service-text" data-th="คำปรึกษาเชิงกลยุทธ์และแนวทางสำหรับโครงการดิจิทัลของคุณ เราช่วยให้คุณเดินทางในโลกดิจิทัลและตัดสินใจที่ดีที่สุด" data-en="Strategic consultation and guidance for your digital project. We help you navigate the digital landscape and make the best decisions.">คำปรึกษาเชิงกลยุทธ์และแนวทางสำหรับโครงการดิจิทัลของคุณ เราช่วยให้คุณเดินทางในโลกดิจิทัลและตัดสินใจที่ดีที่สุด</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<main id="main">
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="section portfolio">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number" data-th="03" data-en="03">03</span>
-                <h2 class="section-title" data-th="ผลงานที่โดดเด่น" data-en="NOTABLE PROJECTS">ผลงานที่โดดเด่น</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1558655148-12d2eb0a8cce?w=800&q=80" alt="Project 1">
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-info">
-                            <span class="portfolio-category" data-th="ดีไซน์เว็บ" data-en="WEB DESIGN">ดีไซน์เว็บ</span>
-                            <h3 class="portfolio-title" data-th="LUMINA" data-en="LUMINA">LUMINA</h3>
-                            <p class="portfolio-desc" data-th="เว็บไซต์สมบูรณ์สำหรับอุตสาหกรรมแสงและพลังงาน" data-en="Complete website for the light and energy industry">เว็บไซต์สมบูรณ์สำหรับอุตสาหกรรมแสงและพลังงาน</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1618005828978-208e5801469a?w=800&q=80" alt="Project 2">
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-info">
-                            <span class="portfolio-category" data-th="แบรนด์" data-en="BRAND">แบรนด์</span>
-                            <h3 class="portfolio-title" data-th="NOIR ÉCLAT" data-en="NOIR ÉCLAT">NOIR ÉCLAT</h3>
-                            <p class="portfolio-desc" data-th="เอกลักษณ์แบรนด์ระดับพรีเมียมสำหรับร้านน้ำหอมหรูหรา" data-en="Premium brand identity for a luxury perfume house">เอกลักษณ์แบรนด์ระดับพรีเมียมสำหรับร้านน้ำหอมหรูหรา</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1460925891775-8039c7142e8d?w=800&q=80" alt="Project 3">
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-info">
-                            <span class="portfolio-category" data-th="ประสบการณ์ดิจิทัล" data-en="DIGITAL EXPERIENCE">ประสบการณ์ดิจิทัล</span>
-                            <h3 class="portfolio-title" data-th="NEXUS" data-en="NEXUS">NEXUS</h3>
-                            <p class="portfolio-desc" data-th="แพลตฟอร์มโต้ตอบสำหรับการทำงานร่วมกันเชิงสร้างสรรค์" data-en="Interactive platform for creative collaborations">แพลตฟอร์มโต้ตอบสำหรับการทำงานร่วมกันเชิงสร้างสรรค์</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-cta">
-                <a href="https://instagram.com/huuman.essentials" class="btn-cta" target="_blank" rel="noopener noreferrer">
-                    <span data-th="ดูงานเพิ่มเติม →" data-en="SEE MORE WORK →">ดูงานเพิ่มเติม →</span>
-                </a>
-            </div>
-        </div>
-    </section>
+  <!-- Hero: silent cinematic loop, one line, one action -->
+  <section class="hero" id="top">
+    <div class="hero-media">
+      <img class="hero-img" src="img/villa.webp" srcset="img/villa.webp 2048w, img/villa-4k.webp 3840w" sizes="100vw" alt="Clifftop pool villa overlooking the Andaman Sea at blue hour" fetchpriority="high">
+      <video class="hero-video" muted loop playsinline preload="none" aria-hidden="true" data-desktop="img/hero.mp4" data-mobile="img/hero-mobile.mp4"></video>
+    </div>
+    <div class="hero-shade"></div>
+    <div class="container hero-inner">
+      <h1 class="hero-title">The digital address <br>of Thai luxury.</h1>
+      <div class="hero-foot">
+        <p class="hero-sub">Websites and AI concierges for Thailand's finest villas, hotels and residences.</p>
+        <a href="#consult" class="hero-link">Private consultation <span class="hero-link-dot"><i class="ph-light ph-arrow-right" aria-hidden="true"></i></span></a>
+      </div>
+    </div>
+    <div class="container hero-meta">
+      <span>Phuket · Bangkok · Koh Samui</span>
+      <a href="#approach" class="scroll-line" aria-label="Scroll to approach"><span></span></a>
+      <span>TH · EN · 中文</span>
+    </div>
+  </section>
+  <!-- Marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Pool villas</span><span>Boutique hotels</span><span>Penthouse residences</span><span>Island resorts</span><span>Wellness retreats</span><span>Private estates</span><span>Luxury real estate</span>
+      <span>Pool villas</span><span>Boutique hotels</span><span>Penthouse residences</span><span>Island resorts</span><span>Wellness retreats</span><span>Private estates</span><span>Luxury real estate</span>
+    </div>
+  </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number" data-th="04" data-en="04">04</span>
-                <h2 class="section-title" data-th="ติดต่อเรา" data-en="GET IN TOUCH">ติดต่อเรา</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="contact-content">
-                <div class="contact-text">
-                    <p class="contact-intro" data-th="เราย always เปิดรับโครงการและความร่วมมือใหม่ๆ บอกเล่าให้เราฟัง และมาช่วยกันสร้างสิ่งที่สำคัญ" data-en="We are always open to new projects and collaborations. Let us hear from you and let us create something that matters.">เราย always เปิดรับโครงการและความร่วมมือใหม่ๆ บอกเล่าให้เราฟัง และมาช่วยกันสร้างสิ่งที่สำคัญ</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M21.75 6.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM18 6.75a3.75 3.75 0 01-3.75 3.75M12 15a3.75 3.75 0 01-3.75-3.75M12 15a3.75 3.75 0 013.75-3.75M12 15a3.75 3.75 0 00-3.75 3.75M21.75 17.25a3.75 3.75 0 01-3.75-3.75M12 15a3.75 3.75 0 003.75-3.75"/>
-                            </svg>
-                            <span data-th="Instagram: @huuman.essentials" data-en="Instagram: @huuman.essentials">Instagram: @huuman.essentials</span>
-                        </div>
-                        <div class="contact-item">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M2.25 15.75l5.159-5.159a9 9 0 1112.728 12.728l-5.159 5.159-2.29-2.29a6.75 6.75 0 11-9.52-9.52l2.29 2.29z"/>
-                            </svg>
-                            <span data-th="Bangkok, Thailand" data-en="Bangkok, Thailand">Bangkok, Thailand</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form class="form">
-                        <div class="form-group">
-                            <label for="name" data-th="ชื่อ" data-en="Name">ชื่อ</label>
-                            <input type="text" id="name" class="form-input" placeholder="ชื่อของคุณ..." data-th-placeholder="ชื่อของคุณ..." data-en-placeholder="Your name...">
-                        </div>
-                        <div class="form-group">
-                            <label for="email" data-th="อีเมล" data-en="Email">อีเมล</label>
-                            <input type="email" id="email" class="form-input" placeholder="อีเมลของคุณ..." data-th-placeholder="อีเมลของคุณ..." data-en-placeholder="Your email...">
-                        </div>
-                        <div class="form-group">
-                            <label for="message" data-th="ข้อความ" data-en="Message">ข้อความ</label>
-                            <textarea id="message" class="form-input" rows="4" placeholder="เล่าเกี่ยวกับโครงการของคุณ..." data-th-placeholder="เล่าเกี่ยวกับโครงการของคุณ..." data-en-placeholder="Tell us about your project..."></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit">
-                            <span data-th="ส่ง" data-en="SEND">ส่ง</span>
-                            <span class="btn-arrow">→</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Problem -->
+  <section class="section" id="approach">
+    <div class="container split">
+      <div>
+        <p class="eyebrow reveal">The quiet problem</p>
+        <h2 class="h2 reveal">Your property is extraordinary. <br>Your website is where guests start to doubt it.</h2>
+      </div>
+      <div class="problems">
+        <article class="problem reveal">
+          <i class="ph-light ph-percent" aria-hidden="true"></i>
+          <div>
+            <h3>Every night sold through an OTA costs you 15 to 25 percent</h3>
+            <p>Guests find you on Instagram, then book on Agoda because your own site feels slower and less certain. The commission leaves with them.</p>
+          </div>
+        </article>
+        <article class="problem reveal">
+          <i class="ph-light ph-moon-stars" aria-hidden="true"></i>
+          <div>
+            <h3>The enquiry at 2 am goes to the property that answers first</h3>
+            <p>A family in Shanghai or Sydney writes while your team sleeps. By morning they have booked elsewhere.</p>
+          </div>
+        </article>
+        <article class="problem reveal">
+          <i class="ph-light ph-copy" aria-hidden="true"></i>
+          <div>
+            <h3>A template makes a one of a kind place look ordinary</h3>
+            <p>The same theme, the same stock layout, the same booking widget. Your guests notice, even when they cannot say why.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <span class="logo-icon">✦</span>
-                        <span class="logo-text" data-th="HUUMAN STUDIO" data-en="HUUMAN STUDIO">HUUMAN STUDIO</span>
-                    </div>
-                    <p class="footer-tagline" data-th="การสร้างโดยมนุษย์ ความสมบูรณ์แบบดิจิทัล" data-en="Human creation, digital perfection.">การสร้างโดยมนุษย์ ความสมบูรณ์แบบดิจิทัล</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-link-item">
-                        <span class="footer-link-title" data-th="Instagram" data-en="Instagram">Instagram</span>
-                        <a href="https://instagram.com/huuman.essentials" target="_blank" rel="noopener noreferrer">@huuman.essentials</a>
-                    </div>
-                    <div class="footer-link-item">
-                        <span class="footer-link-title" data-th="ติดต่อ" data-en="Contact">ติดต่อ</span>
-                        <a href="#contact" data-th="จองเวลา" data-en="Book a time">จองเวลา</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p data-th="© 2026 HUUMAN STUDIO. สงวนลิขสิทธิ์ทั้งหมด." data-en="© 2026 HUUMAN STUDIO. All rights reserved.">© 2026 HUUMAN STUDIO. สงวนลิขสิทธิ์ทั้งหมด.</p>
-            </div>
-        </div>
-    </footer>
+  <!-- Tagline reveal (B11) -->
+  <section class="tagline" aria-label="Our promise">
+    <div class="container">
+      <p class="tagline-text" data-words>We do not sell websites.
+        We design the moment a guest decides to stay with you.</p>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow reveal">What we build</p>
+        <h2 class="h2 reveal">One studio for everything <br>between a first look and a booking.</h2>
+      </div>
+
+      <div class="story">
+        <div class="story-visual" aria-hidden="true">
+          <figure class="story-img is-active"><img src="img/lobby.webp" alt="" loading="lazy"></figure>
+          <figure class="story-img"><img src="img/bedroom.webp" alt="" loading="lazy"></figure>
+          <figure class="story-img"><img src="img/penthouse.webp" alt="" loading="lazy"></figure>
+          <div class="story-count"><span class="story-now">01</span><i></i><span>03</span></div>
+        </div>
+        <div class="story-steps">
+
+      <div class="service reveal">
+        <figure class="service-media" data-cursor="View"><img src="img/lobby.webp" alt="Boutique hotel lobby at night with dark lacquered wood and orchids" loading="lazy"></figure>
+        <div class="service-body">
+          <span class="num">01</span>
+          <h3 class="h3">A signature website</h3>
+          <p><strong>Designed for your property alone.</strong> Editorial photography, calm typography and pages that load in under two seconds on a phone in a taxi. Built to feel like walking into your lobby.</p>
+          <ul class="ticks">
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Custom design, never a template</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Thai, English and Chinese versions</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Search visibility for the guests you want</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="service service-flip reveal">
+        <figure class="service-media" data-cursor="View"><img src="img/bedroom.webp" alt="Villa bedroom opening onto a jungle terrace with a stone bathtub at golden hour" loading="lazy"></figure>
+        <div class="service-body">
+          <span class="num">02</span>
+          <h3 class="h3">An AI concierge that never sleeps</h3>
+          <p><strong>Every enquiry answered in seconds.</strong> On your website, LINE, WhatsApp and Messenger. It knows your rooms, rates, transfers and house rules, and it hands the conversation to your team the moment a human touch matters.</p>
+          <ul class="ticks">
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Replies in the guest's own language</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Qualifies dates, budget and party size</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Your team sees every conversation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="service reveal">
+        <figure class="service-media" data-cursor="View"><img src="img/penthouse.webp" alt="Penthouse living room with floor to ceiling windows over the Bangkok skyline at night" loading="lazy"></figure>
+        <div class="service-body">
+          <span class="num">03</span>
+          <h3 class="h3">Direct booking and private viewings</h3>
+          <p><strong>Guests pay you, not a platform.</strong> A booking flow that feels as considered as your service, with follow ups that bring guests back next season. For residences and estates, qualified buyers book viewings straight into your calendar.</p>
+          <ul class="ticks">
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Works with your existing booking engine</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Lead capture and gentle follow ups</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Viewing booking for luxury real estate</li>
+          </ul>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Concierge demo -->
+  <section class="section section-alt" id="concierge">
+    <div class="container split concierge">
+      <div>
+        <p class="eyebrow reveal">See it answer</p>
+        <h2 class="h2 reveal">A guest writes at 02:14. <br>Your concierge replies at 02:14.</h2>
+        <p class="lead reveal">Choose a language and watch a real style of conversation. The concierge speaks as your property, in your tone, and passes warm leads to your reservations team.</p>
+        <div class="lang reveal" role="tablist" aria-label="Conversation language">
+          <button role="tab" aria-selected="true" data-lang="en">English</button>
+          <button role="tab" aria-selected="false" data-lang="th">ไทย</button>
+          <button role="tab" aria-selected="false" data-lang="zh">中文</button>
+        </div>
+      </div>
+      <div class="phone reveal" aria-live="polite">
+        <div class="phone-top">
+          <span class="avatar">SV</span>
+          <div><strong>Sala Verana Villas</strong><small>Concierge · online</small></div>
+        </div>
+        <div class="chat" id="chat"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Text parallax band -->
+  <section class="words" aria-label="Who we design for">
+    <div class="words-row" data-dir="-1"><span>Pool villas</span><span class="pill"><img src="img/villa.webp" alt="" loading="lazy"></span><span>Boutique hotels</span><span class="pill"><img src="img/lobby.webp" alt="" loading="lazy"></span><span>Pool villas</span><span class="pill"><img src="img/villa.webp" alt="" loading="lazy"></span><span>Boutique hotels</span><span class="pill"><img src="img/lobby.webp" alt="" loading="lazy"></span></div>
+    <div class="words-row" data-dir="1"><span>Private residences</span><span class="pill"><img src="img/penthouse.webp" alt="" loading="lazy"></span><span>Wellness retreats</span><span class="pill"><img src="img/spa.webp" alt="" loading="lazy"></span><span>Private residences</span><span class="pill"><img src="img/penthouse.webp" alt="" loading="lazy"></span><span>Wellness retreats</span><span class="pill"><img src="img/spa.webp" alt="" loading="lazy"></span></div>
+  </section>
+
+  <!-- Studies -->
+  <section class="section" id="studies">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow reveal">Studies</p>
+        <h2 class="h2 reveal">The atmosphere we design toward.</h2>
+        <p class="lead reveal">Concept studies from our atelier. Every commission starts with a mood like this, built around your property's own light and material.</p>
+      </div>
+    </div>
+    <div class="studies-pin">
+      <div class="studies" data-cursor="Drag">
+        <figure class="study"><div class="study-img"><img src="img/villa.webp" alt="Concept study: clifftop pool villa at dusk" loading="lazy"></div><figcaption><span>01</span>Clifftop pool villa<small>Phuket</small></figcaption></figure>
+        <figure class="study"><div class="study-img"><img src="img/spa.webp" alt="Concept study: candlelit spa room with a stone basin and frangipani" loading="lazy"></div><figcaption><span>02</span>Wellness retreat<small>Chiang Mai</small></figcaption></figure>
+        <figure class="study"><div class="study-img"><img src="img/lobby.webp" alt="Concept study: boutique hotel lobby with brass details" loading="lazy"></div><figcaption><span>03</span>Boutique hotel<small>Bangkok</small></figcaption></figure>
+        <figure class="study"><div class="study-img"><img src="img/penthouse.webp" alt="Concept study: penthouse residence overlooking the Chao Phraya river" loading="lazy"></div><figcaption><span>04</span>Riverside residence<small>Bangkok</small></figcaption></figure>
+        <figure class="study"><div class="study-img"><img src="img/bedroom.webp" alt="Concept study: jungle villa bedroom at golden hour" loading="lazy"></div><figcaption><span>05</span>Jungle pool villa<small>Koh Samui</small></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cinema moment: image expands to full screen on scroll -->
+  <section class="cinema" aria-label="Designed in Thailand">
+    <div class="cinema-stage">
+      <div class="cinema-frame"><img src="img/cinema.webp" srcset="img/cinema.webp 2048w, img/cinema-4k.webp 3840w" sizes="100vw" alt="Pool villa bedroom opening onto a jungle terrace and plunge pool at golden hour"></div>
+      <p class="cinema-text">Designed in Thailand. <br>Booked from everywhere.</p>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section section-alt" id="process">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow reveal">How a commission unfolds</p>
+        <h2 class="h2 reveal">Three steps. You decide at each one.</h2>
+      </div>
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="num">01</span>
+          <h3>Private audit</h3>
+          <p>We study your current site, your OTA listings and how enquiries reach you. You receive a short, honest report on where bookings are leaking. No charge.</p>
+        </li>
+        <li class="step reveal">
+          <span class="num">02</span>
+          <h3>First design, before any contract</h3>
+          <p>We design your homepage and show it to you. If it does not feel like your property, you walk away and owe nothing.</p>
+        </li>
+        <li class="step reveal">
+          <span class="num">03</span>
+          <h3>Launch and care</h3>
+          <p>We build, translate and launch, then train the concierge on your property. Each month we refine what guests ask and what they book.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Commissions -->
+  <section class="section" id="commissions">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow reveal">Commissions</p>
+        <h2 class="h2 reveal">Priced on the value to your property, <br>never by the hour.</h2>
+        <p class="lead reveal">After the audit you receive three options. We shape the recommended one so it should return at least three times its cost in the first year, and we show you the assumptions behind that number.</p>
+      </div>
+      <div class="tiers">
+        <article class="tier reveal">
+          <h3>Start</h3>
+          <p>A landing page and AI concierge in Thai and English.</p>
+          <span class="tier-for">For a single villa or a new launch</span>
+        </article>
+        <article class="tier reveal">
+          <h3>Growth</h3>
+          <p>Up to five pages, concierge on LINE, web and Messenger, lead capture, booking and follow ups.</p>
+          <span class="tier-for">For boutique hotels and villa collections</span>
+        </article>
+        <article class="tier reveal">
+          <h3>Pro</h3>
+          <p>The complete system: ten pages, every channel, a CRM and one integration with your existing tools.</p>
+          <span class="tier-for">For resorts and multi property groups</span>
+        </article>
+        <article class="tier tier-feature reveal">
+          <h3>Estate</h3>
+          <p>A premium property site with listings, a concierge in Thai, English and Chinese, buyer qualification and viewing booking.</p>
+          <span class="tier-for">For luxury real estate agencies</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section class="principles">
+    <div class="container principles-inner">
+      <img src="img/brandbook.webp" alt="Linen bound brand book with an embossed monogram and a brass pen" loading="lazy" class="principles-img reveal">
+      <div>
+        <p class="eyebrow reveal">Our principles</p>
+        <ul class="principle-list">
+          <li class="reveal"><strong>We never discount.</strong> If the budget is tight, we reshape the scope. Your price stays honest for everyone.</li>
+          <li class="reveal"><strong>You own everything.</strong> Domain, content, photographs and data are yours from day one.</li>
+          <li class="reveal"><strong>Guest data is protected.</strong> We work under Thailand's PDPA and sign a data processing agreement with every client.</li>
+          <li class="reveal"><strong>Thai and international, in one team.</strong> We speak with your owners in Thai and with your guests in theirs.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container faq-wrap">
+      <div>
+        <p class="eyebrow reveal">Questions</p>
+        <h2 class="h2 reveal">What owners ask us first.</h2>
+      </div>
+      <div class="faq">
+        <details class="reveal"><summary>How much does a commission cost?<i class="ph-light ph-plus" aria-hidden="true"></i></summary><p>Every property is priced individually after the audit, based on your room rates, occupancy and how many enquiries you receive. You get three options with clear assumptions. There are no hidden monthly fees.</p></details>
+        <details class="reveal"><summary>Will this replace Booking.com and Agoda?<i class="ph-light ph-plus" aria-hidden="true"></i></summary><p>No, and it should not. OTAs are good for discovery. Our goal is to move returning guests, referrals and social media traffic to direct bookings, where you keep the full rate.</p></details>
+        <details class="reveal"><summary>Does the AI concierge replace my reservations team?<i class="ph-light ph-plus" aria-hidden="true"></i></summary><p>It handles the repetitive questions at any hour and hands over every serious enquiry with the details already collected. Your team spends time on guests who are ready to book.</p></details>
+        <details class="reveal"><summary>What if the concierge gives a wrong answer?<i class="ph-light ph-plus" aria-hidden="true"></i></summary><p>It only answers from information you approve. When it is unsure, it says so and passes the guest to your team. You can read every conversation.</p></details>
+        <details class="reveal"><summary>How long does it take to launch?<i class="ph-light ph-plus" aria-hidden="true"></i></summary><p>A Start commission usually launches within two to three weeks of approval. Larger sites take six to ten weeks, depending on photography and content.</p></details>
+        <details class="reveal"><summary>Can you work with our existing booking engine?<i class="ph-light ph-plus" aria-hidden="true"></i></summary><p>Yes. We connect to most booking engines and channel managers used in Thailand. If yours has no connection, we design around it.</p></details>
+        <details class="reveal"><summary>Do you provide photography?<i class="ph-light ph-plus" aria-hidden="true"></i></summary><p>We art direct every shoot and can arrange a photographer. When your existing images are strong, we work with them.</p></details>
+        <details class="reveal"><summary>How do payments work?<i class="ph-light ph-plus" aria-hidden="true"></i></summary><p>Smaller commissions are paid in advance. Larger ones are paid half at approval and half at launch, by Thai bank transfer or PromptPay. Care plans are billed monthly in advance.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section cta" id="consult">
+    <div class="container cta-inner">
+      <div>
+        <p class="eyebrow reveal">Private consultation</p>
+        <h2 class="h2 reveal">Let us look at your property <br>the way your guests do.</h2>
+        <p class="lead reveal">Tell us a little about your property. Within two working days you receive your private audit and a time to talk, in Thai or English.</p>
+      </div>
+      <form class="form reveal" id="form" novalidate>
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
+        <div class="field"><label for="f-prop">Property or company</label><input id="f-prop" name="property" required><span class="err" aria-live="polite"></span></div>
+        <div class="field"><label for="f-mail">Email</label><input id="f-mail" name="email" type="email" autocomplete="email" required><span class="err" aria-live="polite"></span></div>
+        <div class="field"><label for="f-site">Current website <span class="opt">optional</span></label><input id="f-site" name="website" inputmode="url"><span class="err" aria-live="polite"></span></div>
+        <div class="field">
+          <label for="f-type">Type of property</label>
+          <select id="f-type" name="type" required>
+            <option value="">Choose one</option>
+            <option>Pool villa or villa collection</option>
+            <option>Boutique hotel or resort</option>
+            <option>Luxury real estate</option>
+            <option>Wellness retreat or spa</option>
+            <option>Something else</option>
+          </select><span class="err" aria-live="polite"></span>
+        </div>
+        <button class="btn btn-light btn-full" type="submit">Request a private consultation <i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
+        <p class="form-note" id="form-note">No obligation. We reply personally, never with an automated sales sequence.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<div class="footer-reveal">
+<footer class="footer">
+  <div class="container footer-top">
+    <p class="footer-cta">Your property deserves <br>a digital address to match.</p>
+    <a href="#consult" class="btn btn-light">Request a private consultation <i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+  <div class="footer-mark"><svg class="giant" viewBox="-6 -6 622 116" aria-label="HUUMAN" role="img"><defs><clipPath id="capGiant"><rect x="-10" y="0" width="640" height="100"/></clipPath></defs><g fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10"><g clip-path="url(#capGiant)"><path class="d" d="M3.5 0V100"/><path class="d" d="M3.5 50H75.5"/><path class="d" d="M75.5 0V100"/><path class="d" d="M266.5 100V-2L312.5 78L358.5 -2V100"/><path class="d" d="M402.2 110L449 -12L495.8 110"/><path class="d" d="M539.5 110V-2L606.5 102V-10"/></g><path class="d" d="M75.5 64A36 36 0 0 0 147.5 64V0"/><path class="d you" stroke="#C2A274" d="M147.5 64A36 36 0 0 0 219.5 64V0"/></g></svg></div>
+  <div class="container footer-bottom">
+    <p>Websites and AI concierges for luxury hospitality and real estate in Thailand.</p>
+    <nav aria-label="Legal" class="legal">
+      <a href="privacy.html">Privacy policy</a>
+      <a href="terms.html">Terms</a>
+      <a href="brand.html">Brand</a>
+      <span>© 2026 HUUMAN Studio</span>
+    </nav>
+  </div>
+</footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" defer></script>
+<script src="main.js" defer></script>
+<script src="motion.js" defer></script>
 </body>
 </html>

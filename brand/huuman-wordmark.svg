@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 622 116" role="img" aria-label="HUUMAN">
+  <title>HUUMAN</title>
+  <defs>
+    <clipPath id="cap"><rect x="-10" y="0" width="640" height="100"/></clipPath>
+  </defs>
+  <g fill="none" stroke="#EDE6DA" stroke-width="7" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <g clip-path="url(#cap)">
+      <path d="M3.5 0V100M3.5 50H75.5M75.5 0V100"/>
+      <path d="M266.5 100V-2L312.5 78L358.5 -2V100"/>
+      <path d="M402.2 110L449 -12L495.8 110"/>
+      <path d="M539.5 110V-2L606.5 102V-10"/>
+    </g>
+    <path d="M75.5 64A36 36 0 0 0 147.5 64V0"/>
+    <path stroke="#C2A274" d="M147.5 64A36 36 0 0 0 219.5 64V0"/>
+  </g>
+</svg>

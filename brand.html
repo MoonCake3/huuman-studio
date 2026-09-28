@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HUUMAN · Brand identity</title>
+<meta name="description" content="The HUUMAN Studio identity: wordmark, monogram, colour and type.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  html { scroll-behavior: auto; }
+  .b-sec { padding: 128px 0; border-top: 1px solid var(--line); }
+  .b-label { font-size: 12px; line-height: 16px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--bronze); margin-bottom: 32px; display: flex; gap: 16px; }
+  .b-label span { color: var(--muted); }
+
+  .b-open { min-height: min(100svh, 1000px); display: grid; place-items: center; position: relative; background: #000000; }
+  .b-open .mark { width: min(78vw, 1100px); }
+  .b-open .mark path { stroke-width: 7; }
+  .b-open .sub { position: absolute; left: 0; right: 0; bottom: 64px; display: flex; justify-content: space-between; padding: 0 40px; font-size: 12px; line-height: 16px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--muted); }
+  .b-open .line { font-size: 20px; line-height: 28px; font-weight: 300; letter-spacing: 0.02em; color: var(--text); margin-top: 48px; text-align: center; }
+  .b-open .line b { font-weight: 400; color: var(--bronze); }
+  .b-open-inner { display: grid; justify-items: center; }
+
+  .film { border-radius: 24px; overflow: hidden; border: 1px solid var(--line); background: #000; aspect-ratio: 16 / 9; }
+  .film video { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .story { display: grid; gap: 48px; }
+  .story p.big { font-size: 36px; line-height: 40px; font-weight: 300; letter-spacing: -0.01em; max-width: 880px; text-wrap: balance; }
+  .story p.big em { font-style: normal; color: var(--bronze); }
+  .story .cols { display: grid; gap: 32px; color: var(--muted); font-size: 18px; line-height: 28px; }
+
+  .construct { width: 100%; max-width: 1000px; margin: 0 auto; display: block; overflow: visible; }
+  .construct .guide { stroke: rgba(194, 162, 116, 0.35); stroke-width: 0.6; fill: none; }
+  .construct .guide.dash { stroke-dasharray: 3 3; }
+  .construct text { fill: var(--muted); font: 500 5px "Manrope", sans-serif; letter-spacing: 0.2em; }
+  .construct-cap { display: grid; gap: 24px; margin-top: 64px; }
+  .construct-cap div { border-top: 1px solid var(--line); padding-top: 16px; }
+  .construct-cap h3 { font-size: 18px; line-height: 28px; font-weight: 500; margin-bottom: 8px; }
+  .construct-cap p { color: var(--muted); }
+
+  .tiles { display: grid; gap: 16px; }
+  .tile { aspect-ratio: 1; border-radius: 24px; display: grid; place-items: center; position: relative; overflow: hidden; }
+  .tile svg { width: 54%; }
+  .tile small { position: absolute; left: 24px; bottom: 24px; font-size: 12px; line-height: 16px; letter-spacing: 0.2em; text-transform: uppercase; }
+  .t-dark { background: #131209; border: 1px solid var(--line); }
+  .t-dark small { color: var(--muted); }
+  .t-ivory { background: #EDE6DA; }
+  .t-ivory small { color: #6B6557; }
+  .t-bronze { background: #C2A274; }
+  .t-bronze small { color: #3B3121; }
+
+  .swatches { display: grid; gap: 16px; }
+  .sw { border-radius: 24px; padding: 32px; min-height: 280px; display: flex; flex-direction: column; justify-content: flex-end; gap: 4px; border: 1px solid var(--line); }
+  .sw strong { color: inherit; font-size: 24px; line-height: 32px; font-weight: 400; }
+  .sw span { font-size: 14px; line-height: 20px; font-variant-numeric: tabular-nums; opacity: 0.7; }
+
+  .type-spec { display: grid; gap: 48px; }
+  .type-spec .aa { font-size: 128px; line-height: 1; font-weight: 300; letter-spacing: -0.04em; }
+  .type-spec .rows { display: grid; gap: 24px; }
+  .type-spec .rows div { display: flex; justify-content: space-between; gap: 24px; align-items: baseline; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
+  .type-spec .rows small { color: var(--muted); font-size: 12px; line-height: 16px; letter-spacing: 0.16em; text-transform: uppercase; flex: none; }
+
+  .apps { display: grid; gap: 24px; }
+  .stage { border-radius: 24px; background: var(--bg-alt); border: 1px solid var(--line); min-height: 440px; display: grid; place-items: center; perspective: 1400px; overflow: hidden; position: relative; }
+  .stage > small { position: absolute; left: 24px; top: 24px; font-size: 12px; line-height: 16px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+  .cards { position: relative; width: 340px; height: 220px; transform-style: preserve-3d; }
+  .card { position: absolute; inset: 0; border-radius: 12px; box-shadow: 0 48px 80px rgba(0, 0, 0, 0.55); display: grid; place-items: center; transition: transform 1.2s var(--ease); }
+  .card-back { background: #0B0A06; transform: translate(-40px, 40px) rotateX(24deg) rotateZ(-10deg); border: 1px solid rgba(194, 162, 116, 0.3); }
+  .card-back svg { width: 34%; }
+  .card-front { background: #EDE6DA; color: #131209; transform: translate(40px, -24px) rotateX(24deg) rotateZ(-10deg) translateZ(40px); padding: 24px; place-items: stretch; }
+  .stage:hover .card-back { transform: translate(-72px, 56px) rotateX(18deg) rotateZ(-14deg); }
+  .stage:hover .card-front { transform: translate(64px, -40px) rotateX(18deg) rotateZ(-6deg) translateZ(60px); }
+  .card-front .cf { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+  .card-front svg { width: 120px; }
+  .card-front .who { font-size: 12px; line-height: 16px; }
+  .card-front .who b { display: block; font-size: 14px; line-height: 20px; font-weight: 600; letter-spacing: 0.02em; }
+  .card-front .who span { color: #6B6557; letter-spacing: 0.08em; }
+
+  .phone-mock { width: 240px; height: 480px; border-radius: 40px; background: #000000; border: 1px solid rgba(237, 230, 218, 0.12); padding: 12px; box-shadow: 0 48px 80px rgba(0, 0, 0, 0.55); }
+  .phone-screen { height: 100%; border-radius: 28px; background: #EDE6DA; padding: 48px 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-content: start; }
+  .app { aspect-ratio: 1; border-radius: 12px; background: #D9D0C0; }
+  .app.hu { background: #131209; display: grid; place-items: center; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); }
+  .app.hu svg { width: 64%; }
+  .avatar-mock { display: grid; justify-items: center; gap: 16px; }
+  .avatar-mock .av { width: 160px; height: 160px; border-radius: 9999px; background: #131209; display: grid; place-items: center; border: 1px solid rgba(194, 162, 116, 0.4); }
+  .avatar-mock .av svg { width: 58%; }
+  .avatar-mock b { font-size: 18px; line-height: 28px; font-weight: 500; }
+  .avatar-mock span { font-size: 14px; line-height: 20px; color: var(--muted); margin-top: -12px; }
+
+  .downloads { display: grid; gap: 12px; }
+  .downloads a { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-bottom: 1px solid var(--line); font-size: 18px; line-height: 28px; transition: color 0.7s var(--ease), padding 0.7s var(--ease); }
+  .downloads a:hover { color: var(--bronze); padding-left: 12px; }
+  .downloads small { font-size: 12px; line-height: 16px; letter-spacing: 0.16em; color: var(--muted); text-transform: uppercase; }
+
+  @media (min-width: 768px) {
+    .story .cols { grid-template-columns: 1fr 1fr; }
+    .story p.big { font-size: 48px; line-height: 1.1; }
+    .tiles { grid-template-columns: repeat(3, 1fr); }
+    .swatches { grid-template-columns: repeat(4, 1fr); }
+    .construct-cap { grid-template-columns: repeat(3, 1fr); }
+    .apps { grid-template-columns: 1fr 1fr; }
+    .apps .stage:first-child { grid-column: span 2; min-height: 560px; }
+    .type-spec { grid-template-columns: 1fr 1fr; align-items: end; }
+    .type-spec .aa { font-size: 128px; }
+  }
+  @media (max-width: 767px) {
+    .b-sec { padding: 80px 0; }
+    .b-open .sub { padding: 0 24px; bottom: 32px; }
+    .type-spec .aa { font-size: 96px; }
+    .cards { transform: scale(0.8); }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="curtain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"></div>
+<main id="main">
+
+  <section class="b-open">
+    <div class="b-open-inner">
+      <svg class="mark" id="mark" viewBox="-6 -6 622 116" role="img" aria-label="HUUMAN">
+        <defs><clipPath id="capA"><rect x="-10" y="0" width="640" height="100"/></clipPath></defs>
+        <g fill="none" stroke="#EDE6DA" stroke-width="7" stroke-linecap="butt" stroke-miterlimit="10">
+          <g clip-path="url(#capA)">
+            <path class="d" d="M3.5 0V100"/><path class="d" d="M3.5 50H75.5"/><path class="d" d="M75.5 0V100"/>
+            <path class="d" d="M266.5 100V-2L312.5 78L358.5 -2V100"/>
+            <path class="d" d="M402.2 110L449 -12L495.8 110"/>
+            <path class="d" d="M539.5 110V-2L606.5 102V-10"/>
+          </g>
+          <path class="d" d="M75.5 64A36 36 0 0 0 147.5 64V0"/>
+          <path class="d you" stroke="#C2A274" d="M147.5 64A36 36 0 0 0 219.5 64V0"/>
+        </g>
+      </svg>
+      <p class="line">The second U <b>is you.</b></p>
+    </div>
+    <div class="sub"><span>HUUMAN Studio</span><span>Brand identity · 2026</span></div>
+  </section>
+
+  <section class="b-sec">
+    <div class="container">
+      <p class="b-label">00 <span>The film</span></p>
+      <div class="film">
+        <video controls playsinline preload="none" poster="brand/huuman-film-poster.jpg" aria-label="HUUMAN Studio brand film, 15 seconds">
+          <source src="brand/huuman-film.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <section class="b-sec">
+    <div class="container story">
+      <p class="b-label">01 <span>The idea</span></p>
+      <p class="big">HUUMAN is human, with one extra letter. The first U is us. The second, drawn in <em>bronze</em>, is you: the owner, the guest, the person on the other side of the screen.</p>
+      <div class="cols">
+        <p>The letters H, U and U share their stems, so the name reads as one continuous gesture. Nothing in the mark stands alone. That is how we work with the properties we serve.</p>
+        <p>Every line has the same weight and ends with a clean, flat cut, like joinery in teak or a stone threshold. The A drops its crossbar and becomes an open doorway. It is quiet at a glance and rewarding up close.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="b-sec">
+    <div class="container">
+      <p class="b-label">02 <span>Construction</span></p>
+      <svg class="construct" viewBox="-40 -30 310 170" aria-label="Construction grid of the HUU ligature">
+        <line class="guide" x1="-30" y1="0" x2="260" y2="0"/><text x="-30" y="-6">CAP</text>
+        <line class="guide dash" x1="-30" y1="50" x2="260" y2="50"/><text x="-30" y="46">BAR</text>
+        <line class="guide dash" x1="-30" y1="64" x2="260" y2="64"/><text x="-30" y="72">BOWL</text>
+        <line class="guide" x1="-30" y1="100" x2="260" y2="100"/><text x="-30" y="110">BASE</text>
+        <line class="guide dash" x1="3.5" y1="-20" x2="3.5" y2="125"/>
+        <line class="guide dash" x1="75.5" y1="-20" x2="75.5" y2="125"/>
+        <line class="guide dash" x1="147.5" y1="-20" x2="147.5" y2="125"/>
+        <line class="guide dash" x1="219.5" y1="-20" x2="219.5" y2="125"/>
+        <circle class="guide" cx="111.5" cy="64" r="36"/>
+        <circle class="guide" cx="183.5" cy="64" r="36"/>
+        <text x="30" y="134">72</text><text x="102" y="134">72</text><text x="174" y="134">72</text>
+        <g fill="none" stroke="#EDE6DA" stroke-width="7">
+          <path d="M3.5 0V100M3.5 50H75.5M75.5 0V100"/>
+          <path d="M75.5 64A36 36 0 0 0 147.5 64V0"/>
+          <path stroke="#C2A274" d="M147.5 64A36 36 0 0 0 219.5 64V0"/>
+        </g>
+      </svg>
+      <div class="construct-cap">
+        <div><h3>Four stems, one rhythm</h3><p>H, U and U sit on four equally spaced stems, 72 units apart. Two stems are shared, which is what makes the mark ownable.</p></div>
+        <div><h3>One line weight</h3><p>A single stroke of 7 units on a cap height of 100. The mark stays crisp from a favicon to a building facade.</p></div>
+        <div><h3>An open A</h3><p>The A has no crossbar. It reads as an arch, an entrance, a place you are welcome to walk into.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="b-sec">
+    <div class="container">
+      <p class="b-label">03 <span>Monogram</span></p>
+      <div class="tiles">
+        <div class="tile t-dark"><svg viewBox="-6 -6 235 116" aria-label="Monogram on warm black"><g fill="none" stroke="#EDE6DA" stroke-width="7"><path d="M3.5 0V100M3.5 50H75.5M75.5 0V100M75.5 64A36 36 0 0 0 147.5 64V0"/><path stroke="#C2A274" d="M147.5 64A36 36 0 0 0 219.5 64V0"/></g></svg><small>On warm black</small></div>
+        <div class="tile t-ivory"><svg viewBox="-6 -6 235 116" aria-label="Monogram on ivory"><g fill="none" stroke="#131209" stroke-width="7"><path d="M3.5 0V100M3.5 50H75.5M75.5 0V100M75.5 64A36 36 0 0 0 147.5 64V0"/><path stroke="#9A7B4F" d="M147.5 64A36 36 0 0 0 219.5 64V0"/></g></svg><small>On ivory</small></div>
+        <div class="tile t-bronze"><svg viewBox="-6 -6 235 116" aria-label="Monogram on bronze"><g fill="none" stroke="#131209" stroke-width="7"><path d="M3.5 0V100M3.5 50H75.5M75.5 0V100M75.5 64A36 36 0 0 0 147.5 64V0M147.5 64A36 36 0 0 0 219.5 64V0"/></g></svg><small>On bronze</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="b-sec">
+    <div class="container">
+      <p class="b-label">04 <span>Colour</span></p>
+      <div class="swatches">
+        <div class="sw" style="background:#131209"><strong>Warm black</strong><span>#131209</span><span>Night, lacquer, depth</span></div>
+        <div class="sw" style="background:#1F1F1F"><strong>Stone</strong><span>#1F1F1F</span><span>Surfaces and cards</span></div>
+        <div class="sw" style="background:#EDE6DA;color:#131209"><strong>Ivory</strong><span>#EDE6DA</span><span>Linen, paper, text</span></div>
+        <div class="sw" style="background:#C2A274;color:#131209"><strong>Bronze</strong><span>#C2A274</span><span>You. Used sparingly.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="b-sec">
+    <div class="container type-spec">
+      <div>
+        <p class="b-label">05 <span>Typography</span></p>
+        <p class="aa">Aa</p>
+        <p style="color:var(--muted);margin-top:24px">Manrope, one family in three weights. Light for headlines, regular for reading, semibold only for actions.</p>
+      </div>
+      <div class="rows">
+        <div><span style="font-size:48px;line-height:1;font-weight:300">The digital address</span><small>Light 300</small></div>
+        <div><span style="font-size:20px;line-height:28px">Guests book with you directly.</span><small>Regular 400</small></div>
+        <div><span style="font-size:16px;line-height:24px;font-weight:600">Request a private consultation</span><small>Semibold 600</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="b-sec">
+    <div class="container">
+      <p class="b-label">06 <span>In use</span></p>
+      <div class="apps">
+        <div class="stage">
+          <small>Business card</small>
+          <div class="cards">
+            <div class="card card-back"><svg viewBox="-6 -6 235 116"><g fill="none" stroke="#EDE6DA" stroke-width="7"><path d="M3.5 0V100M3.5 50H75.5M75.5 0V100M75.5 64A36 36 0 0 0 147.5 64V0"/><path stroke="#C2A274" d="M147.5 64A36 36 0 0 0 219.5 64V0"/></g></svg></div>
+            <div class="card card-front"><div class="cf">
+              <svg viewBox="-6 -6 622 116"><defs><clipPath id="capC"><rect x="-10" y="0" width="640" height="100"/></clipPath></defs><g fill="none" stroke="#131209" stroke-width="9"><g clip-path="url(#capC)"><path d="M3.5 0V100M3.5 50H75.5M75.5 0V100M266.5 100V-2L312.5 78L358.5 -2V100M402.2 110L449 -12L495.8 110M539.5 110V-2L606.5 102V-10"/></g><path d="M75.5 64A36 36 0 0 0 147.5 64V0"/><path stroke="#9A7B4F" d="M147.5 64A36 36 0 0 0 219.5 64V0"/></g></svg>
+              <div class="who"><b>Sean</b><span>Founder · Creative Director</span></div>
+            </div></div>
+          </div>
+        </div>
+        <div class="stage"><small>App icon</small>
+          <div class="phone-mock"><div class="phone-screen">
+            <div class="app"></div><div class="app"></div><div class="app hu"><svg viewBox="-6 -6 235 116"><g fill="none" stroke="#EDE6DA" stroke-width="9"><path d="M3.5 0V100M3.5 50H75.5M75.5 0V100M75.5 64A36 36 0 0 0 147.5 64V0"/><path stroke="#C2A274" d="M147.5 64A36 36 0 0 0 219.5 64V0"/></g></svg></div><div class="app"></div>
+            <div class="app"></div><div class="app"></div><div class="app"></div><div class="app"></div>
+          </div></div>
+        </div>
+        <div class="stage"><small>LINE and social profile</small>
+          <div class="avatar-mock">
+            <div class="av"><svg viewBox="-6 -6 235 116"><g fill="none" stroke="#EDE6DA" stroke-width="8"><path d="M3.5 0V100M3.5 50H75.5M75.5 0V100M75.5 64A36 36 0 0 0 147.5 64V0"/><path stroke="#C2A274" d="M147.5 64A36 36 0 0 0 219.5 64V0"/></g></svg></div>
+            <b>HUUMAN Studio</b><span>Websites and AI concierges for luxury hospitality</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="b-sec">
+    <div class="container">
+      <p class="b-label">07 <span>Files</span></p>
+      <div class="downloads">
+        <a href="brand/huuman-wordmark.svg" download>Wordmark, ivory and bronze <small>SVG · vector</small></a>
+        <a href="brand/huuman-monogram.svg" download>Monogram, app and profile icon <small>SVG · vector</small></a>
+        <a href="brand/huuman-wordmark-4k.png" download>Wordmark on warm black <small>PNG · 3840 × 2160</small></a>
+        <a href="brand/huuman-monogram-2048.png" download>Monogram tile <small>PNG · 2048 × 2048</small></a>
+        <a href="brand/huuman-film.mp4" download>Brand film, landscape with sound <small>MP4 · 1920 × 1080 · 15 s</small></a>
+        <a href="brand/huuman-film-vertical.mp4" download>Brand film for Instagram, TikTok and LINE <small>MP4 · 1080 × 1920 · 15 s</small></a>
+        <a href="index.html">Back to the website <small>HUUMAN Studio</small></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js"></script>
+<script>
+  if (window.gsap && !matchMedia("(prefers-reduced-motion: reduce)").matches && !/still/.test(location.search)) {
+    gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
+    const tl = gsap.timeline({ delay: 0.3 });
+    tl.from("#mark .d:not(.you)", { drawSVG: 0, duration: 1.6, ease: "power3.inOut", stagger: 0.12 })
+      .from("#mark .you", { drawSVG: 0, duration: 1.4, ease: "power3.inOut" }, "-=0.6")
+      .from(".b-open .line", { opacity: 0, y: 24, filter: "blur(8px)", duration: 1.4, ease: "expo.out" }, "-=0.4")
+      .from(".b-open .sub", { opacity: 0, duration: 1.2 }, "<");
+    gsap.from(".construct path", { drawSVG: 0, duration: 2, ease: "power3.inOut", stagger: 0.2, scrollTrigger: { trigger: ".construct", start: "top 70%" } });
+    gsap.from(".construct .guide", { opacity: 0, duration: 1.2, stagger: 0.05, scrollTrigger: { trigger: ".construct", start: "top 75%" } });
+    gsap.to(".progress", { scaleX: 1, ease: "none", scrollTrigger: { start: 0, end: "max", scrub: 0.3 } });
+    const curtain = document.querySelector(".curtain");
+    let arrived = false;
+    try { arrived = sessionStorage.getItem("hs-curtain") === "1"; sessionStorage.removeItem("hs-curtain"); } catch (e) {}
+    if (arrived) gsap.fromTo(curtain, { clipPath: "inset(0% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 100% 0%)", duration: 1.2, ease: "expo.inOut", delay: 0.1 });
+    document.querySelectorAll('a[href$=".html"]').forEach(a => a.addEventListener("click", e => {
+      e.preventDefault();
+      try { sessionStorage.setItem("hs-curtain", "1"); } catch (err) {}
+      gsap.fromTo(curtain, { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.9, ease: "expo.inOut", onComplete: () => { location.href = a.href; } });
+    }));
+    gsap.utils.toArray(".b-sec .container > *").forEach(el => gsap.from(el, { y: 48, opacity: 0, filter: "blur(8px)", duration: 1.4, ease: "expo.out", scrollTrigger: { trigger: el, start: "top 88%" } }));
+  }
+</script>
+</body>
+</html>

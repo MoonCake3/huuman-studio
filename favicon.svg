@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="HUUMAN monogram">
+  <title>HUUMAN monogram</title>
+  <rect width="512" height="512" fill="#131209"/>
+  <g transform="translate(118 196) scale(1.24)" fill="none" stroke="#EDE6DA" stroke-width="7" stroke-linecap="butt">
+    <path d="M3.5 0V100M3.5 50H75.5M75.5 0V100"/>
+    <path d="M75.5 64A36 36 0 0 0 147.5 64V0"/>
+    <path stroke="#C2A274" d="M147.5 64A36 36 0 0 0 219.5 64V0"/>
+  </g>
+</svg>
