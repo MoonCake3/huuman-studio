@@ -478,3 +478,5 @@ html.lenis, html.lenis body { height: auto; }
 /* One action above the fold: the nav CTA appears only after the hero */
 .nav .nav-cta { transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
 .nav:not(.scrolled) .nav-cta { opacity: 0; transform: translateY(-8px); pointer-events: none; }
+
+@media (max-width: 767px) { .hero-shade { background: rgba(6, 5, 3, 0.52); } }
