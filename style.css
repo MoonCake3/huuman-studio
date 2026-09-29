@@ -835,3 +835,5 @@ dialog.film.is-ended .film-cta { pointer-events: auto; }
 .form-alt { margin: 0; text-align: center; font-size: 14px; line-height: 20px; color: rgba(19, 18, 9, 0.65); }
 .form-alt a { color: #131209; text-decoration: underline; text-underline-offset: 4px; }
 .form-thanks .btn { justify-self: center; margin-top: 12px; }
+
+.tile-img.has-pic { background-size: cover; background-position: center; filter: grayscale(1) brightness(0.5) contrast(1.05); border-color: rgba(237, 230, 218, 0.05); }

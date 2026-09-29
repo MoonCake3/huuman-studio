@@ -89,8 +89,13 @@
     const grid = q(".thumb-grid"), villa = q(".thumb-villa");
     const phone = matchMedia("(max-width: 767px)").matches;
     const cols = phone ? 3 : 6, rows = phone ? 5 : 4, you = phone ? 7 : 8;
-    grid.innerHTML = Array.from({ length: cols * rows }, (_, i) =>
-      `<div class="tile${i === you ? " you" : ""}"><div class="tile-img"></div><span class="tile-line"></span><span class="tile-line short"></span></div>`).join("");
+    // Filler listings: small, cooled thumbnails so the marketplace feels full (the villa stays the only one in colour)
+    const pics = ["t-lobby", "", "t-tier-growth", "t-study-tea", "", "t-spa", "t-penthouse", "t-study-beach", "", "t-tier-pro", "t-bedroom", "", "t-study-shophouse", "t-cove", "t-tier-start", "", "t-night", "t-lobby", "", "t-tier-growth", "t-spa", "t-study-tea", "", "t-penthouse"];
+    grid.innerHTML = Array.from({ length: cols * rows }, (_, i) => {
+      const p = i === you ? "" : pics[i % pics.length];
+      const show = p && (!phone || i % 2 === 0);
+      return `<div class="tile${i === you ? " you" : ""}"><div class="tile-img${show ? " has-pic" : ""}"${show ? ` style="background-image:url(img/${p}.webp)"` : ""}></div><span class="tile-line"></span><span class="tile-line short"></span></div>`;
+    }).join("");
     const slot = grid.querySelector(".you .tile-img");
     const target = { x: 0, y: 0, scale: 1, clip: "inset(0px 0px 0px 0px round 0px)" };
     const measure = () => {
