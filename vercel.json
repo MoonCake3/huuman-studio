@@ -3,6 +3,9 @@
   "buildCommand": null,
   "installCommand": null,
   "outputDirectory": null,
+  "redirects": [
+    { "source": "/rum-mitt-i-stan", "destination": "/rum-mitt-i-stan/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(img|brand)/(.*)",
