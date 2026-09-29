@@ -25,29 +25,42 @@ cdx = get("https://web.archive.org/cdx/search/cdx?" + urllib.parse.urlencode({
 rows = json.loads(cdx)[1:] if cdx.strip().startswith("[") else []
 print("captures:", len(rows))
 pages = [(r[1], r[2]) for r in rows if "text/html" in r[3]]
-media, texts = [], []
+imgs, seen = [], set()
 for ts, original in pages[:25]:
+    if "wp-login" in original or "favicon" in original:
+        continue
     html = get(f"https://web.archive.org/web/{ts}id_/{original}")
-    texts.append(f"===== {ts} {original}\n" + re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", html)))[:4000])
-    for m in re.findall(r"static\.wixstatic\.com/media/([A-Za-z0-9_]+~mv2(?:_d_\d+_\d+_s_\d+_\d+)?\.(?:jpg|jpeg|png|webp))", html, re.I):
-        if m not in media:
-            media.append(m)
-    for m in re.findall(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.(?:se|com|nu)", html):
-        texts.append("EMAIL " + m)
+    cands = re.findall(r'(?:src|href|data-src|content)="([^"]+\.(?:jpe?g|png|webp)[^"]*)"', html, re.I)
+    cands += re.findall(r'(https?:)?//static\.wixstatic\.com/media/[^"\\\s)]+', html)
+    cands += re.findall(r'"uri":"([A-Za-z0-9_]+~mv2[^"]*)"', html)
+    for c in cands:
+        c = c if isinstance(c, str) else c[0]
+        if not c or c in seen:
+            continue
+        seen.add(c)
+        if re.search(r"~mv2", c) and not c.startswith("http") and "wixstatic" not in c:
+            c = "https://static.wixstatic.com/media/" + c
+        full = urllib.parse.urljoin(original, c)
+        if re.search(r"(logo|icon|sprite|avatar|spacer|pixel|gravatar|emoji|button|arrow|bg_|pattern)", full, re.I):
+            continue
+        imgs.append((ts, full))
     time.sleep(1)
-open(f"{OUT}/owner-site.txt", "w").write("\n\n".join(texts))
-print("media:", len(media))
+print("image candidates:", len(imgs))
+for ts, u in imgs[:120]:
+    print("  cand", ts, u[:160])
 found = []
-for i, m in enumerate(media[:80]):
+for i, (ts, u) in enumerate(imgs[:80]):
     key = f"o{i:02d}"
-    live = f"https://static.wixstatic.com/media/{m}/v1/fit/w_600,h_600,q_80/t.jpg"
-    data = get(live, binary=True, tries=2)
-    src = "live"
-    if len(data) < 2000:
-        data = get(f"https://web.archive.org/web/2024id_/https://static.wixstatic.com/media/{m}", binary=True, tries=2)
-        src = "archive"
-    if len(data) > 2000:
-        open(f"{OUT}/owner/{key}.jpg", "wb").write(data)
-        found.append({"key": key, "media": m, "source": src, "bytes": len(data)})
+    data = b""
+    if "wixstatic.com/media/" in u:
+        mid = re.search(r"media/([^/]+)", u).group(1)
+        data = get(f"https://static.wixstatic.com/media/{mid}/v1/fit/w_700,h_700,q_80/t.jpg", binary=True, tries=2)
+    if len(data) < 3000:
+        data = get(f"https://web.archive.org/web/{ts}im_/{u}", binary=True, tries=2)
+    if len(data) > 3000 and data[:3] in (b"\xff\xd8\xff",) or data[:8] == b"\x89PNG\r\n\x1a\n" or data[:4] == b"RIFF":
+        ext = "png" if data[:4] == b"\x89PNG" else "jpg"
+        open(f"{OUT}/owner/{key}.{ext}", "wb").write(data)
+        found.append({"key": key, "url": u, "ts": ts, "bytes": len(data)})
+    time.sleep(0.5)
 json.dump({"pages": pages, "owner": found}, open(f"{OUT}/manifest.json", "w"), indent=1)
 print("owner photos:", len(found))
