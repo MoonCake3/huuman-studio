@@ -11,7 +11,13 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Rum mitt i stan · Grebbestad">
 <meta property="og:description" content="Tio rum på Nedre Långgatan. Ostronen, bryggan och kvällssolen, allt inom gångavstånd.">
+<meta property="og:image" content="https://rum-mitt-i-stan.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="sv_SE">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="img/hero-1920.webp" imagesrcset="img/hero-1080.webp 1080w, img/hero-1920.webp 1920w, img/hero-2800.webp 2800w" imagesizes="100vw">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -111,9 +117,9 @@
   <section class="hero" id="top">
     <div class="hero-media ph" style="--ph: linear-gradient(180deg, #7C98A6 0%, #B8C4C4 45%, #6D7B7F 70%, #2A3A43 100%)">
       <img class="hero-img" data-parallax="hero"
-        src="https://unsplash.com/photos/tVqQSfXQ_SI/download?force=true&amp;w=2400"
-        srcset="https://unsplash.com/photos/tVqQSfXQ_SI/download?force=true&amp;w=1080 1080w, https://unsplash.com/photos/tVqQSfXQ_SI/download?force=true&amp;w=1920 1920w, https://unsplash.com/photos/tVqQSfXQ_SI/download?force=true&amp;w=2800 2800w"
-        sizes="100vw" alt="Trähus vid stilla vatten i Bohusläns skärgård" fetchpriority="high" referrerpolicy="no-referrer">
+        src="img/hero-1920.webp"
+        srcset="img/hero-1080.webp 1080w, img/hero-1920.webp 1920w, img/hero-2800.webp 2800w"
+        sizes="100vw" alt="Trähus vid stilla vatten i Bohusläns skärgård" fetchpriority="high">
     </div>
     <div class="hero-shade"></div>
     <div class="container hero-inner">
@@ -162,8 +168,8 @@
   <section class="section house">
     <div class="container house-grid">
       <figure class="house-fig ph reveal-img" style="--ph: linear-gradient(160deg, #EFE9E1, #CFC4B4)">
-        <img data-parallax loading="lazy" decoding="async" referrerpolicy="no-referrer"
-          src="https://unsplash.com/photos/blUOsKcRk2Q/download?force=true&amp;w=1400"
+        <img data-parallax loading="lazy" decoding="async"
+          src="img/house.webp"
           alt="Ljust sovrum med vitt linne och fönster mot dagsljus">
       </figure>
       <div class="house-copy">
@@ -188,7 +194,7 @@
       <div class="rooms-track" tabindex="0" aria-label="Rumstyper, scrolla i sidled">
         <article class="room">
           <figure class="room-fig ph" style="--ph: linear-gradient(160deg, #EDE6DC, #C9BDAA)">
-            <img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/Uxtsu5i_msE/download?force=true&amp;w=1200" alt="Dubbelsäng med vitt linne vid ett fönster">
+            <img loading="lazy" decoding="async" src="img/room-double.webp" alt="Dubbelsäng med vitt linne vid ett fönster">
             <figcaption>01</figcaption>
           </figure>
           <div class="room-body">
@@ -201,7 +207,7 @@
         </article>
         <article class="room">
           <figure class="room-fig ph" style="--ph: linear-gradient(160deg, #E6E2DA, #B9B3A6)">
-            <img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/asXNM_n2jNM/download?force=true&amp;w=1200" alt="Säng med vitt linne bredvid ett vitt nattduksbord">
+            <img loading="lazy" decoding="async" src="img/room-twin.webp" alt="Säng med vitt linne bredvid ett vitt nattduksbord">
             <figcaption>02</figcaption>
           </figure>
           <div class="room-body">
@@ -214,7 +220,7 @@
         </article>
         <article class="room">
           <figure class="room-fig ph" style="--ph: linear-gradient(160deg, #E9E3D8, #C4B7A2)">
-            <img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/B2RKwf2IaJU/download?force=true&amp;w=1200" alt="Säng i ett ljust sovrum bredvid ett fönster">
+            <img loading="lazy" decoding="async" src="img/room-triple.webp" alt="Säng i ett ljust sovrum bredvid ett fönster">
             <figcaption>03</figcaption>
           </figure>
           <div class="room-body">
@@ -227,7 +233,7 @@
         </article>
         <article class="room">
           <figure class="room-fig ph" style="--ph: linear-gradient(160deg, #E4DFD6, #ADA595)">
-            <img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/KPjPeNFLVns/download?force=true&amp;w=1200" alt="Bäddad säng med vitt överkast">
+            <img loading="lazy" decoding="async" src="img/room-bunk.webp" alt="Bäddad säng med vitt överkast">
             <figcaption>04</figcaption>
           </figure>
           <div class="room-body">
@@ -240,7 +246,7 @@
         </article>
         <article class="room">
           <figure class="room-fig ph" style="--ph: linear-gradient(160deg, #E8E4DD, #B5AEA2)">
-            <img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/8qNuR1lIv_k/download?force=true&amp;w=1200" alt="Vitt sänglinne på en bäddad säng">
+            <img loading="lazy" decoding="async" src="img/room-four.webp" alt="Vitt sänglinne på en bäddad säng">
             <figcaption>05</figcaption>
           </figure>
           <div class="room-body">
@@ -286,8 +292,8 @@
   <!-- Grebbestad: cinematic panels -->
   <section class="greb" id="grebbestad">
     <div class="greb-hero ph" style="--ph: linear-gradient(180deg, #5E7784, #A8B5B5 55%, #3B4A50)">
-      <img data-parallax loading="lazy" decoding="async" referrerpolicy="no-referrer"
-        src="https://unsplash.com/photos/M938IAHCX_k/download?force=true&amp;w=2400"
+      <img data-parallax loading="lazy" decoding="async"
+        src="img/harbour.webp"
         alt="Båtar i en hamn med hus och träd">
       <div class="greb-shade"></div>
       <div class="container greb-hero-inner">
@@ -299,19 +305,19 @@
 
     <div class="container greb-list">
       <article class="spot reveal">
-        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #D9DCD6, #8F9A96)"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/GZBImaVAQYc/download?force=true&amp;w=1200" alt="Ostron på is med citronklyftor"></figure>
+        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #D9DCD6, #8F9A96)"><img loading="lazy" decoding="async" src="img/oysters.webp" alt="Ostron på is med citronklyftor"></figure>
         <div class="spot-body"><span class="spot-num">01</span><h3 class="h3" data-i18n="spot.oyster">Ostronen</h3><p data-i18n="spot.oysterT">Ungefär nio av tio svenska ostron kommer från Grebbestad och Tanum. Ostronakademin har sitt säte här, och säsongen är som bäst under månaderna med R.</p></div>
       </article>
       <article class="spot reveal">
-        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #A6503C, #5C2A20)"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/ca0iXBA7AZc/download?force=true&amp;w=1200" alt="Röd sjöbod vid vattnet"></figure>
+        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #A6503C, #5C2A20)"><img loading="lazy" decoding="async" src="img/boathouse.webp" alt="Röd sjöbod vid vattnet"></figure>
         <div class="spot-body"><span class="spot-num">02</span><h3 class="h3" data-i18n="spot.pier">Bryggan</h3><p data-i18n="spot.pierT">Grebbestads långa brygga med fiskrestauranger, sjöbodar och båtar. Allt ligger en kort promenad från Nedre Långgatan.</p></div>
       </article>
       <article class="spot reveal">
-        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #B9C6CC, #50636C)"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/O79o-5hEO6g/download?force=true&amp;w=1200" alt="Badstege i trä som leder ner i stilla vatten"></figure>
+        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #B9C6CC, #50636C)"><img loading="lazy" decoding="async" src="img/swim.webp" alt="Badstege i trä som leder ner i stilla vatten"></figure>
         <div class="spot-body"><span class="spot-num">03</span><h3 class="h3" data-i18n="spot.swim">Morgondoppet</h3><p data-i18n="spot.swimT">Hällar, badstegar och Kolholmens sandstrand en kort cykeltur bort. Västerhavet är kallt, klart och helt oemotståndligt.</p></div>
       </article>
       <article class="spot reveal">
-        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #E3B98A, #6B4A3A)"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/eUeK1pD7fH0/download?force=true&amp;w=1200" alt="Solnedgång över havet med klippor i förgrunden"></figure>
+        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #E3B98A, #6B4A3A)"><img loading="lazy" decoding="async" src="img/sunset.webp" alt="Solnedgång över havet med klippor i förgrunden"></figure>
         <div class="spot-body"><span class="spot-num">04</span><h3 class="h3" data-i18n="spot.taube">Otterön och Taube</h3><p data-i18n="spot.taubeT">Evert Taube sommarbodde gärna på Otterön, där visan "Så länge skutan kan gå" kom till. I dag är ön ett naturreservat med skalbankar och orkidéer.</p></div>
       </article>
     </div>
@@ -329,7 +335,7 @@
   <!-- Booking -->
   <section class="section book" id="boka" aria-labelledby="book-title">
     <div class="book-bg ph" style="--ph: linear-gradient(180deg, #1E3440, #0E1820)" aria-hidden="true">
-      <img data-parallax loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/uwbajDCODj4/download?force=true&amp;w=2400" alt="">
+      <img data-parallax loading="lazy" decoding="async" src="img/pier.webp" alt="">
     </div>
     <div class="container book-grid">
       <div class="book-intro">
