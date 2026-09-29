@@ -60,13 +60,13 @@
     splits.push(heroSplit);
     gsap.set([".hero-inner", ".hero-meta"], { opacity: 1 });
     intro
-      .fromTo(".hero-img", { scale: 1.18 }, { scale: 1, duration: 2.6, ease: "expo.out" }, seen ? 0 : "-=1.1")
+      .fromTo(".slides", { scale: 1.12 }, { scale: 1, duration: 2.6, ease: "expo.out" }, seen ? 0 : "-=1.1")
       .from(heroSplit.lines, { yPercent: 110, duration: 1.5, stagger: 0.12 }, "<0.15")
       .from([".hero-eyebrow", ".hero-sub", ".hero-book"], { opacity: 0, y: 24, duration: 1.2, stagger: 0.1 }, "<0.3")
-      .from(".hero-meta", { opacity: 0, duration: 1 }, "<0.4");
+      .from([".hero-meta", ".hero-slides-ui"], { opacity: 0, duration: 1 }, "<0.4");
 
     // Hero parallax as you leave it
-    gsap.to(".hero-img", { yPercent: 12, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+    gsap.to(".slides", { yPercent: 12, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
     gsap.to(".hero-inner", { yPercent: -18, opacity: 0.2, ease: "none", scrollTrigger: { trigger: ".hero", start: "40% top", end: "bottom top", scrub: true } });
 
     // Headings: masked line reveals

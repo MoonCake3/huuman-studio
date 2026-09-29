@@ -23,7 +23,7 @@ const EN = {
   "book.arrive": "Arrival", "book.depart": "Departure", "book.pick": "Choose dates",
   "intro.eyebrow": "Come on in",
   "intro.text": "A small, family-run guesthouse in the middle of Grebbestad. Park the car, pocket the key and forget about it. The pier, the fish, the ice cream and the sunset over the fjord are all a few minutes' walk away.",
-  "facts.rooms": "rooms, each with its own calm", "facts.in": "check-in, check-out 10:30", "facts.oyster": "of Sweden's oysters come from here and Tanum", "facts.car": "cars needed once you are here",
+  "facts.rooms": "rooms, each with its own calm", "facts.since": "the year the family started welcoming guests, season after season", "facts.call": "call whenever suits you, we answer around the clock", "facts.oyster": "of Sweden's oysters come from here and Tanum", 
   "house.eyebrow": "The house", "house.title": "Simple, clean <em>and warm.</em>",
   "house.lead": "The rooms are light and bright, with made beds, towels and a TV. The bathrooms are shared, the kitchen is shared, and on the terrace guests happily share tips on tonight's best table on the pier.",
   "house.sign": "Personal service, every summer.",
@@ -34,15 +34,15 @@ const EN = {
   "room.triple.count": "3 rooms", "room.triple.name": "The triple room", "room.triple.text": "Room for three, perfect for a small family or friends heading out to the restaurants on the pier.", "room.triple.beds": "3 beds",
   "room.bunk.count": "3 rooms", "room.bunk.name": "The bunk room", "room.bunk.text": "Smart and good value. The kids fight over the top bunk, the grown-ups win more time in the sun.", "room.bunk.beds": "Bunk bed",
   "room.four.count": "1 room", "room.four.name": "The four-bed room", "room.four.text": "Our largest room. The whole party under one roof, right in town.", "room.four.beds": "4 beds", "room.four.guests": "4 guests",
-  "room.two": "2 guests", "room.three": "3 guests", "room.pick": "Choose this room",
+  "room.two": "2 guests", "room.from": "from", "rooms.note": "Guide prices per room and night in high season. Children under 6 stay free. You get the exact price in our reply.", "film.eyebrow": "Grebbestad in pictures", "film.title": "The streets around <em>Nedre Långgatan.</em>", "q7": "Are there house rules?", "a7": "Just a few: no pets, no smoking, and out of respect for other guests it is quiet after 22:30.", "room.three": "3 guests", "room.pick": "Choose this room",
   "rooms.group.eyebrow": "The whole house", "rooms.group.title": "Coming as <em>a crowd?</em>", "rooms.group.text": "A wedding, a family reunion or a sailing crew. Ask about several rooms or the whole house.", "rooms.group.cta": "Ask about groups",
   "inc.eyebrow": "Included in your stay", "inc.title": "Everything you need. <em>Nothing you don't.</em>",
   "inc.linen": "Made up and ready", "inc.linenT": "Bed linen and towels are included. Bring sunscreen, we take care of the rest.",
-  "inc.kitchen": "Shared kitchen", "inc.kitchenT": "Cook the prawns from the fish shop or brew your morning coffee at your own pace.",
+  "inc.kitchen": "Full kitchen", "inc.kitchenT": "Make breakfast, cook the prawns from the fish shop or brew your morning coffee at your own pace.",
   "inc.terrace": "The terrace", "inc.terraceT": "The evening meeting place. A glass, a book, one last moment in the sun.",
-  "inc.wifi": "Free wifi", "inc.wifiT": "Fast enough for the postcard on Instagram, if you really must.",
-  "inc.tv": "TV and wardrobe", "inc.tvT": "In every room, for rainy afternoons and luggage that somehow grew.",
-  "inc.parking": "Parking", "inc.parkingT": "Private parking can be arranged for a fee. Mention it in your request.",
+  "inc.wifi": "Wifi and TV", "inc.wifiT": "Wireless internet and a TV in every room, for rainy afternoons.",
+  "inc.vip": "The VIP card", "inc.vipT": "Discounted prices at selected restaurants in Grebbestad. Included for everyone staying with us.",
+  "inc.parking": "Parking", "inc.parkingT": "Parking is arranged when possible. Mention it in your request and we will hold a space.",
   "inc.note": "Bathrooms are shared between rooms and kept spotless. Check-in from 14:00, check-out by 10:30. Let us know roughly when you expect to arrive.",
   "greb.eyebrow": "The town", "greb.title": "Grebbestad, <em>for real.</em>",
   "greb.lead": "The fishing village that became Sweden's oyster capital. The trawlers still lie in the harbour, the restaurants crowd along the pier and the granite rocks soak up the sun all afternoon.",
@@ -119,6 +119,7 @@ function applyLang(next, initial) {
   renderCalendar();
   updateSummary();
   tickLive();
+  if (typeof slideshow !== "undefined") slideshow.label();
   if (!initial) document.dispatchEvent(new CustomEvent("rmis:lang"));
 }
 q("[data-lang-toggle]").addEventListener("click", () => applyLang(lang === "sv" ? "en" : "sv"));
@@ -129,6 +130,44 @@ qa(".ph img").forEach(img => {
   if (img.complete && img.naturalWidth === 0 && img.currentSrc) miss();
   img.addEventListener("error", miss);
 });
+
+/* ---------- Hero slideshow ---------- */
+const slideshow = (() => {
+  const slides = qa(".slide");
+  const ui = q(".hero-slides-ui");
+  const bars = qa(".hs-bars button");
+  const num = q("[data-slide-num]");
+  const place = q("[data-slide-place]");
+  const MS = 6500;
+  let i = 0, timer = null, visible = true;
+  ui.style.setProperty("--slide-ms", MS + "ms");
+  function show(n) {
+    const prev = slides[i];
+    i = (n + slides.length) % slides.length;
+    if (prev !== slides[i]) {
+      prev.classList.remove("is-active");
+      prev.classList.add("is-leaving");
+      setTimeout(() => prev.classList.remove("is-leaving"), 1900);
+    }
+    const img = slides[i].querySelector("img");
+    img.style.animation = "none"; void img.offsetWidth; img.style.animation = "";
+    slides[i].classList.add("is-active");
+    bars.forEach((b, k) => { b.classList.toggle("done", k < i); b.classList.remove("on"); });
+    void bars[i].offsetWidth;
+    bars[i].classList.add("on");
+    num.textContent = String(i + 1).padStart(2, "0");
+    label();
+  }
+  function label() { place.textContent = slides[i].dataset[lang === "en" ? "placeEn" : "placeSv"]; }
+  function play() { stop(); if (!reduceMotion && visible && !document.hidden) { timer = setInterval(() => show(i + 1), MS); ui.classList.remove("paused"); } }
+  function stop() { clearInterval(timer); timer = null; ui.classList.add("paused"); }
+  bars.forEach((b, k) => b.addEventListener("click", () => { show(k); play(); }));
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; visible ? play() : stop(); }).observe(q(".hero"));
+  document.addEventListener("visibilitychange", () => (document.hidden ? stop() : play()));
+  show(0);
+  play();
+  return { label };
+})();
 
 /* ---------- Nav, menu, progress, dock ---------- */
 const navWrap = q(".nav-wrap");
