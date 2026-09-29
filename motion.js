@@ -203,7 +203,7 @@
     gsap.from(devs[0], { yPercent: 18, rotateX: 14, autoAlpha: 0, transformPerspective: 1400, duration: 1.6, ease: "expo.out", scrollTrigger: { trigger: ".story", start: "top 60%", once: true } });
     // The concept homepage scrolls itself while the first service is read
     const mini = q(".props .mini"), view = q(".props .dev-view");
-    if (mini && view) gsap.to(mini, { y: () => -(mini.scrollHeight - view.clientHeight), ease: "none", scrollTrigger: { trigger: ".story-steps .service", start: "top center", end: "bottom center", scrub: 1, invalidateOnRefresh: true } });
+    if (mini && view) gsap.to(mini, { y: () => -(mini.scrollHeight - view.clientHeight), ease: "none", scrollTrigger: { trigger: ".story-steps .service", start: "top 25%", end: "bottom center", scrub: 1, invalidateOnRefresh: true } });
   });
 
   // Concierge at night: the room settles, the phone rises out of perspective

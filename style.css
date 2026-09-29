@@ -807,3 +807,26 @@ dialog.film.is-ended .film-cta { pointer-events: auto; }
 [hidden] { display: none !important; }
 
 .invite .lead { color: rgba(237, 230, 218, 0.86); }
+
+/* v5.1 craft fixes from the close-up review */
+.dev-book { padding: 24px; }
+.book-row { font-size: 3.4cqw; }
+.book-note { font-size: 3.2cqw; }
+.props .dev-phone { top: 50%; }
+.dev-chat { flex: none; justify-content: flex-start; padding: 5cqw 2cqw 6cqw; }
+.dev-day { align-self: center; font-size: 3.8cqw; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 1cqw; }
+.dev-typing { display: flex; gap: 1.6cqw; align-items: center; padding: 4.4cqw 5cqw; }
+.dev-typing i { width: 1.8cqw; height: 1.8cqw; border-radius: 9999px; background: var(--muted); animation: blink 1.2s var(--ease) infinite; }
+.dev-typing i:nth-child(2) { animation-delay: 0.15s; }
+.dev-typing i:nth-child(3) { animation-delay: 0.3s; }
+.dev-chips { padding-top: 2cqw; }
+.service-device .dev-phone { aspect-ratio: auto; }
+@media (max-width: 1023px) {
+  .invite-bg, .invite-shade { height: 52svh; }
+  .invite > .container { padding-top: 26svh; }
+}
+@media (prefers-reduced-motion: reduce) { .dev-typing i { animation: none; } }
+
+/* The outgoing language leaves before the next one arrives, so the scripts never overlap */
+.mini-lang { transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); }
+.mini-lang.is-on { transition-duration: 0.9s; transition-delay: 0.45s; }
