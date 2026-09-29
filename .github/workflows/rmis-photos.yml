@@ -23,16 +23,22 @@ jobs:
           out=rum-mitt-i-stan/img
           mkdir -p "$out"
           missing=0
+          ua="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36"
           fetch() { # id name width [extra params]
-            loc=$(curl -sS -o /dev/null -w '%{redirect_url}' "https://unsplash.com/photos/$1/download?force=true")
-            base="${loc%%\?*}"
-            if [ -z "$base" ]; then echo "::error::no redirect for $2 ($1)"; missing=$((missing + 1)); return; fi
+            # The photo page's og:image is a public images.unsplash.com URL we can resize
+            og=$(curl -sSL -A "$ua" "https://unsplash.com/photos/$1" | grep -oE '<meta[^>]+property="og:image"[^>]+>' | grep -oE 'https://[^"]+' | head -n1 | sed 's/&amp;/\&/g')
+            base="${og%%\?*}"
+            echo "id $1 og: ${og:0:140}"
+            case "$base" in
+              https://images.unsplash.com/*) ;;
+              *) echo "::error::no public image for $2 ($1): '$base'"; missing=$((missing + 1)); return ;;
+            esac
             ext=webp; params="w=$3&q=78&fm=webp"
             if [ -n "${4:-}" ]; then ext=jpg; params="w=$3&q=80&$4"; fi
-            if curl -fsSL "$base?$params" -o "$out/$2.$ext"; then
-              echo "ok $2.$ext $(wc -c < "$out/$2.$ext") bytes <- $base"
+            if curl -fsSL -A "$ua" "$base?$params" -o "$out/$2.$ext"; then
+              echo "ok $2.$ext $(wc -c < "$out/$2.$ext") bytes"
             else
-              echo "::error::download failed for $2 ($1)"; missing=$((missing + 1))
+              echo "::error::download failed for $2 ($1) from $base"; missing=$((missing + 1))
             fi
           }
           fetch tVqQSfXQ_SI hero-1080 1080
