@@ -67,7 +67,7 @@ const EN = {
   "q4": "Is there parking?", "a4": "Private parking can be arranged for an extra fee. Mention it in your request and we will reserve a space if one is available.",
   "q5": "Are bed linen and towels included?", "a5": "Yes, in every room. The beds are made when you arrive.",
   "q6": "Can we cook our own food?", "a6": "Absolutely. There is a shared kitchen for guests, and the fish shops in the harbour are a short walk away.",
-  "ft.find": "Find us", "ft.map": "Open in maps", "ft.contact": "Contact", "ft.times": "Times", "ft.in": "Check-in 14:00", "ft.out": "Check-out 10:30", "ft.photo": "Scenery photos: Unsplash",
+  "ft.find": "Find us", "ft.map": "Open in maps", "ft.contact": "Contact", "ft.times": "Times", "ft.in": "Check-in 14:00", "ft.out": "Check-out 10:30", "ft.photo": "Photo credits", "ft.photoNote": "Photos from Wikimedia Commons, used under their respective licences. Images have been resized.",
   "dock.label": "Your dates"
 };
 const UI = {
