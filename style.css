@@ -830,3 +830,8 @@ dialog.film.is-ended .film-cta { pointer-events: auto; }
 /* The outgoing language leaves before the next one arrives, so the scripts never overlap */
 .mini-lang { transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); }
 .mini-lang.is-on { transition-duration: 0.9s; transition-delay: 0.45s; }
+
+/* Booking: the Google Meet appointment page */
+.form-alt { margin: 0; text-align: center; font-size: 14px; line-height: 20px; color: rgba(19, 18, 9, 0.65); }
+.form-alt a { color: #131209; text-decoration: underline; text-underline-offset: 4px; }
+.form-thanks .btn { justify-self: center; margin-top: 12px; }
