@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rum mitt i stan · Grebbestad</title>
+<meta name="description" content="Tio ljusa rum mitt i Grebbestad, på Nedre Långgatan ett stenkast från bryggan. Välj datum, skicka en förfrågan och vi bekräftar personligen.">
+<!-- Concept build by HUUMAN Studio. Keep out of search until the owners publish it on their own domain. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0E1820">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rum mitt i stan · Grebbestad">
+<meta property="og:description" content="Tio rum på Nedre Långgatan. Ostronen, bryggan och kvällssolen, allt inom gångavstånd.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  // Decide on cinematic mode before first paint, so the intro never flashes
+  try {
+    var d = document.documentElement;
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches && !/still/.test(location.search)) {
+      d.classList.add("motion");
+      try { if (sessionStorage.getItem("rmis-intro")) d.classList.add("intro-seen"); } catch (e) {}
+      setTimeout(function () { if (!window.gsap) d.classList.remove("motion"); }, 5000);
+    }
+  } catch (e) {}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "Rum mitt i stan",
+  "description": "Familjedrivet rumshotell med tio rum mitt i Grebbestad.",
+  "telephone": "+46709997037",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Nedre Långgatan 39",
+    "postalCode": "457 72",
+    "addressLocality": "Grebbestad",
+    "addressCountry": "SE"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 58.6917, "longitude": 11.2525 },
+  "checkinTime": "14:00",
+  "checkoutTime": "10:30",
+  "numberOfRooms": 10,
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Delat kök", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Terrass", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Gratis wifi", "value": true }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Hoppa till innehållet</a>
+
+<!-- Preloader: the harbour line is drawn, the name rises, then the tide lifts -->
+<div class="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <p class="loader-coords"><span>58°41′ N</span><span>11°15′ E</span></p>
+    <p class="loader-word">Rum mitt i stan</p>
+    <svg class="loader-sky" viewBox="0 0 600 80" aria-hidden="true">
+      <path class="draw" d="M0 64 H600" />
+      <path class="draw" d="M150 64 V40 L166 26 L182 40 V64" />
+      <path class="draw" d="M190 64 V44 L204 32 L218 44 V64" />
+      <path class="draw" d="M226 64 V38 L244 22 L262 38 V64" />
+      <path class="draw" d="M330 64 V8 M330 16 L352 58 H312" />
+      <path class="draw" d="M420 64 V14 M420 20 L444 58 H402" />
+      <path class="draw sun" d="M500 64 A20 20 0 0 1 540 64" />
+    </svg>
+    <p class="loader-meta"><span>Grebbestad</span><span class="loader-count">000</span></p>
+  </div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"></div>
+
+<!-- Island nav -->
+<header class="nav-wrap">
+  <nav class="nav" aria-label="Huvudmeny">
+    <a href="#top" class="brand" aria-label="Rum mitt i stan, till toppen">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 24 H28 M9 24 V15 L14 10 L19 15 V24 M22 24 V6 M22 9 L28 21 H18" /></svg>
+      <span class="brand-word">Rum mitt i stan</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#rummen" data-i18n="nav.rooms">Rummen</a></li>
+      <li><a href="#grebbestad">Grebbestad</a></li>
+      <li><a href="#ingar" data-i18n="nav.stay">Vistelsen</a></li>
+      <li><a href="#fragor" data-i18n="nav.faq">Frågor</a></li>
+    </ul>
+    <button class="lang" type="button" aria-label="Byt språk till engelska" data-lang-toggle><span data-l="sv">SV</span><i></i><span data-l="en">EN</span></button>
+    <a href="#boka" class="btn btn-sm btn-sea nav-cta" data-i18n="nav.book">Boka</a>
+    <button class="burger" aria-label="Öppna menyn" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </nav>
+</header>
+<div class="menu" id="menu" aria-hidden="true">
+  <ul>
+    <li><a href="#rummen" data-i18n="nav.rooms">Rummen</a></li>
+    <li><a href="#grebbestad">Grebbestad</a></li>
+    <li><a href="#ingar" data-i18n="nav.stay">Vistelsen</a></li>
+    <li><a href="#fragor" data-i18n="nav.faq">Frågor</a></li>
+    <li><a href="#boka" class="menu-cta" data-i18n="nav.bookLong">Välj datum och boka</a></li>
+  </ul>
+  <p class="menu-foot">Nedre Långgatan 39 · 457 72 Grebbestad · <a href="tel:+46709997037">070-999 70 37</a></p>
+</div>
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="hero-media ph" style="--ph: linear-gradient(180deg, #7C98A6 0%, #B8C4C4 45%, #6D7B7F 70%, #2A3A43 100%)">
+      <img class="hero-img" data-parallax="hero"
+        src="https://unsplash.com/photos/tVqQSfXQ_SI/download?force=true&amp;w=2400"
+        srcset="https://unsplash.com/photos/tVqQSfXQ_SI/download?force=true&amp;w=1080 1080w, https://unsplash.com/photos/tVqQSfXQ_SI/download?force=true&amp;w=1920 1920w, https://unsplash.com/photos/tVqQSfXQ_SI/download?force=true&amp;w=2800 2800w"
+        sizes="100vw" alt="Trähus vid stilla vatten i Bohusläns skärgård" fetchpriority="high" referrerpolicy="no-referrer">
+    </div>
+    <div class="hero-shade"></div>
+    <div class="container hero-inner">
+      <p class="eyebrow eyebrow-light hero-eyebrow" data-i18n="hero.eyebrow">Nedre Långgatan 39 · Grebbestad</p>
+      <h1 class="hero-title"><span data-i18n-html="hero.title">Sommaren bor<br><em>mitt i stan.</em></span></h1>
+      <div class="hero-foot">
+        <p class="hero-sub" data-i18n="hero.sub">Tio ljusa rum i hjärtat av Grebbestad. Ett stenkast från bryggan, ostronen och kvällssolen över fjorden.</p>
+        <a href="#boka" class="hero-book" data-book-open>
+          <span class="hb-cell"><small data-i18n="book.arrive">Ankomst</small><b data-sum="in" data-i18n="book.pick">Välj datum</b></span>
+          <span class="hb-sep" aria-hidden="true"></span>
+          <span class="hb-cell"><small data-i18n="book.depart">Avresa</small><b data-sum="out">—</b></span>
+          <span class="hb-go"><span data-i18n="hero.cta">Förfrågan</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
+    <div class="container hero-meta">
+      <span class="hero-live"><i aria-hidden="true"></i><span data-live-time>Grebbestad</span></span>
+      <a href="#intro" class="scroll-line" aria-label="Scrolla vidare"><span></span></a>
+      <span data-sunset>58°41′ N · 11°15′ E</span>
+    </div>
+  </section>
+
+  <!-- Tide marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Ostron</span><span>Bryggan</span><span>Granithällar</span><span>Morgondopp</span><span>Evert Taube</span><span>Nedre Långgatan</span><span>Kvällssol</span><span>Otterön</span>
+      <span>Ostron</span><span>Bryggan</span><span>Granithällar</span><span>Morgondopp</span><span>Evert Taube</span><span>Nedre Långgatan</span><span>Kvällssol</span><span>Otterön</span>
+    </div>
+  </div>
+
+  <!-- Manifesto -->
+  <section class="section intro" id="intro">
+    <div class="container">
+      <p class="eyebrow" data-i18n="intro.eyebrow">Välkommen in</p>
+      <p class="manifesto" data-words data-i18n="intro.text">Ett litet, familjedrivet rumshotell mitt i Grebbestad. Parkera bilen, lägg nyckeln i fickan och glöm den. Bryggan, fisken, glassen och solnedgången över fjorden ligger alla inom några minuters promenad.</p>
+      <ul class="facts">
+        <li class="reveal"><b data-count="10">10</b><span data-i18n="facts.rooms">rum, alla med eget lugn</span></li>
+        <li class="reveal"><b>14<small>:00</small></b><span data-i18n="facts.in">incheckning, utcheckning 10:30</span></li>
+        <li class="reveal"><b data-count="90">90</b><small class="unit">%</small><span data-i18n="facts.oyster">av Sveriges ostron kommer härifrån och Tanum</span></li>
+        <li class="reveal"><b>0</b><span data-i18n="facts.car">bilar behövs när du väl är här</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Editorial split: the house -->
+  <section class="section house">
+    <div class="container house-grid">
+      <figure class="house-fig ph reveal-img" style="--ph: linear-gradient(160deg, #EFE9E1, #CFC4B4)">
+        <img data-parallax loading="lazy" decoding="async" referrerpolicy="no-referrer"
+          src="https://unsplash.com/photos/blUOsKcRk2Q/download?force=true&amp;w=1400"
+          alt="Ljust sovrum med vitt linne och fönster mot dagsljus">
+      </figure>
+      <div class="house-copy">
+        <p class="eyebrow" data-i18n="house.eyebrow">Huset</p>
+        <h2 class="h2 split" data-i18n-html="house.title">Enkelt, rent <em>och varmt.</em></h2>
+        <p class="lead reveal" data-i18n="house.lead">Rummen är lätta och ljusa, med bäddade sängar, handdukar och tv. Badrummen delas, köket delas, och på terrassen delar gästerna gärna tips om kvällens bästa bord på bryggan.</p>
+        <p class="signature reveal" data-i18n="house.sign">Personlig service, varje sommar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rooms: horizontal gallery -->
+  <section class="rooms" id="rummen" aria-labelledby="rooms-title">
+    <div class="container rooms-head">
+      <div>
+        <p class="eyebrow" data-i18n="rooms.eyebrow">Rummen · 10 st</p>
+        <h2 class="h2 split" id="rooms-title" data-i18n-html="rooms.title">Välj ditt <em>rum i stan.</em></h2>
+      </div>
+      <p class="lead reveal" data-i18n="rooms.lead">Från rummet för två till fyrbäddsrummet för hela gänget. Säg vilket du vill ha i förfrågan, så håller vi det åt dig.</p>
+    </div>
+    <div class="rooms-pin">
+      <div class="rooms-track" tabindex="0" aria-label="Rumstyper, scrolla i sidled">
+        <article class="room">
+          <figure class="room-fig ph" style="--ph: linear-gradient(160deg, #EDE6DC, #C9BDAA)">
+            <img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/Uxtsu5i_msE/download?force=true&amp;w=1200" alt="Dubbelsäng med vitt linne vid ett fönster">
+            <figcaption>01</figcaption>
+          </figure>
+          <div class="room-body">
+            <p class="room-count" data-i18n="room.double.count">2 rum</p>
+            <h3 class="h3" data-i18n="room.double.name">Dubbelrummet</h3>
+            <p class="room-text" data-i18n="room.double.text">En bred säng för två, morgonljus och havsluft genom fönstret. Vårt mest efterfrågade rum.</p>
+            <ul class="room-meta"><li data-i18n="room.double.beds">1 dubbelsäng</li><li data-i18n="room.two">2 gäster</li></ul>
+            <button class="room-pick" type="button" data-room="double"><span data-i18n="room.pick">Välj rummet</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </div>
+        </article>
+        <article class="room">
+          <figure class="room-fig ph" style="--ph: linear-gradient(160deg, #E6E2DA, #B9B3A6)">
+            <img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/asXNM_n2jNM/download?force=true&amp;w=1200" alt="Säng med vitt linne bredvid ett vitt nattduksbord">
+            <figcaption>02</figcaption>
+          </figure>
+          <div class="room-body">
+            <p class="room-count" data-i18n="room.twin.count">1 rum</p>
+            <h3 class="h3" data-i18n="room.twin.name">Tvåbäddsrummet</h3>
+            <p class="room-text" data-i18n="room.twin.text">Två enkelsängar för vänner, kollegor eller syskon som vill ha varsin kudde att landa på.</p>
+            <ul class="room-meta"><li data-i18n="room.twin.beds">2 enkelsängar</li><li data-i18n="room.two">2 gäster</li></ul>
+            <button class="room-pick" type="button" data-room="twin"><span data-i18n="room.pick">Välj rummet</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </div>
+        </article>
+        <article class="room">
+          <figure class="room-fig ph" style="--ph: linear-gradient(160deg, #E9E3D8, #C4B7A2)">
+            <img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/B2RKwf2IaJU/download?force=true&amp;w=1200" alt="Säng i ett ljust sovrum bredvid ett fönster">
+            <figcaption>03</figcaption>
+          </figure>
+          <div class="room-body">
+            <p class="room-count" data-i18n="room.triple.count">3 rum</p>
+            <h3 class="h3" data-i18n="room.triple.name">Trebäddsrummet</h3>
+            <p class="room-text" data-i18n="room.triple.text">Plats för tre, perfekt för den lilla familjen eller vännerna som ska på krogen på bryggan.</p>
+            <ul class="room-meta"><li data-i18n="room.triple.beds">3 sängar</li><li data-i18n="room.three">3 gäster</li></ul>
+            <button class="room-pick" type="button" data-room="triple"><span data-i18n="room.pick">Välj rummet</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </div>
+        </article>
+        <article class="room">
+          <figure class="room-fig ph" style="--ph: linear-gradient(160deg, #E4DFD6, #ADA595)">
+            <img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/KPjPeNFLVns/download?force=true&amp;w=1200" alt="Bäddad säng med vitt överkast">
+            <figcaption>04</figcaption>
+          </figure>
+          <div class="room-body">
+            <p class="room-count" data-i18n="room.bunk.count">3 rum</p>
+            <h3 class="h3" data-i18n="room.bunk.name">Våningssängsrummet</h3>
+            <p class="room-text" data-i18n="room.bunk.text">Smart och prisvärt. Barnen slåss om överslafen, ni vuxna vinner tid i solen.</p>
+            <ul class="room-meta"><li data-i18n="room.bunk.beds">Våningssäng</li><li data-i18n="room.two">2 gäster</li></ul>
+            <button class="room-pick" type="button" data-room="bunk"><span data-i18n="room.pick">Välj rummet</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </div>
+        </article>
+        <article class="room">
+          <figure class="room-fig ph" style="--ph: linear-gradient(160deg, #E8E4DD, #B5AEA2)">
+            <img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/8qNuR1lIv_k/download?force=true&amp;w=1200" alt="Vitt sänglinne på en bäddad säng">
+            <figcaption>05</figcaption>
+          </figure>
+          <div class="room-body">
+            <p class="room-count" data-i18n="room.four.count">1 rum</p>
+            <h3 class="h3" data-i18n="room.four.name">Fyrbäddsrummet</h3>
+            <p class="room-text" data-i18n="room.four.text">Vårt största rum. Hela sällskapet under samma tak, mitt i stan.</p>
+            <ul class="room-meta"><li data-i18n="room.four.beds">4 sängar</li><li data-i18n="room.four.guests">4 gäster</li></ul>
+            <button class="room-pick" type="button" data-room="four"><span data-i18n="room.pick">Välj rummet</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </div>
+        </article>
+        <article class="room room-end">
+          <div class="room-end-inner">
+            <p class="eyebrow eyebrow-light" data-i18n="rooms.group.eyebrow">Hela huset</p>
+            <p class="room-end-title" data-i18n-html="rooms.group.title">Kommer ni <em>många?</em></p>
+            <p data-i18n="rooms.group.text">Bröllop, släktträff eller seglarlag. Fråga om flera rum eller hela huset.</p>
+            <button class="btn btn-linen" type="button" data-room="group"><span data-i18n="rooms.group.cta">Fråga om grupp</span></button>
+          </div>
+        </article>
+      </div>
+      <div class="container rooms-progress" aria-hidden="true"><span><i></i></span></div>
+    </div>
+  </section>
+
+  <!-- Included -->
+  <section class="section included" id="ingar">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow" data-i18n="inc.eyebrow">Ingår i vistelsen</p>
+        <h2 class="h2 split" data-i18n-html="inc.title">Allt du behöver. <em>Inget du inte behöver.</em></h2>
+      </div>
+      <ul class="inc-grid">
+        <li class="inc reveal"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 28h28M8 28V18h24v10M12 18v-4h16v4"/></svg><h3 data-i18n="inc.linen">Bäddat och klart</h3><p data-i18n="inc.linenT">Sänglinne och handdukar ingår. Kom med solkräm, resten fixar vi.</p></li>
+        <li class="inc reveal"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 8v24M16 8v8a3 3 0 0 1-6 0M26 8c-3 0-4 4-4 8s1 5 4 5v11"/></svg><h3 data-i18n="inc.kitchen">Delat kök</h3><p data-i18n="inc.kitchenT">Koka räkorna från fiskeboden eller brygg morgonkaffet i egen takt.</p></li>
+        <li class="inc reveal"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="16" r="6"/><path d="M20 4v3M20 25v3M8 16h3M29 16h3M6 34h28"/></svg><h3 data-i18n="inc.terrace">Terrassen</h3><p data-i18n="inc.terraceT">Kvällens samlingsplats. Ett glas, en bok, en sista stund i solen.</p></li>
+        <li class="inc reveal"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 16a20 20 0 0 1 28 0M11 21a13 13 0 0 1 18 0M16 26a6 6 0 0 1 8 0"/><circle cx="20" cy="31" r="1.5"/></svg><h3 data-i18n="inc.wifi">Fritt wifi</h3><p data-i18n="inc.wifiT">Snabbt nog för vykortet på Instagram, om du nu måste.</p></li>
+        <li class="inc reveal"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="9" width="28" height="18" rx="2"/><path d="M14 33h12M20 27v6"/></svg><h3 data-i18n="inc.tv">Tv och garderob</h3><p data-i18n="inc.tvT">I varje rum, för regniga eftermiddagar och packningen som växte.</p></li>
+        <li class="inc reveal"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 30V12h13a6 6 0 0 1 0 12H8"/><path d="M4 34h32"/></svg><h3 data-i18n="inc.parking">Parkering</h3><p data-i18n="inc.parkingT">Privat parkering kan ordnas mot tillägg. Säg till i förfrågan.</p></li>
+      </ul>
+      <p class="inc-note reveal" data-i18n="inc.note">Badrummen delas mellan rummen och hålls skinande rena. Incheckning från 14:00, utcheckning senast 10:30. Berätta gärna när du tror att du kommer.</p>
+    </div>
+  </section>
+
+  <!-- Grebbestad: cinematic panels -->
+  <section class="greb" id="grebbestad">
+    <div class="greb-hero ph" style="--ph: linear-gradient(180deg, #5E7784, #A8B5B5 55%, #3B4A50)">
+      <img data-parallax loading="lazy" decoding="async" referrerpolicy="no-referrer"
+        src="https://unsplash.com/photos/M938IAHCX_k/download?force=true&amp;w=2400"
+        alt="Båtar i en hamn med hus och träd">
+      <div class="greb-shade"></div>
+      <div class="container greb-hero-inner">
+        <p class="eyebrow eyebrow-light" data-i18n="greb.eyebrow">Orten</p>
+        <h2 class="greb-title split" data-i18n-html="greb.title">Grebbestad, <em>på riktigt.</em></h2>
+        <p class="greb-lead" data-i18n="greb.lead">Fiskelägret som blev Sveriges ostronhuvudstad. Trålarna ligger kvar i hamnen, restaurangerna trängs längs bryggan och granithällarna värms av solen hela eftermiddagen.</p>
+      </div>
+    </div>
+
+    <div class="container greb-list">
+      <article class="spot reveal">
+        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #D9DCD6, #8F9A96)"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/GZBImaVAQYc/download?force=true&amp;w=1200" alt="Ostron på is med citronklyftor"></figure>
+        <div class="spot-body"><span class="spot-num">01</span><h3 class="h3" data-i18n="spot.oyster">Ostronen</h3><p data-i18n="spot.oysterT">Ungefär nio av tio svenska ostron kommer från Grebbestad och Tanum. Ostronakademin har sitt säte här, och säsongen är som bäst under månaderna med R.</p></div>
+      </article>
+      <article class="spot reveal">
+        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #A6503C, #5C2A20)"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/ca0iXBA7AZc/download?force=true&amp;w=1200" alt="Röd sjöbod vid vattnet"></figure>
+        <div class="spot-body"><span class="spot-num">02</span><h3 class="h3" data-i18n="spot.pier">Bryggan</h3><p data-i18n="spot.pierT">Grebbestads långa brygga med fiskrestauranger, sjöbodar och båtar. Allt ligger en kort promenad från Nedre Långgatan.</p></div>
+      </article>
+      <article class="spot reveal">
+        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #B9C6CC, #50636C)"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/O79o-5hEO6g/download?force=true&amp;w=1200" alt="Badstege i trä som leder ner i stilla vatten"></figure>
+        <div class="spot-body"><span class="spot-num">03</span><h3 class="h3" data-i18n="spot.swim">Morgondoppet</h3><p data-i18n="spot.swimT">Hällar, badstegar och Kolholmens sandstrand en kort cykeltur bort. Västerhavet är kallt, klart och helt oemotståndligt.</p></div>
+      </article>
+      <article class="spot reveal">
+        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #E3B98A, #6B4A3A)"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/eUeK1pD7fH0/download?force=true&amp;w=1200" alt="Solnedgång över havet med klippor i förgrunden"></figure>
+        <div class="spot-body"><span class="spot-num">04</span><h3 class="h3" data-i18n="spot.taube">Otterön och Taube</h3><p data-i18n="spot.taubeT">Evert Taube sommarbodde gärna på Otterön, där visan "Så länge skutan kan gå" kom till. I dag är ön ett naturreservat med skalbankar och orkidéer.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="section quote">
+    <div class="container">
+      <svg class="quote-wave" viewBox="0 0 240 24" aria-hidden="true"><path d="M0 12 Q15 0 30 12 T60 12 T90 12 T120 12 T150 12 T180 12 T210 12 T240 12"/></svg>
+      <p class="quote-text split" data-i18n-html="quote.text">Det gästerna nämner först? <em>Läget.</em> Sedan servicen. Sedan hur rent det är.</p>
+      <p class="quote-by reveal" data-i18n="quote.by">Återkommande teman i gästernas omdömen</p>
+    </div>
+  </section>
+
+  <!-- Booking -->
+  <section class="section book" id="boka" aria-labelledby="book-title">
+    <div class="book-bg ph" style="--ph: linear-gradient(180deg, #1E3440, #0E1820)" aria-hidden="true">
+      <img data-parallax loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://unsplash.com/photos/uwbajDCODj4/download?force=true&amp;w=2400" alt="">
+    </div>
+    <div class="container book-grid">
+      <div class="book-intro">
+        <p class="eyebrow eyebrow-light" data-i18n="book.eyebrow">Boka ditt rum</p>
+        <h2 class="h2 split" id="book-title" data-i18n-html="book.title">Välj dagar. <em>Vi sköter resten.</em></h2>
+        <ol class="steps">
+          <li class="reveal"><span>01</span><div><b data-i18n="step1">Välj datum</b><p data-i18n="step1T">Ankomst och avresa i kalendern.</p></div></li>
+          <li class="reveal"><span>02</span><div><b data-i18n="step2">Skicka förfrågan</b><p data-i18n="step2T">Den landar direkt hos oss som ett mejl.</p></div></li>
+          <li class="reveal"><span>03</span><div><b data-i18n="step3">Vi bekräftar</b><p data-i18n="step3T">Vi svarar personligen med pris och betalning. Rummet är ditt när betalningen är gjord.</p></div></li>
+          <li class="reveal"><span>04</span><div><b data-i18n="step4">Välkommen</b><p data-i18n="step4T">Incheckning från 14:00 på Nedre Långgatan 39.</p></div></li>
+        </ol>
+        <p class="book-call"><span data-i18n="book.call">Hellre ringa?</span> <a href="tel:+46709997037">070-999 70 37</a></p>
+      </div>
+
+      <form class="book-card" id="book-form" novalidate>
+        <div class="book-fields">
+          <div class="cal" id="cal">
+            <div class="cal-head">
+              <button type="button" class="cal-nav" data-cal="prev" aria-label="Föregående månad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+              <p class="cal-hint" aria-live="polite" data-cal-hint>Välj ankomstdag</p>
+              <button type="button" class="cal-nav" data-cal="next" aria-label="Nästa månad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+            </div>
+            <div class="cal-months" data-cal-months></div>
+          </div>
+
+          <div class="sum" aria-live="polite">
+            <div class="sum-cell"><small data-i18n="book.arrive">Ankomst</small><b data-sum="in">—</b></div>
+            <div class="sum-nights"><span data-sum="nights">0</span><small data-sum="nightsLabel">nätter</small></div>
+            <div class="sum-cell sum-right"><small data-i18n="book.depart">Avresa</small><b data-sum="out">—</b></div>
+          </div>
+          <p class="err err-dates" data-err="dates" role="alert"></p>
+
+          <div class="row">
+            <div class="field">
+              <label for="f-guests" data-i18n="f.guests">Gäster</label>
+              <div class="stepper">
+                <button type="button" data-step="-1" aria-label="Färre gäster">−</button>
+                <input id="f-guests" name="guests" type="number" min="1" max="20" value="2" inputmode="numeric">
+                <button type="button" data-step="1" aria-label="Fler gäster">+</button>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-room" data-i18n="f.room">Rum</label>
+              <select id="f-room" name="room">
+                <option value="any" data-i18n="opt.any">Spelar ingen roll</option>
+                <option value="double" data-i18n="room.double.name">Dubbelrummet</option>
+                <option value="twin" data-i18n="room.twin.name">Tvåbäddsrummet</option>
+                <option value="triple" data-i18n="room.triple.name">Trebäddsrummet</option>
+                <option value="bunk" data-i18n="room.bunk.name">Våningssängsrummet</option>
+                <option value="four" data-i18n="room.four.name">Fyrbäddsrummet</option>
+                <option value="group" data-i18n="opt.group">Flera rum eller grupp</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-name" data-i18n="f.name">Namn</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+            <p class="err" role="alert"></p>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="f-email" data-i18n="f.email">E-post</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required>
+              <p class="err" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="f-phone"><span data-i18n="f.phone">Telefon</span> <i data-i18n="f.optional">valfritt</i></label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-msg"><span data-i18n="f.msg">Meddelande</span> <i data-i18n="f.optional">valfritt</i></label>
+            <textarea id="f-msg" name="message" rows="2" data-i18n-ph="f.msgPh" placeholder="Parkering, sen ankomst, en fråga om ostronen…"></textarea>
+          </div>
+          <button class="btn btn-linen btn-full" type="submit"><span data-i18n="f.submit">Skicka bokningsförfrågan</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="book-fine" data-i18n="f.fine">Förfrågan är gratis och inte bindande. Bokningen är bekräftad när du fått vårt svar och betalningen är gjord.</p>
+        </div>
+
+        <div class="book-thanks" hidden tabindex="-1">
+          <svg class="thanks-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30"/><path d="M20 33l8 8 16-18"/></svg>
+          <p class="thanks-title" data-thanks-title>Tack! Din förfrågan är på väg.</p>
+          <p class="thanks-text" data-thanks-text>Ditt mejlprogram öppnades med förfrågan ifylld. Tryck på skicka där, så svarar vi personligen med pris och betalning.</p>
+          <p class="thanks-sum" data-thanks-sum></p>
+          <button type="button" class="thanks-again" data-again data-i18n="f.again">Ändra förfrågan</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="fragor">
+    <div class="container faq-grid">
+      <div>
+        <p class="eyebrow" data-i18n="faq.eyebrow">Frågor och svar</p>
+        <h2 class="h2 split" data-i18n-html="faq.title">Bra att <em>veta.</em></h2>
+      </div>
+      <div class="faq-list">
+        <details class="qa reveal"><summary data-i18n="q1">Hur fungerar bokningen?</summary><div class="qa-a"><p data-i18n="a1">Du väljer datum och skickar en förfrågan. Vi kollar tillgängligheten och svarar personligen med pris och hur du betalar. När betalningen är gjord är rummet ditt.</p></div></details>
+        <details class="qa reveal"><summary data-i18n="q2">När kan jag checka in och ut?</summary><div class="qa-a"><p data-i18n="a2">Incheckning från 14:00 och utcheckning senast 10:30. Berätta gärna i förväg ungefär när du kommer, så möter vi dig.</p></div></details>
+        <details class="qa reveal"><summary data-i18n="q3">Har rummen eget badrum?</summary><div class="qa-a"><p data-i18n="a3">Nej, badrummen delas mellan rummen. De städas och hålls rena hela säsongen, något gästerna ofta lyfter fram.</p></div></details>
+        <details class="qa reveal"><summary data-i18n="q4">Finns det parkering?</summary><div class="qa-a"><p data-i18n="a4">Privat parkering kan ordnas mot en extra kostnad. Skriv det i förfrågan, så reserverar vi en plats om det finns.</p></div></details>
+        <details class="qa reveal"><summary data-i18n="q5">Ingår sänglinne och handdukar?</summary><div class="qa-a"><p data-i18n="a5">Ja, i alla rum. Sängarna är bäddade när du kommer.</p></div></details>
+        <details class="qa reveal"><summary data-i18n="q6">Kan vi laga egen mat?</summary><div class="qa-a"><p data-i18n="a6">Absolut. Det finns ett gemensamt kök för gästerna, och fiskebodarna i hamnen ligger en kort promenad bort.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p class="footer-word" aria-hidden="true">Rum mitt i stan</p>
+    <div class="footer-grid">
+      <div>
+        <p class="eyebrow eyebrow-light" data-i18n="ft.find">Hitta hit</p>
+        <p>Nedre Långgatan 39<br>457 72 Grebbestad</p>
+        <a class="ft-link" href="https://www.google.com/maps/search/?api=1&amp;query=Nedre+L%C3%A5nggatan+39+Grebbestad" target="_blank" rel="noopener" data-i18n="ft.map">Öppna i kartan</a>
+      </div>
+      <div>
+        <p class="eyebrow eyebrow-light" data-i18n="ft.contact">Kontakt</p>
+        <p><a href="tel:+46709997037">070-999 70 37</a></p>
+        <a class="ft-link" href="https://www.facebook.com/rummittistan/" target="_blank" rel="noopener">Facebook</a>
+      </div>
+      <div>
+        <p class="eyebrow eyebrow-light" data-i18n="ft.times">Tider</p>
+        <p><span data-i18n="ft.in">Incheckning 14:00</span><br><span data-i18n="ft.out">Utcheckning 10:30</span></p>
+      </div>
+      <div class="footer-cta">
+        <a href="#boka" class="btn btn-linen" data-i18n="nav.bookLong">Välj datum och boka</a>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© <span data-year>2026</span> Rum mitt i stan · Grebbestad</span>
+      <span class="footer-credit" data-i18n="ft.photo">Miljöbilder: Unsplash</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Phones: the booking action stays within thumb reach -->
+<a href="#boka" class="dock" data-book-open>
+  <span class="dock-dates"><small data-i18n="dock.label">Dina datum</small><b data-sum="range" data-i18n="book.pick">Välj datum</b></span>
+  <span class="dock-go" data-i18n="nav.book">Boka</span>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" defer></script>
+<script src="app.js" defer></script>
+<script src="motion.js" defer></script>
+</body>
+</html>

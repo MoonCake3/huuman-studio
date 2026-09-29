@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Rum mitt i stan">
+  <title>Rum mitt i stan</title>
+  <rect width="64" height="64" rx="14" fill="#0E1820"/>
+  <path d="M10 46 H54 M18 46 V30 L27 21 L36 30 V46 M42 46 V12 M42 18 L52 40 H33" fill="none" stroke="#F3EEE6" stroke-width="2.6" stroke-linejoin="round"/>
+  <path d="M18 46 V30 L27 21 L36 30 V46" fill="#A2412E"/>
+</svg>
