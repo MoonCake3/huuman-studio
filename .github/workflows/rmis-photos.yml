@@ -1,0 +1,62 @@
+# Rum mitt i stan: download the scenery photos from Unsplash as optimised WebP
+# and commit them into rum-mitt-i-stan/img, so the site serves its own images.
+name: Rum mitt i stan photos
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/rmis-photos.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  photos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download photos
+        shell: bash
+        run: |
+          set -u
+          out=rum-mitt-i-stan/img
+          mkdir -p "$out"
+          missing=0
+          fetch() { # id name width [extra params]
+            loc=$(curl -sS -o /dev/null -w '%{redirect_url}' "https://unsplash.com/photos/$1/download?force=true")
+            base="${loc%%\?*}"
+            if [ -z "$base" ]; then echo "::error::no redirect for $2 ($1)"; missing=$((missing + 1)); return; fi
+            ext=webp; params="w=$3&q=78&fm=webp"
+            if [ -n "${4:-}" ]; then ext=jpg; params="w=$3&q=80&$4"; fi
+            if curl -fsSL "$base?$params" -o "$out/$2.$ext"; then
+              echo "ok $2.$ext $(wc -c < "$out/$2.$ext") bytes <- $base"
+            else
+              echo "::error::download failed for $2 ($1)"; missing=$((missing + 1))
+            fi
+          }
+          fetch tVqQSfXQ_SI hero-1080 1080
+          fetch tVqQSfXQ_SI hero-1920 1920
+          fetch tVqQSfXQ_SI hero-2800 2800
+          fetch tVqQSfXQ_SI og 1200 "h=630&fit=crop&fm=jpg"
+          fetch blUOsKcRk2Q house 1400
+          fetch Uxtsu5i_msE room-double 1200
+          fetch asXNM_n2jNM room-twin 1200
+          fetch B2RKwf2IaJU room-triple 1200
+          fetch KPjPeNFLVns room-bunk 1200
+          fetch 8qNuR1lIv_k room-four 1200
+          fetch M938IAHCX_k harbour 2400
+          fetch GZBImaVAQYc oysters 1200
+          fetch ca0iXBA7AZc boathouse 1200
+          fetch O79o-5hEO6g swim 1200
+          fetch eUeK1pD7fH0 sunset 1200
+          fetch uwbajDCODj4 pier 2400
+          echo "missing: $missing"
+      - name: Commit photos
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add rum-mitt-i-stan/img
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git commit -m "Rum mitt i stan: add scenery photos from Unsplash"
+          git push
