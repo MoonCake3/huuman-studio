@@ -196,48 +196,42 @@
       <span>TH · EN · 中文</span>
     </div>
   </section>
-  <!-- Marquee -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Pool villas</span><span>Boutique hotels</span><span>Penthouse residences</span><span>Island resorts</span><span>Wellness retreats</span><span>Private estates</span><span>Luxury real estate</span>
-      <span>Pool villas</span><span>Boutique hotels</span><span>Penthouse residences</span><span>Island resorts</span><span>Wellness retreats</span><span>Private estates</span><span>Luxury real estate</span>
-    </div>
-  </div>
-
-  <!-- Problem -->
-  <section class="section" id="approach">
-    <div class="container split">
-      <div>
-        <p class="eyebrow reveal">The quiet problem</p>
-        <h2 class="h2 reveal">Your property is extraordinary. <br>Your website is where guests start to doubt it.</h2>
-      </div>
-      <div class="problems">
-        <article class="problem reveal">
-          <i class="ph-light ph-percent" aria-hidden="true"></i>
-          <div>
-            <h3>Every night sold through an OTA costs you 15 to 25 percent</h3>
-            <p>Guests find you on Instagram, then book on Agoda because your own site feels slower and less certain. The commission leaves with them.</p>
-          </div>
-        </article>
-        <article class="problem reveal">
-          <i class="ph-light ph-moon-stars" aria-hidden="true"></i>
-          <div>
-            <h3>The enquiry at 2 am goes to the property that answers first</h3>
-            <p>A family in Shanghai or Sydney writes while your team sleeps. By morning they have booked elsewhere.</p>
-          </div>
-        </article>
-        <article class="problem reveal">
-          <i class="ph-light ph-copy" aria-hidden="true"></i>
-          <div>
-            <h3>A template makes a one of a kind place look ordinary</h3>
-            <p>The same theme, the same stock layout, the same booking widget. Your guests notice, even when they cannot say why.</p>
-          </div>
-        </article>
-      </div>
+  <!-- The quiet problem, shown: your villa shrinks into one tile of a marketplace -->
+  <section class="thumb" id="approach" aria-label="The quiet problem">
+    <div class="thumb-stage">
+      <div class="thumb-grid" aria-hidden="true"></div>
+      <div class="thumb-villa" aria-hidden="true"><img src="img/villa.webp" srcset="img/villa.webp 2048w, img/villa-4k.webp 3840w" sizes="100vw" alt="" loading="lazy"><span class="thumb-cool"></span></div>
+      <p class="thumb-caption">In a marketplace, <br>your villa is a thumbnail.</p>
     </div>
   </section>
 
-  <!-- Tagline reveal (B11) -->
+  <section class="section statements-wrap" aria-labelledby="problem-title">
+    <div class="container split">
+      <div>
+        <p class="eyebrow reveal">The quiet problem</p>
+        <h2 class="h2" id="problem-title">Your property is extraordinary. <br>Your website is where guests start to doubt it.</h2>
+      </div>
+      <ol class="statements">
+        <li class="statement">
+          <span class="num">01</span>
+          <h3>Every night sold through an OTA costs you 15 to 25 percent.</h3>
+          <p>Guests find you on Instagram, then book on Agoda because your own site feels less certain. The commission leaves with them.</p>
+        </li>
+        <li class="statement">
+          <span class="num">02</span>
+          <h3>The enquiry at 2 am goes to the property that answers first.</h3>
+          <p>A family in Shanghai or Sydney writes while your team sleeps. By morning they have booked elsewhere.</p>
+        </li>
+        <li class="statement">
+          <span class="num">03</span>
+          <h3>A template makes a one of a kind place look ordinary.</h3>
+          <p>The same theme, the same layout, the same booking widget. Your guests notice, even when they cannot say why.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Tagline reveal: the last word gets the bronze U of the logo -->
   <section class="tagline" aria-label="Our promise">
     <div class="container">
       <p class="tagline-text" data-words>We do not sell websites.
@@ -245,12 +239,12 @@
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- Services: the product itself, placed in the room -->
   <section class="section" id="services">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow reveal">What we build</p>
-        <h2 class="h2 reveal">One studio for everything <br>between a first look and a booking.</h2>
+        <h2 class="h2">One studio for everything <br>between a first look and a booking.</h2>
       </div>
 
       <div class="story">
@@ -258,49 +252,87 @@
           <figure class="story-img is-active"><img src="img/lobby.webp" alt="" loading="lazy"></figure>
           <figure class="story-img"><img src="img/bedroom.webp" alt="" loading="lazy"></figure>
           <figure class="story-img"><img src="img/penthouse.webp" alt="" loading="lazy"></figure>
+          <div class="props">
+            <!-- 01 Signature website: a real miniature homepage for the concept property -->
+            <div class="dev dev-web is-active">
+              <div class="dev-bar"><i></i><i></i><i></i><span class="dev-url"><i class="ph-light ph-lock-simple"></i>Sala Verana</span><span class="dev-tag">Concept study</span></div>
+              <div class="dev-view">
+                <div class="mini">
+                  <div class="mini-nav"><b>SALA VERANA</b><span>Villas</span><span>Dining</span><span>Spa</span><span>Stay</span><em>TH · EN · 中文</em></div>
+                  <div class="mini-hero">
+                    <img src="img/cove.webp" alt="" loading="lazy">
+                    <div class="mini-hero-copy">
+                      <span class="mini-kicker">Phuket · A private cove</span>
+                      <span class="mini-head"><span class="mini-lang is-on" lang="en">Wake above the Andaman.</span><span class="mini-lang" lang="th">ตื่นเหนือทะเลอันดามัน</span><span class="mini-lang" lang="zh-Hans">在安达曼海上醒来</span></span>
+                      <span class="mini-btn">Reserve direct</span>
+                    </div>
+                  </div>
+                  <div class="mini-book"><span>Check in<b>20 Dec</b></span><span>Check out<b>24 Dec</b></span><span>Guests<b>2 adults, 3 children</b></span><span class="mini-go">Check availability</span></div>
+                  <div class="mini-title">Three villas above the sea</div>
+                  <div class="mini-rooms">
+                    <figure><img src="img/tier-start.webp" alt="" loading="lazy"><figcaption>Cliff villa</figcaption></figure>
+                    <figure><img src="img/spa.webp" alt="" loading="lazy"><figcaption>Spa pavilion</figcaption></figure>
+                    <figure><img src="img/study-tea.webp" alt="" loading="lazy"><figcaption>Garden suite</figcaption></figure>
+                  </div>
+                  <div class="mini-title">Arrive by sea, leave rested.</div>
+                  <div class="mini-foot"><b>SALA VERANA</b><span>Reserve direct, paid to the property.</span></div>
+                </div>
+              </div>
+            </div>
+            <!-- 02 Concierge teaser: one exchange and the channels it lives on -->
+            <div class="dev dev-phone">
+              <div class="dev-status"><span>02:14</span><span class="dev-island"></span><span>5G</span></div>
+              <div class="dev-head"><span class="dev-avatar">SV</span><b>Sala Verana</b><small>Concierge · online</small></div>
+              <div class="dev-chat">
+                <p class="b guest">Is the three bedroom pool villa free from 20 to 24 December?</p>
+                <p class="b bot">Yes, all four nights. Shall I hold it for you while you decide?</p>
+              </div>
+              <div class="dev-chips"><span>Website</span><span>LINE</span><span>WhatsApp</span><span>Messenger</span></div>
+            </div>
+            <!-- 03 Direct booking: the dates fill in bronze, paid to the property -->
+            <div class="dev dev-book">
+              <div class="book-tabs"><span class="is-on">Stay</span><span>Private viewing</span></div>
+              <div class="book-month">December 2026</div>
+              <div class="book-cal"></div>
+              <div class="book-row"><span>Villa Anda · 4 nights</span><span>2 adults, 3 children</span></div>
+              <div class="book-cta">Reserve direct</div>
+              <p class="book-note">Paid to the property, not a platform.</p>
+            </div>
+          </div>
           <div class="story-count"><span class="story-now">01</span><i></i><span>03</span></div>
         </div>
         <div class="story-steps">
 
       <div class="service reveal">
         <figure class="service-media" data-cursor="View"><img src="img/lobby.webp" alt="Boutique hotel lobby at night with dark lacquered wood and orchids" loading="lazy"></figure>
+        <div class="service-device" aria-hidden="true" data-dev="0"></div>
         <div class="service-body">
           <span class="num">01</span>
           <h3 class="h3">A signature website</h3>
-          <p><strong>Designed for your property alone.</strong> Editorial photography, calm typography and pages that load in under two seconds on a phone in a taxi. Built to feel like walking into your lobby.</p>
-          <ul class="ticks">
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Custom design, never a template</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Thai, English and Chinese versions</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Search visibility for the guests you want</li>
-          </ul>
+          <p><strong>Designed for your property alone.</strong> In Thai, English and Chinese, and fast on a phone in a taxi. It should feel like walking into your lobby.</p>
+          <p class="service-cap">Custom design · Three languages · Search visibility</p>
         </div>
       </div>
 
       <div class="service service-flip reveal">
         <figure class="service-media" data-cursor="View"><img src="img/bedroom.webp" alt="Villa bedroom opening onto a jungle terrace with a stone bathtub at golden hour" loading="lazy"></figure>
+        <div class="service-device" aria-hidden="true" data-dev="1"></div>
         <div class="service-body">
           <span class="num">02</span>
           <h3 class="h3">An AI concierge that never sleeps</h3>
-          <p><strong>Every enquiry answered in seconds.</strong> On your website, LINE, WhatsApp and Messenger. It knows your rooms, rates, transfers and house rules, and it hands the conversation to your team the moment a human touch matters.</p>
-          <ul class="ticks">
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Replies in the guest's own language</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Qualifies dates, budget and party size</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Your team sees every conversation</li>
-          </ul>
+          <p><strong>Every enquiry answered in seconds.</strong> On your website, LINE, WhatsApp and Messenger, then handed to your team the moment a human touch matters.</p>
+          <p class="service-cap">The guest's own language · Dates and party size collected · Every conversation visible</p>
         </div>
       </div>
 
       <div class="service reveal">
         <figure class="service-media" data-cursor="View"><img src="img/penthouse.webp" alt="Penthouse living room with floor to ceiling windows over the Bangkok skyline at night" loading="lazy"></figure>
+        <div class="service-device" aria-hidden="true" data-dev="2"></div>
         <div class="service-body">
           <span class="num">03</span>
           <h3 class="h3">Direct booking and private viewings</h3>
-          <p><strong>Guests pay you, not a platform.</strong> A booking flow that feels as considered as your service, with follow ups that bring guests back next season. For residences and estates, qualified buyers book viewings straight into your calendar.</p>
-          <ul class="ticks">
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Works with your existing booking engine</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Lead capture and gentle follow ups</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Viewing booking for luxury real estate</li>
-          </ul>
+          <p><strong>Guests pay you, not a platform.</strong> For residences and estates, qualified buyers book viewings straight into your calendar.</p>
+          <p class="service-cap">Works with your booking engine · Gentle follow ups · Viewing booking</p>
         </div>
       </div>
         </div>
@@ -308,12 +340,18 @@
     </div>
   </section>
 
-  <!-- Concierge demo -->
-  <section class="section section-alt" id="concierge">
+  <!-- Concierge demo: a night scene at the empty reception desk -->
+  <section class="section concierge-night" id="concierge">
+    <picture class="night-bg" aria-hidden="true">
+      <source media="(max-width: 767px)" srcset="img/night-v.webp">
+      <img src="img/night.webp" alt="" loading="lazy">
+    </picture>
+    <div class="night-shade" aria-hidden="true"></div>
     <div class="container split concierge">
       <div>
+        <div class="clocks reveal" aria-hidden="true"><span>Shanghai <b>03:14</b></span><span>Phuket <b>02:14</b></span></div>
         <p class="eyebrow reveal">See it answer</p>
-        <h2 class="h2 reveal">A guest writes at 02:14. <br>Your concierge replies at 02:14.</h2>
+        <h2 class="h2">A guest writes at 02:14. <br>Your concierge replies at 02:14.</h2>
         <p class="lead reveal">Choose a language and watch a real style of conversation. The concierge speaks as your property, in your tone, and passes warm leads to your reservations team.</p>
         <div class="lang reveal" role="tablist" aria-label="Conversation language">
           <button role="tab" aria-selected="true" data-lang="en">English</button>
@@ -321,114 +359,192 @@
           <button role="tab" aria-selected="false" data-lang="zh">中文</button>
         </div>
       </div>
-      <div class="phone reveal" aria-live="polite">
-        <div class="phone-top">
-          <span class="avatar">SV</span>
-          <div><strong>Sala Verana Villas</strong><small>Concierge · online</small></div>
+      <div class="phone-wrap">
+        <div class="phone reveal" aria-live="polite">
+          <div class="phone-top">
+            <span class="avatar">SV</span>
+            <div><strong>Sala Verana Villas</strong><small>Concierge · online</small></div>
+          </div>
+          <div class="chat" id="chat"></div>
         </div>
-        <div class="chat" id="chat"></div>
+        <div class="handoff" aria-hidden="true">
+          <i class="ph-light ph-arrow-bend-down-right"></i>
+          <div><b>Handed to your reservations team</b><span>Dates, party size and villa already collected.</span></div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Text parallax band -->
   <section class="words" aria-label="Who we design for">
-    <div class="words-row" data-dir="-1"><span>Pool villas</span><span class="pill"><img src="img/villa.webp" alt="" loading="lazy"></span><span>Boutique hotels</span><span class="pill"><img src="img/lobby.webp" alt="" loading="lazy"></span><span>Pool villas</span><span class="pill"><img src="img/villa.webp" alt="" loading="lazy"></span><span>Boutique hotels</span><span class="pill"><img src="img/lobby.webp" alt="" loading="lazy"></span></div>
-    <div class="words-row" data-dir="1"><span>Private residences</span><span class="pill"><img src="img/penthouse.webp" alt="" loading="lazy"></span><span>Wellness retreats</span><span class="pill"><img src="img/spa.webp" alt="" loading="lazy"></span><span>Private residences</span><span class="pill"><img src="img/penthouse.webp" alt="" loading="lazy"></span><span>Wellness retreats</span><span class="pill"><img src="img/spa.webp" alt="" loading="lazy"></span></div>
+    <div class="words-row" data-dir="-1"><span>Pool villas</span><span class="pill"><img src="img/tier-start.webp" alt="" loading="lazy"></span><span>Boutique hotels</span><span class="pill"><img src="img/tier-growth.webp" alt="" loading="lazy"></span><span>Pool villas</span><span class="pill"><img src="img/tier-start.webp" alt="" loading="lazy"></span><span>Boutique hotels</span><span class="pill"><img src="img/tier-growth.webp" alt="" loading="lazy"></span></div>
+    <div class="words-row" data-dir="1"><span>Private residences</span><span class="pill"><img src="img/study-shophouse.webp" alt="" loading="lazy"></span><span>Wellness retreats</span><span class="pill"><img src="img/study-tea.webp" alt="" loading="lazy"></span><span>Private residences</span><span class="pill"><img src="img/study-shophouse.webp" alt="" loading="lazy"></span><span>Wellness retreats</span><span class="pill"><img src="img/study-tea.webp" alt="" loading="lazy"></span></div>
   </section>
 
-  <!-- Studies -->
+  <!-- Studies: each one opens into its art direction -->
   <section class="section" id="studies">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow reveal">Studies</p>
-        <h2 class="h2 reveal">The atmosphere we design toward.</h2>
-        <p class="lead reveal">Concept studies from our atelier. Every commission starts with a mood like this, built around your property's own light and material.</p>
+        <h2 class="h2">The atmosphere we design toward.</h2>
+        <p class="lead reveal">Concept studies from our atelier. Every commission starts with a palette, a set of materials and a light, taken from your property itself.</p>
       </div>
     </div>
     <div class="studies-pin">
       <div class="studies" data-cursor="Drag">
-        <figure class="study"><div class="study-img"><img src="img/villa.webp" alt="Concept study: clifftop pool villa at dusk" loading="lazy"></div><figcaption><span>01</span>Clifftop pool villa<small>Phuket</small></figcaption></figure>
-        <figure class="study"><div class="study-img"><img src="img/spa.webp" alt="Concept study: candlelit spa room with a stone basin and frangipani" loading="lazy"></div><figcaption><span>02</span>Wellness retreat<small>Chiang Mai</small></figcaption></figure>
-        <figure class="study"><div class="study-img"><img src="img/lobby.webp" alt="Concept study: boutique hotel lobby with brass details" loading="lazy"></div><figcaption><span>03</span>Boutique hotel<small>Bangkok</small></figcaption></figure>
-        <figure class="study"><div class="study-img"><img src="img/penthouse.webp" alt="Concept study: penthouse residence overlooking the Chao Phraya river" loading="lazy"></div><figcaption><span>04</span>Riverside residence<small>Bangkok</small></figcaption></figure>
-        <figure class="study"><div class="study-img"><img src="img/bedroom.webp" alt="Concept study: jungle villa bedroom at golden hour" loading="lazy"></div><figcaption><span>05</span>Jungle pool villa<small>Koh Samui</small></figcaption></figure>
+        <figure class="study" style="--c1:#231D15;--c2:#454E4F;--c3:#57676C;--c4:#828786">
+          <div class="study-img"><img src="img/villa.webp" alt="Concept study: clifftop pool villa at dusk" loading="lazy"></div>
+          <div class="study-sheet" aria-hidden="true"><ul class="chips"><li></li><li></li><li></li><li></li></ul><p>Stone, blue hour, still water, cedar</p><span class="specimen">Aa</span></div>
+          <figcaption><span>01</span>Clifftop pool villa<small>Phuket</small><button class="study-toggle" type="button" aria-expanded="false">Palette</button></figcaption>
+        </figure>
+        <figure class="study" style="--c1:#281502;--c2:#64513B;--c3:#968167;--c4:#CCBCA1">
+          <div class="study-img"><img src="img/spa.webp" alt="Concept study: candlelit spa room with a stone basin and frangipani" loading="lazy"></div>
+          <div class="study-sheet" aria-hidden="true"><ul class="chips"><li></li><li></li><li></li><li></li></ul><p>Basalt, steam, frangipani, candlelight</p><span class="specimen">Aa</span></div>
+          <figcaption><span>02</span>Wellness retreat<small>Chiang Mai</small><button class="study-toggle" type="button" aria-expanded="false">Palette</button></figcaption>
+        </figure>
+        <figure class="study" style="--c1:#192313;--c2:#445033;--c3:#9EA39A;--c4:#D4D6CD">
+          <div class="study-img"><img src="img/study-tea.webp" alt="Concept study: open teak pavilion above a misty tea estate at dawn" loading="lazy"></div>
+          <div class="study-sheet" aria-hidden="true"><ul class="chips"><li></li><li></li><li></li><li></li></ul><p>Teak, mist, raw linen, first light</p><span class="specimen">Aa</span></div>
+          <figcaption><span>03</span>Tea estate retreat<small>Chiang Rai</small><button class="study-toggle" type="button" aria-expanded="false">Palette</button></figcaption>
+        </figure>
+        <figure class="study" style="--c1:#766B51;--c2:#97A97A;--c3:#C0C2B2;--c4:#DADACA">
+          <div class="study-img"><img src="img/study-beach.webp" alt="Concept study: beach house with a teak table under a thatched sala" loading="lazy"></div>
+          <div class="study-sheet" aria-hidden="true"><ul class="chips"><li></li><li></li><li></li><li></li></ul><p>Lime plaster, sea salt, bleached teak, noon</p><span class="specimen">Aa</span></div>
+          <figcaption><span>04</span>Beach house<small>Hua Hin</small><button class="study-toggle" type="button" aria-expanded="false">Palette</button></figcaption>
+        </figure>
+        <figure class="study" style="--c1:#21230A;--c2:#5D3F1E;--c3:#806E4A;--c4:#AA976E">
+          <div class="study-img"><img src="img/study-shophouse.webp" alt="Concept study: restored shophouse with a teak staircase and green lacquer walls" loading="lazy"></div>
+          <div class="study-sheet" aria-hidden="true"><ul class="chips"><li></li><li></li><li></li><li></li></ul><p>Green lacquer, brass, terrazzo, lamplight</p><span class="specimen">Aa</span></div>
+          <figcaption><span>05</span>Shophouse residence<small>Bangkok</small><button class="study-toggle" type="button" aria-expanded="false">Palette</button></figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- Cinema moment: image expands to full screen on scroll -->
+  <!-- Cinema moment: the frame expands and becomes a film -->
   <section class="cinema" aria-label="Designed in Thailand">
-    <div class="cinema-stage">
-      <div class="cinema-frame"><img src="img/cinema.webp" srcset="img/cinema.webp 2048w, img/cinema-4k.webp 3840w" sizes="100vw" alt="Pool villa bedroom opening onto a jungle terrace and plunge pool at golden hour"></div>
+    <div class="cinema-stage" data-cursor="Watch">
+      <div class="cinema-frame">
+        <picture><source media="(max-aspect-ratio: 1/1)" srcset="img/cinema-poster-v.webp"><img src="img/cinema-poster.webp" alt="Limestone karsts rising from still water in Phang Nga Bay at dawn"></picture>
+        <video class="cinema-video" muted loop playsinline preload="none" aria-hidden="true" data-desktop="img/cinema-loop.mp4" data-mobile="img/cinema-loop-v.mp4"></video>
+      </div>
       <p class="cinema-text">Designed in Thailand. <br>Booked from everywhere.</p>
+      <button class="film-open" type="button"><i class="ph-light ph-play"></i>Play the film</button>
     </div>
   </section>
 
-  <!-- How it works -->
-  <section class="section section-alt" id="process">
+  <dialog class="film" aria-label="HUUMAN Studio film, 15 seconds, music only">
+    <div class="film-bar film-top"><span class="film-title">HUUMAN Studio · The film</span><button class="film-sound" type="button" aria-pressed="true">Sound on</button></div>
+    <video class="film-video" playsinline preload="none" data-desktop="brand/huuman-film.mp4" data-mobile="brand/huuman-film-vertical.mp4"></video>
+    <div class="film-bar film-bottom"><span class="film-progress"><i></i></span><a href="#consult" class="film-cta">Private consultation</a><button class="film-close" type="button">Close</button></div>
+  </dialog>
+
+  <!-- How a commission unfolds, told with three objects -->
+  <section class="section" id="process">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow reveal">How a commission unfolds</p>
-        <h2 class="h2 reveal">Three steps. You decide at each one.</h2>
+        <h2 class="h2">Three steps. You decide at each one.</h2>
       </div>
-      <ol class="steps">
-        <li class="step reveal">
-          <span class="num">01</span>
-          <h3>Private audit</h3>
-          <p>We study your current site, your OTA listings and how enquiries reach you. You receive a short, honest report on where bookings are leaking. No charge.</p>
-        </li>
-        <li class="step reveal">
-          <span class="num">02</span>
-          <h3>First design, before any contract</h3>
-          <p>We design your homepage and show it to you. If it does not feel like your property, you walk away and owe nothing.</p>
-        </li>
-        <li class="step reveal">
-          <span class="num">03</span>
-          <h3>Launch and care</h3>
-          <p>We build, translate and launch, then train the concierge on your property. Each month we refine what guests ask and what they book.</p>
-        </li>
-      </ol>
+      <div class="reel">
+        <svg class="reel-line" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 C200 4 400 36 600 20 S1000 4 1200 20"/></svg>
+        <ol class="objects">
+          <li class="object">
+            <div class="artifact art-paper" aria-hidden="true">
+              <svg class="art-mono" viewBox="-6 -6 235 116"><g fill="none" stroke="currentColor" stroke-width="7"><path d="M3.5 0V100M3.5 50H75.5M75.5 0V100M75.5 64A36 36 0 0 0 147.5 64V0"/><path class="you" d="M147.5 64A36 36 0 0 0 219.5 64V0"/></g></svg>
+              <b>Private audit</b>
+              <span class="art-sub">Where bookings are leaking</span>
+              <i></i><i></i><i class="short"></i><i></i><i class="short"></i>
+              <span class="art-for">Prepared for Sala Verana</span>
+            </div>
+            <span class="num">01</span>
+            <h3>Private audit</h3>
+            <p>We study your site, your OTA listings and how enquiries reach you, then send a short, honest report. No charge.</p>
+          </li>
+          <li class="object">
+            <div class="artifact art-laptop" aria-hidden="true">
+              <div class="lap-screen">
+                <div class="lap-wire"><i class="w-nav"></i><i class="w-hero"></i><i class="w-line"></i><i class="w-line short"></i><span><i></i><i></i><i></i></span></div>
+                <div class="lap-final"><img src="img/cove.webp" alt="" loading="lazy"><b>SALA VERANA</b><em>Wake above the Andaman.</em></div>
+                <span class="lap-scan"></span>
+              </div>
+              <div class="lap-base"></div>
+            </div>
+            <span class="num">02</span>
+            <h3>First design, before any contract</h3>
+            <p>We design your homepage and show it to you. If it does not feel like your property, you walk away and owe nothing.</p>
+          </li>
+          <li class="object">
+            <div class="artifact art-tablet" aria-hidden="true">
+              <div class="tab-screen">
+                <img src="img/cove.webp" alt="" loading="lazy">
+                <b>SALA VERANA</b>
+                <span class="tab-live"><i></i>Concierge online</span>
+              </div>
+            </div>
+            <span class="num">03</span>
+            <h3>Launch and care</h3>
+            <p>We build, translate and launch, then train the concierge on your property. Each month we refine what guests ask and what they book.</p>
+          </li>
+        </ol>
+      </div>
     </div>
   </section>
 
-  <!-- Commissions -->
+  <!-- Commissions: four places, four scales -->
   <section class="section" id="commissions">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow reveal">Commissions</p>
-        <h2 class="h2 reveal">Priced on the value to your property, <br>never by the hour.</h2>
-        <p class="lead reveal">After the audit you receive three options. We shape the recommended one so it should return at least three times its cost in the first year, and we show you the assumptions behind that number.</p>
+        <h2 class="h2">Priced on the value to your property, <br>never by the hour.</h2>
+        <p class="lead reveal">After the audit you receive three options. The recommended one is shaped to return at least three times its cost in the first year, with every assumption shown.</p>
       </div>
       <div class="tiers">
-        <article class="tier reveal">
-          <h3>Start</h3>
-          <p>A landing page and AI concierge in Thai and English.</p>
-          <span class="tier-for">For a single villa or a new launch</span>
+        <article class="tier" tabindex="0">
+          <img class="tier-img" src="img/tier-start.webp" alt="" loading="lazy">
+          <div class="tier-body">
+            <span class="tier-for">For a single villa or a new launch</span>
+            <h3>Start</h3>
+            <div class="tier-more"><p>A landing page and AI concierge in Thai and English.</p><a href="#consult" class="tier-link" data-tier="Start">Discuss this commission <i class="ph-light ph-arrow-right"></i></a></div>
+          </div>
         </article>
-        <article class="tier reveal">
-          <h3>Growth</h3>
-          <p>Up to five pages, concierge on LINE, web and Messenger, lead capture, booking and follow ups.</p>
-          <span class="tier-for">For boutique hotels and villa collections</span>
+        <article class="tier" tabindex="0">
+          <img class="tier-img" src="img/tier-growth.webp" alt="" loading="lazy">
+          <div class="tier-body">
+            <span class="tier-for">For boutique hotels and villa collections</span>
+            <h3>Growth</h3>
+            <div class="tier-more"><p>Up to five pages, concierge on LINE, web and Messenger, lead capture, booking and follow ups.</p><a href="#consult" class="tier-link" data-tier="Growth">Discuss this commission <i class="ph-light ph-arrow-right"></i></a></div>
+          </div>
         </article>
-        <article class="tier reveal">
-          <h3>Pro</h3>
-          <p>The complete system: ten pages, every channel, a CRM and one integration with your existing tools.</p>
-          <span class="tier-for">For resorts and multi property groups</span>
+        <article class="tier" tabindex="0">
+          <img class="tier-img" src="img/tier-pro.webp" alt="" loading="lazy">
+          <div class="tier-body">
+            <span class="tier-for">For resorts and multi property groups</span>
+            <h3>Pro</h3>
+            <div class="tier-more"><p>The complete system: ten pages, every channel, a CRM and one integration with your existing tools.</p><a href="#consult" class="tier-link" data-tier="Pro">Discuss this commission <i class="ph-light ph-arrow-right"></i></a></div>
+          </div>
         </article>
-        <article class="tier tier-feature reveal">
-          <h3>Estate</h3>
-          <p>A premium property site with listings, a concierge in Thai, English and Chinese, buyer qualification and viewing booking.</p>
-          <span class="tier-for">For luxury real estate agencies</span>
+        <article class="tier" tabindex="0">
+          <img class="tier-img" src="img/penthouse.webp" alt="" loading="lazy">
+          <div class="tier-body">
+            <span class="tier-for">For luxury real estate agencies</span>
+            <h3>Estate</h3>
+            <div class="tier-more"><p>A premium property site with listings, a concierge in Thai, English and Chinese, buyer qualification and viewing booking.</p><a href="#consult" class="tier-link" data-tier="Estate">Discuss this commission <i class="ph-light ph-arrow-right"></i></a></div>
+          </div>
         </article>
       </div>
+      <div class="tiers-progress" aria-hidden="true"><i></i></div>
+      <p class="tiers-note">Concept photography. Every commission is priced after the audit.</p>
     </div>
   </section>
 
-  <!-- Principles -->
+  <!-- Principles: the brand book, embossed with the HUUMAN monogram -->
   <section class="principles">
     <div class="container principles-inner">
-      <img src="img/brandbook.webp" alt="Linen bound brand book with an embossed monogram and a brass pen" loading="lazy" class="principles-img reveal">
+      <div class="book reveal">
+        <img src="img/book.webp" alt="Charcoal linen bound brand book embossed with the HUUMAN monogram, beside a brass pen" loading="lazy">
+        <svg class="emboss" viewBox="-6 -6 235 116" aria-hidden="true"><g fill="none" stroke-width="5"><path class="deb" d="M3.5 0V100M3.5 50H75.5M75.5 0V100M75.5 64A36 36 0 0 0 147.5 64V0"/><path class="foil" d="M147.5 64A36 36 0 0 0 219.5 64V0"/></g></svg>
+      </div>
       <div>
         <p class="eyebrow reveal">Our principles</p>
         <ul class="principle-list">
@@ -446,7 +562,7 @@
     <div class="container faq-wrap">
       <div>
         <p class="eyebrow reveal">Questions</p>
-        <h2 class="h2 reveal">What owners ask us first.</h2>
+        <h2 class="h2">What owners ask us first.</h2>
       </div>
       <div class="faq">
         <details class="reveal"><summary>How much does a commission cost?<i class="ph-light ph-plus" aria-hidden="true"></i></summary><p>Every property is priced individually after the audit, based on your room rates, occupancy and how many enquiries you receive. You get three options with clear assumptions. There are no hidden monthly fees.</p></details>
@@ -461,32 +577,50 @@
     </div>
   </section>
 
-  <!-- Final CTA -->
-  <section class="section cta" id="consult">
+  <!-- Private consultation: an invitation, the one light surface on the page -->
+  <section class="section cta invite" id="consult">
+    <picture class="invite-bg" aria-hidden="true">
+      <source media="(max-width: 1023px)" srcset="img/door-v.webp">
+      <img src="img/door.webp" alt="" loading="lazy">
+    </picture>
+    <div class="invite-shade" aria-hidden="true"></div>
     <div class="container cta-inner">
-      <div>
+      <div class="invite-copy">
         <p class="eyebrow reveal">Private consultation</p>
-        <h2 class="h2 reveal">Let us look at your property <br>the way your guests do.</h2>
+        <h2 class="h2">Let us look at your property <br>the way your guests do.</h2>
         <p class="lead reveal">Tell us a little about your property. Within two working days you receive your private audit and a time to talk, in Thai or English.</p>
       </div>
-      <form class="form reveal" id="form" novalidate>
-        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
-        <div class="field"><label for="f-prop">Property or company</label><input id="f-prop" name="property" required><span class="err" aria-live="polite"></span></div>
-        <div class="field"><label for="f-mail">Email</label><input id="f-mail" name="email" type="email" autocomplete="email" required><span class="err" aria-live="polite"></span></div>
-        <div class="field"><label for="f-site">Current website <span class="opt">optional</span></label><input id="f-site" name="website" inputmode="url"><span class="err" aria-live="polite"></span></div>
-        <div class="field">
-          <label for="f-type">Type of property</label>
-          <select id="f-type" name="type" required>
-            <option value="">Choose one</option>
-            <option>Pool villa or villa collection</option>
-            <option>Boutique hotel or resort</option>
-            <option>Luxury real estate</option>
-            <option>Wellness retreat or spa</option>
-            <option>Something else</option>
-          </select><span class="err" aria-live="polite"></span>
+      <form class="form invite-card reveal" id="form" novalidate>
+        <svg class="card-line" aria-hidden="true"><rect x="0.5" y="0.5" width="99%" height="99%" rx="20" ry="20" pathLength="1"/></svg>
+        <div class="card-head" aria-hidden="true">
+          <svg class="card-mono" viewBox="-6 -6 235 116"><g fill="none" stroke="currentColor" stroke-width="7"><path class="d" d="M3.5 0V100M3.5 50H75.5M75.5 0V100M75.5 64A36 36 0 0 0 147.5 64V0"/><path class="d you" d="M147.5 64A36 36 0 0 0 219.5 64V0"/></g></svg>
+          <span>By invitation</span>
         </div>
-        <button class="btn btn-light btn-full" type="submit">Request a private consultation <i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
-        <p class="form-note" id="form-note">No obligation. We reply personally, never with an automated sales sequence.</p>
+        <div class="form-fields">
+          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
+          <div class="field"><label for="f-prop">Property or company</label><input id="f-prop" name="property" required><span class="err" aria-live="polite"></span></div>
+          <div class="field"><label for="f-mail">Email</label><input id="f-mail" name="email" type="email" autocomplete="email" required><span class="err" aria-live="polite"></span></div>
+          <div class="field"><label for="f-site">Current website <span class="opt">optional</span></label><input id="f-site" name="website" inputmode="url"><span class="err" aria-live="polite"></span></div>
+          <div class="field">
+            <label for="f-type">Type of property</label>
+            <select id="f-type" name="type" required>
+              <option value="">Choose one</option>
+              <option>Pool villa or villa collection</option>
+              <option>Boutique hotel or resort</option>
+              <option>Luxury real estate</option>
+              <option>Wellness retreat or spa</option>
+              <option>Something else</option>
+            </select><span class="err" aria-live="polite"></span>
+          </div>
+          <input type="hidden" name="commission" id="f-commission" value="">
+          <p class="form-tier" id="form-tier" hidden></p>
+          <button class="btn btn-dark btn-full" type="submit">Request a private consultation <i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
+          <p class="form-note" id="form-note">No obligation. We reply personally, never with an automated sales sequence.</p>
+        </div>
+        <div class="form-thanks" aria-live="polite" hidden>
+          <b>Your email is ready.</b>
+          <span>Press send in your email app and we reply personally, in Thai or English.</span>
+        </div>
       </form>
     </div>
   </section>

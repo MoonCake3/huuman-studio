@@ -1,5 +1,6 @@
 // HUUMAN Studio landing page
 const CONTACT_EMAIL = "marketingwsean@gmail.com";
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // Phones: let headlines wrap naturally instead of using the desktop line breaks
 if (matchMedia("(max-width: 767px)").matches) {
@@ -11,7 +12,7 @@ if (matchMedia("(max-width: 767px)").matches) {
   const v = document.querySelector(".hero-video");
   if (!v) return;
   const saveData = navigator.connection && navigator.connection.saveData;
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches || saveData) return;
+  if (reduceMotion || saveData) return;
   v.src = matchMedia("(max-aspect-ratio: 1/1)").matches ? v.dataset.mobile : v.dataset.desktop;
   v.addEventListener("playing", () => v.classList.add("is-playing"), { once: true });
   const p = v.play();
@@ -37,7 +38,7 @@ if (location.search.includes("still")) document.documentElement.classList.add("s
 const revealIO = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); revealIO.unobserve(e.target); } });
 }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-document.querySelectorAll(".reveal").forEach((el, i) => {
+document.querySelectorAll(".reveal").forEach(el => {
   const siblings = el.parentElement.querySelectorAll(":scope > .reveal");
   const idx = Array.prototype.indexOf.call(siblings, el);
   el.style.transitionDelay = `${Math.min(idx, 6) * 80}ms`;
@@ -57,7 +58,7 @@ const sectionIO = new IntersectionObserver(entries => {
 }, { rootMargin: "-45% 0px -50% 0px" });
 links.forEach(l => { const s = document.querySelector(l.getAttribute("href")); if (s) sectionIO.observe(s); });
 
-// Tagline: words light up one at a time as they cross the trigger line
+// Tagline: words light up one at a time; the last word gets the bronze U from the logo
 const tagline = document.querySelector("[data-words]");
 if (tagline) {
   const accent = new Set(["moment", "stay", "you."]);
@@ -65,11 +66,46 @@ if (tagline) {
     .map(line => line.trim().split(/\s+/)
       .map(w => `<span class="w${accent.has(w) ? " accent" : ""}">${w}</span>`).join(" "))
     .join("<br>");
+  const words = tagline.querySelectorAll(".w");
+  const last = words[words.length - 1];
+  last.classList.add("w-you");
+  last.insertAdjacentHTML("beforeend", '<svg class="you-u" viewBox="0 0 120 30" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 2 C 18 34, 102 34, 118 2"/></svg>');
   const wordIO = new IntersectionObserver(entries => {
     entries.forEach(e => e.target.classList.toggle("on", e.isIntersecting || e.boundingClientRect.top < 0));
   }, { rootMargin: "0px 0px -40% 0px", threshold: 1 });
-  tagline.querySelectorAll(".w").forEach(w => wordIO.observe(w));
+  words.forEach(w => wordIO.observe(w));
 }
+
+// Services: booking calendar for December 2026 (starts on a Tuesday), then device copies for phones
+const cal = document.querySelector(".book-cal");
+if (cal) {
+  let html = ["M", "T", "W", "T", "F", "S", "S"].map(d => `<b>${d}</b>`).join("") + "<i></i>";
+  for (let d = 1; d <= 31; d++) html += `<span${d >= 20 && d <= 24 ? ' class="in"' : ""}>${d}</span>`;
+  cal.innerHTML = html;
+}
+if (matchMedia("(max-width: 1023px)").matches) {
+  const devs = document.querySelectorAll(".props .dev");
+  document.querySelectorAll(".service-device").forEach(slot => {
+    const src = devs[+slot.dataset.dev];
+    if (!src) return;
+    const copy = src.cloneNode(true);
+    copy.classList.add("is-active");
+    slot.appendChild(copy);
+  });
+}
+// The concept homepage headline changes language: Thai, English, Chinese
+(() => {
+  const heads = [...document.querySelectorAll(".mini-head")];
+  if (!heads.length || reduceMotion) return;
+  let visible = false, n = 0;
+  const io = new IntersectionObserver(es => { visible = es.some(e => e.isIntersecting) || heads.some(h => h.getBoundingClientRect().top < innerHeight && h.getBoundingClientRect().bottom > 0); });
+  heads.forEach(h => io.observe(h));
+  setInterval(() => {
+    if (!visible || document.hidden) return;
+    n = (n + 1) % 3;
+    heads.forEach(h => h.querySelectorAll(".mini-lang").forEach((s, i) => s.classList.toggle("is-on", i === n)));
+  }, 2600);
+})();
 
 // Concierge demo
 const scripts = {
@@ -93,12 +129,32 @@ const scripts = {
   ]
 };
 const chat = document.getElementById("chat");
+const phoneWrap = document.querySelector(".phone-wrap");
+const handoff = document.querySelector(".handoff");
 let run = 0;
 const wait = ms => new Promise(r => setTimeout(r, ms));
-async function play(lang) {
-  const id = ++run;
+function bubble(lang, who, text, time, instant) {
+  const m = document.createElement("div");
+  m.className = `msg ${who}${instant ? " instant" : ""}`;
+  m.lang = lang === "zh" ? "zh-Hans" : lang;
+  m.textContent = text;
+  const tm = document.createElement("time"); tm.textContent = time; m.appendChild(tm);
+  chat.appendChild(m);
+}
+// The first guest message is always on screen, so the phone is never an empty slab
+function setFirst(lang) {
   chat.innerHTML = "";
-  for (const [who, text, time] of scripts[lang]) {
+  const [who, text, time] = scripts[lang][0];
+  bubble(lang, who, text, time, true);
+}
+async function play(lang, keepFirst) {
+  const id = ++run;
+  handoff && handoff.classList.remove("is-in");
+  const msgs = scripts[lang];
+  if (keepFirst) setFirst(lang);
+  else chat.innerHTML = "";
+  for (let k = keepFirst ? 1 : 0; k < msgs.length; k++) {
+    const [who, text, time] = msgs[k];
     if (id !== run) return;
     if (who === "bot") {
       const t = document.createElement("div");
@@ -110,22 +166,126 @@ async function play(lang) {
     } else {
       await wait(700);
     }
-    const m = document.createElement("div");
-    m.className = `msg ${who}`;
-    m.lang = lang === "zh" ? "zh-Hans" : lang;
-    m.textContent = text;
-    const tm = document.createElement("time"); tm.textContent = time; m.appendChild(tm);
-    chat.appendChild(m);
+    bubble(lang, who, text, time, false);
+    if (who === "bot" && phoneWrap) {
+      phoneWrap.classList.add("glow");
+      setTimeout(() => phoneWrap.classList.remove("glow"), 1600);
+    }
     await wait(1100);
   }
+  if (id === run && handoff) handoff.classList.add("is-in");
 }
+setFirst("en");
 const langBtns = document.querySelectorAll(".lang button");
 langBtns.forEach(b => b.addEventListener("click", () => {
   langBtns.forEach(x => x.setAttribute("aria-selected", String(x === b)));
-  play(b.dataset.lang);
+  play(b.dataset.lang, false);
 }));
-new IntersectionObserver(([e], o) => { if (e.isIntersecting) { play("en"); o.disconnect(); } }, { threshold: 0.4 })
+new IntersectionObserver(([e], o) => { if (e.isIntersecting) { play("en", true); o.disconnect(); } }, { threshold: 0.4 })
   .observe(document.querySelector(".phone"));
+
+// Studies: the palette sheet opens on click or keyboard, never on hover of a moving strip
+document.querySelectorAll(".study").forEach(study => {
+  const sheet = study.querySelector(".study-sheet");
+  const img = study.querySelector(".study-img");
+  if (sheet && img) img.appendChild(sheet);
+  const btn = study.querySelector(".study-toggle");
+  if (!btn) return;
+  btn.addEventListener("click", () => {
+    const open = !study.classList.contains("is-open");
+    study.classList.toggle("is-open", open);
+    btn.setAttribute("aria-expanded", String(open));
+  });
+});
+
+// Commissions: the touch carousel shows its position; a tier link carries the choice into the form
+const tiers = document.querySelector(".tiers");
+const tiersBar = document.querySelector(".tiers-progress i");
+if (tiers && tiersBar) {
+  const upd = () => {
+    const max = tiers.scrollWidth - tiers.clientWidth;
+    tiersBar.style.transform = `scaleX(${max > 0 ? 0.25 + 0.75 * (tiers.scrollLeft / max) : 1})`;
+  };
+  tiers.addEventListener("scroll", upd, { passive: true });
+  upd();
+}
+const commission = document.getElementById("f-commission");
+const formTier = document.getElementById("form-tier");
+document.querySelectorAll(".tier-link").forEach(a => a.addEventListener("click", () => {
+  if (!commission) return;
+  commission.value = a.dataset.tier;
+  formTier.textContent = `Commission of interest: ${a.dataset.tier}`;
+  formTier.hidden = false;
+}));
+
+// Consultation card: the bronze hairline border follows the card size
+const cardRect = document.querySelector(".card-line rect");
+if (cardRect) {
+  const card = cardRect.closest(".invite-card");
+  const size = () => {
+    cardRect.setAttribute("width", Math.max(0, card.offsetWidth - 1));
+    cardRect.setAttribute("height", Math.max(0, card.offsetHeight - 1));
+  };
+  size();
+  new ResizeObserver(size).observe(card);
+}
+
+// Film: letterbox player with sound, opened from the cinema moment
+(() => {
+  const film = document.querySelector("dialog.film");
+  const openBtn = document.querySelector(".film-open");
+  if (!film || !openBtn || typeof film.showModal !== "function") return;
+  const v = film.querySelector(".film-video");
+  const bar = film.querySelector(".film-progress i");
+  const sound = film.querySelector(".film-sound");
+  const cta = film.querySelector(".film-cta");
+  let closing = false;
+  const open = () => {
+    if (!v.getAttribute("src")) v.src = matchMedia("(max-aspect-ratio: 1/1)").matches ? v.dataset.mobile : v.dataset.desktop;
+    closing = false;
+    film.classList.remove("is-ended");
+    film.showModal();
+    window.hsLenis && window.hsLenis.stop();
+    requestAnimationFrame(() => film.classList.add("is-open"));
+    v.currentTime = 0;
+    v.muted = false;
+    sound.setAttribute("aria-pressed", "true");
+    sound.textContent = "Sound on";
+    const p = v.play();
+    if (p && p.catch) p.catch(() => {});
+  };
+  const close = (then) => {
+    if (closing) return;
+    closing = true;
+    film.classList.remove("is-open");
+    v.pause();
+    setTimeout(() => {
+      film.close();
+      window.hsLenis && window.hsLenis.start();
+      if (typeof then === "function") then(); else openBtn.focus();
+    }, 700);
+  };
+  openBtn.addEventListener("click", open);
+  // The whole cinema frame is a play surface (the cursor already reads "Watch")
+  const stageEl = document.querySelector(".cinema-stage");
+  if (stageEl) stageEl.addEventListener("click", e => { if (!e.target.closest(".film-open")) open(); });
+  film.querySelector(".film-close").addEventListener("click", () => close());
+  film.addEventListener("cancel", e => { e.preventDefault(); close(); });
+  sound.addEventListener("click", () => {
+    v.muted = !v.muted;
+    sound.setAttribute("aria-pressed", String(!v.muted));
+    sound.textContent = v.muted ? "Sound off" : "Sound on";
+  });
+  v.addEventListener("timeupdate", () => { if (v.duration) bar.style.transform = `scaleX(${v.currentTime / v.duration})`; });
+  v.addEventListener("ended", () => film.classList.add("is-ended"));
+  cta.addEventListener("click", e => {
+    e.preventDefault();
+    close(() => {
+      const target = document.getElementById("consult");
+      if (window.hsLenis) window.hsLenis.scrollTo(target, { duration: 1.6 }); else target.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+})();
 
 // Form: validate, then open a prepared email
 const form = document.getElementById("form");
@@ -153,8 +313,20 @@ form.addEventListener("submit", e => {
   const ok = fields.map(check).every(Boolean);
   if (!ok) { fields.find(f => f.classList.contains("invalid")).querySelector("input, select").focus(); return; }
   const d = Object.fromEntries(new FormData(form));
-  const body = `Name: ${d.name}\nProperty: ${d.property}\nType: ${d.type}\nWebsite: ${d.website || "none"}\nEmail: ${d.email}`;
+  const body = `Name: ${d.name}\nProperty: ${d.property}\nType: ${d.type}\nCommission of interest: ${d.commission || "not chosen yet"}\nWebsite: ${d.website || "none"}\nEmail: ${d.email}`;
   window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Private consultation: " + d.property)}&body=${encodeURIComponent(body)}`;
-  note.textContent = "Thank you. Your email app has opened with your request ready to send.";
-  note.classList.add("ok");
+  // Honest confirmation: the email is prepared, not yet sent
+  const fieldsBox = form.querySelector(".form-fields");
+  const thanks = form.querySelector(".form-thanks");
+  if (fieldsBox && thanks) {
+    fieldsBox.hidden = true;
+    thanks.hidden = false;
+    if (window.gsap && window.DrawSVGPlugin && !reduceMotion) {
+      gsap.from(".card-mono .d", { drawSVG: 0, duration: 1.4, stagger: 0.12, ease: "power3.inOut" });
+      gsap.from(thanks.children, { y: 16, opacity: 0, duration: 1.2, stagger: 0.1, ease: "expo.out", delay: 0.3 });
+    }
+  } else {
+    note.textContent = "Your email app has opened with your request ready to send.";
+    note.classList.add("ok");
+  }
 });
