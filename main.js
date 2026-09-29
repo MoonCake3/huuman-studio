@@ -1,5 +1,7 @@
 // HUUMAN Studio landing page
 const CONTACT_EMAIL = "marketingwsean@gmail.com";
+// Web3Forms access key (public form key, delivers straight to CONTACT_EMAIL). Empty = fall back to mailto.
+const WEB3FORMS_KEY = "";
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // Phones: let headlines wrap naturally instead of using the desktop line breaks
@@ -307,17 +309,36 @@ form.querySelectorAll(".field").forEach(f => {
   input.addEventListener("blur", () => { if (input.value) check(f); });
   input.addEventListener("input", () => { if (f.classList.contains("invalid")) check(f); });
 });
-form.addEventListener("submit", e => {
+form.addEventListener("submit", async e => {
   e.preventDefault();
   const fields = [...form.querySelectorAll(".field")];
   const ok = fields.map(check).every(Boolean);
   if (!ok) { fields.find(f => f.classList.contains("invalid")).querySelector("input, select").focus(); return; }
   const d = Object.fromEntries(new FormData(form));
+  const subject = `HUUMAN Studio · Private consultation: ${d.property}`;
   const body = `Name: ${d.name}\nProperty: ${d.property}\nType: ${d.type}\nCommission of interest: ${d.commission || "not chosen yet"}\nWebsite: ${d.website || "none"}\nEmail: ${d.email}`;
-  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Private consultation: " + d.property)}&body=${encodeURIComponent(body)}`;
-  // Honest confirmation: the email is prepared, not yet sent
+  const btn = form.querySelector("button[type=submit]");
+  let sent = false;
+  if (WEB3FORMS_KEY) {
+    btn.disabled = true;
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ access_key: WEB3FORMS_KEY, subject, from_name: "HUUMAN Studio website", replyto: d.email, name: d.name, email: d.email, property: d.property, type: d.type, commission: d.commission || "not chosen yet", website: d.website || "none" })
+      });
+      sent = (await res.json()).success === true;
+    } catch (err) { sent = false; }
+    btn.disabled = false;
+  }
+  // No key or the service failed: prepare the email in the visitor's own mail app instead
+  if (!sent) window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   const fieldsBox = form.querySelector(".form-fields");
   const thanks = form.querySelector(".form-thanks");
+  if (sent && thanks) {
+    thanks.querySelector("b").textContent = "Thank you. Your request has arrived.";
+    thanks.querySelector("span").innerHTML = "We reply personally within two working days. We send you times for a call.";
+  }
   if (fieldsBox && thanks) {
     fieldsBox.hidden = true;
     thanks.hidden = false;
