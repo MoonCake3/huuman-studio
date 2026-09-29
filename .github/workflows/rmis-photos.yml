@@ -1,4 +1,4 @@
-# Rum mitt i stan: download the scenery photos from Unsplash as optimised WebP
+# Rum mitt i stan: download the chosen Wikimedia Commons photos as optimised WebP
 # and commit them into rum-mitt-i-stan/img, so the site serves its own images.
 name: Rum mitt i stan photos
 
@@ -7,6 +7,7 @@ on:
   push:
     paths:
       - ".github/workflows/rmis-photos.yml"
+      - ".github/scripts/rmis_photos.py"
 
 permissions:
   contents: write
@@ -16,66 +17,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Diagnose
-        shell: bash
-        continue-on-error: true
-        run: |
-          ua="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36"
-          echo "--- download redirect"; curl -sS -o /dev/null -D - "https://unsplash.com/photos/tVqQSfXQ_SI/download?force=true" | grep -iE '^(HTTP|location)' || true
-          loc=$(curl -sS -o /dev/null -w '%{redirect_url}' "https://unsplash.com/photos/tVqQSfXQ_SI/download?force=true" || true)
-          echo "redirect: $loc"
-          echo "--- redirect target"; curl -sS -o /dev/null -D - "$loc" | grep -iE '^(HTTP|content-type|content-length)' || true
-          echo "--- stripped"; curl -sS -o /dev/null -D - "${loc%%\?*}?w=1080&fm=webp" | grep -iE '^(HTTP|content-type)' || true
-          echo "--- page"; curl -sSL -A "$ua" -o page.html -w '%{http_code} %{size_download}\n' "https://unsplash.com/photos/tVqQSfXQ_SI" || true
-          grep -oE 'https://images\.unsplash\.com/photo-[A-Za-z0-9_-]+' page.html | sort -u | head -5 || true
-          grep -oE 'og:image[^>]{0,200}' page.html | head -2 || true
-      - name: Download photos
-        shell: bash
-        run: |
-          set -u +e +o pipefail
-          out=rum-mitt-i-stan/img
-          mkdir -p "$out"
-          missing=0
-          ua="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36"
-          fetch() { # id name width [extra params]
-            # The photo page's og:image is a public images.unsplash.com URL we can resize
-            og=$(curl -sSL -A "$ua" "https://unsplash.com/photos/$1" | grep -oE '<meta[^>]+property="og:image"[^>]+>' | grep -oE 'https://[^"]+' | head -n1 | sed 's/&amp;/\&/g')
-            base="${og%%\?*}"
-            echo "id $1 og: ${og:0:140}"
-            case "$base" in
-              https://images.unsplash.com/*) ;;
-              *) echo "::error::no public image for $2 ($1): '$base'"; missing=$((missing + 1)); return ;;
-            esac
-            ext=webp; params="w=$3&q=78&fm=webp"
-            if [ -n "${4:-}" ]; then ext=jpg; params="w=$3&q=80&$4"; fi
-            if curl -fsSL -A "$ua" "$base?$params" -o "$out/$2.$ext"; then
-              echo "ok $2.$ext $(wc -c < "$out/$2.$ext") bytes"
-            else
-              echo "::error::download failed for $2 ($1) from $base"; missing=$((missing + 1))
-            fi
-          }
-          fetch tVqQSfXQ_SI hero-1080 1080
-          fetch tVqQSfXQ_SI hero-1920 1920
-          fetch tVqQSfXQ_SI hero-2800 2800
-          fetch tVqQSfXQ_SI og 1200 "h=630&fit=crop&fm=jpg"
-          fetch blUOsKcRk2Q house 1400
-          fetch Uxtsu5i_msE room-double 1200
-          fetch asXNM_n2jNM room-twin 1200
-          fetch B2RKwf2IaJU room-triple 1200
-          fetch KPjPeNFLVns room-bunk 1200
-          fetch 8qNuR1lIv_k room-four 1200
-          fetch M938IAHCX_k harbour 2400
-          fetch GZBImaVAQYc oysters 1200
-          fetch ca0iXBA7AZc boathouse 1200
-          fetch O79o-5hEO6g swim 1200
-          fetch eUeK1pD7fH0 sunset 1200
-          fetch uwbajDCODj4 pier 2400
-          echo "missing: $missing"
+      - run: pip install --quiet pillow
+      - run: python3 .github/scripts/rmis_photos.py
       - name: Commit photos
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add rum-mitt-i-stan/img
+          git add rum-mitt-i-stan/img .github/rmis-credits.json
           if git diff --cached --quiet; then echo "No changes"; exit 0; fi
-          git commit -m "Rum mitt i stan: add scenery photos from Unsplash"
+          git commit -m "Rum mitt i stan: add Grebbestad photos from Wikimedia Commons"
           git push
