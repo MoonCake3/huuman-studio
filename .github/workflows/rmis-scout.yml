@@ -1,0 +1,42 @@
+# Rum mitt i stan: collect the owners' photos and free Grebbestad photos as contact sheets for review.
+name: Rum mitt i stan scout
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/rmis-scout.yml"
+      - ".github/scripts/rmis_scout.py"
+
+permissions:
+  contents: write
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 .github/scripts/rmis_scout.py
+      - name: Contact sheets
+        run: |
+          sudo apt-get install -y -qq imagemagick >/dev/null 2>&1 || true
+          cd .github/rmis-scout
+          for d in owner commons; do
+            ls $d/*.jpg >/dev/null 2>&1 || continue
+            n=0
+            ls $d/*.jpg | split -l 20 - list-$d-
+            for f in list-$d-*; do
+              montage -label '%t' -pointsize 22 $(cat $f) -tile 5x -geometry 300x300+6+6 -background '#eeeeee' "sheet-$d-$n.jpg" && n=$((n+1))
+            done
+          done
+          rm -f list-*
+          rm -rf owner commons
+          ls -la
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/rmis-scout
+          git diff --cached --quiet && exit 0
+          git commit -m "Rum mitt i stan: photo scout results"
+          git push
