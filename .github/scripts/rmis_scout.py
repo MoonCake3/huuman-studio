@@ -38,7 +38,7 @@ manifest = {"owner": [], "commons": [], "emails": [], "pages": []}
 # 1. Owner site
 site = "https://www.rummittistan.se/"
 pages, queue = {}, [site, "https://rummittistan.se/", "http://www.rummittistan.se/", "https://www.rummittistan.se/rum", "https://www.rummittistan.se/kontakt"]
-while queue and len(pages) < 20:
+while queue and len(pages) < 20 and not os.environ.get("RMIS_SEARCH"):
     u = queue.pop(0)
     if u in pages:
         continue
@@ -82,12 +82,22 @@ def api_get(params):
 
 
 cats, files = ["Category:Grebbestad"], []
+if os.environ.get("RMIS_SEARCH"):
+    cats = []
+    for term in os.environ["RMIS_SEARCH"].split("|"):
+        try:
+            r = api_get({"action": "query", "list": "search", "srsearch": term, "srnamespace": "6", "srlimit": "10"})
+            files += [x["title"] for x in r["query"]["search"] if x["title"] not in files]
+        except Exception as e:
+            print("search failed", term, e)
 try:
+    if not cats:
+        raise RuntimeError("search mode")
     sub = api_get({"action": "query", "list": "categorymembers", "cmtitle": "Category:Grebbestad", "cmtype": "subcat", "cmlimit": "50"})
     cats += [c["title"] for c in sub["query"]["categorymembers"]]
 except Exception as e:
     print("subcats failed", e)
-for c in cats:
+for c in cats[1:] if False else cats:
     try:
         r = api_get({"action": "query", "list": "categorymembers", "cmtitle": c, "cmtype": "file", "cmlimit": "100"})
         files += [m["title"] for m in r["query"]["categorymembers"] if m["title"] not in files]

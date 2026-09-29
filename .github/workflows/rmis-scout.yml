@@ -17,6 +17,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 .github/scripts/rmis_scout.py
+        env:
+          RMIS_SEARCH: "oysters Grebbestad|ostron Grebbestad|oysters on ice lemon|Ostronakademin|Ostrea edulis plate|oysters platter"
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
