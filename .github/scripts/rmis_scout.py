@@ -37,7 +37,7 @@ manifest = {"owner": [], "commons": [], "emails": [], "pages": []}
 
 # 1. Owner site
 site = "https://www.rummittistan.se/"
-pages, queue = {}, [site]
+pages, queue = {}, [site, "https://rummittistan.se/", "http://www.rummittistan.se/", "https://www.rummittistan.se/rum", "https://www.rummittistan.se/kontakt"]
 while queue and len(pages) < 20:
     u = queue.pop(0)
     if u in pages:
@@ -50,7 +50,7 @@ while queue and len(pages) < 20:
         continue
     for href in re.findall(r'href="([^"#?]+)"', pages[u]):
         full = urllib.parse.urljoin(u, href)
-        if full.startswith(site) and not re.search(r"\.(jpg|png|css|js|xml|ico|svg)$", full) and full not in pages and full not in queue:
+        if full.startswith(("https://www.rummittistan.se", "https://rummittistan.se")) and not re.search(r"\.(jpg|png|css|js|xml|ico|svg)$", full) and full not in pages and full not in queue:
             queue.append(full)
 
 imgs, texts = [], []
