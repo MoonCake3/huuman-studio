@@ -17,7 +17,7 @@
 <meta property="og:locale" content="sv_SE">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="img/hero-1920.webp" imagesrcset="img/hero-1080.webp 1080w, img/hero-1920.webp 1920w, img/hero-2800.webp 2800w" imagesizes="100vw">
+<link rel="preload" as="image" href="img/hero-1920.webp" imagesrcset="img/hero-1080.webp 1080w, img/hero-1920.webp 1920w, img/hero-2560.webp 2560w" imagesizes="100vw">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -118,8 +118,8 @@
     <div class="hero-media ph" style="--ph: linear-gradient(180deg, #7C98A6 0%, #B8C4C4 45%, #6D7B7F 70%, #2A3A43 100%)">
       <img class="hero-img" data-parallax="hero"
         src="img/hero-1920.webp"
-        srcset="img/hero-1080.webp 1080w, img/hero-1920.webp 1920w, img/hero-2800.webp 2800w"
-        sizes="100vw" alt="Trähus vid stilla vatten i Bohusläns skärgård" fetchpriority="high">
+        srcset="img/hero-1080.webp 1080w, img/hero-1920.webp 1920w, img/hero-2560.webp 2560w"
+        sizes="100vw" alt="Röda sjöbodar speglar sig i kvällssolen vid Tanumstrand" fetchpriority="high">
     </div>
     <div class="hero-shade"></div>
     <div class="container hero-inner">
@@ -169,8 +169,8 @@
     <div class="container house-grid">
       <figure class="house-fig ph reveal-img" style="--ph: linear-gradient(160deg, #EFE9E1, #CFC4B4)">
         <img data-parallax loading="lazy" decoding="async"
-          src="img/house.webp"
-          alt="Ljust sovrum med vitt linne och fönster mot dagsljus">
+          src="img/town.webp"
+          alt="Grebbestad sett ovanifrån, med kyrkan och de röda taken ner mot hamnen">
       </figure>
       <div class="house-copy">
         <p class="eyebrow" data-i18n="house.eyebrow">Huset</p>
@@ -193,9 +193,16 @@
     <div class="rooms-pin">
       <div class="rooms-track" tabindex="0" aria-label="Rumstyper, scrolla i sidled">
         <article class="room">
-          <figure class="room-fig ph" style="--ph: linear-gradient(160deg, #EDE6DC, #C9BDAA)">
-            <img loading="lazy" decoding="async" src="img/room-double.webp" alt="Dubbelsäng med vitt linne vid ett fönster">
-            <figcaption>01</figcaption>
+          <figure class="room-fig room-plan">
+            <svg class="plan" viewBox="0 0 400 500" role="img" aria-label="Planritning: Dubbelrum">
+              <g class="floor"><path d="M80 72 V428"/><path d="M100 72 V428"/><path d="M120 72 V428"/><path d="M140 72 V428"/><path d="M160 72 V428"/><path d="M180 72 V428"/><path d="M200 72 V428"/><path d="M220 72 V428"/><path d="M240 72 V428"/><path d="M260 72 V428"/><path d="M280 72 V428"/><path d="M300 72 V428"/><path d="M320 72 V428"/></g>
+              <path class="wall" d="M60 70 H150 M250 70 H340 V430 H320 M270 430 H60 Z"/>
+              <path class="window" d="M150 66 H250 M150 74 H250"/>
+              <path class="door" d="M270 430 V380 A50 50 0 0 1 320 430"/>
+              <rect class="stand" x="94" y="92" width="26" height="26" rx="3"/><rect class="stand" x="280" y="92" width="26" height="26" rx="3"/><rect class="bed" x="128" y="90" width="144" height="200" rx="4"/><rect class="pillow" x="136" y="98" width="61" height="26" rx="6"/><rect class="pillow" x="203" y="98" width="61" height="26" rx="6"/><path class="fold" d="M130 148 H270"/>
+              <text class="plan-label" x="60" y="466">RUM 01 · DUBBELRUM</text>
+              <path class="scale" d="M290 462 H340 M290 458 V466 M340 458 V466"/><text class="plan-scale" x="315" y="482" text-anchor="middle">1 m</text>
+            </svg>
           </figure>
           <div class="room-body">
             <p class="room-count" data-i18n="room.double.count">2 rum</p>
@@ -206,9 +213,16 @@
           </div>
         </article>
         <article class="room">
-          <figure class="room-fig ph" style="--ph: linear-gradient(160deg, #E6E2DA, #B9B3A6)">
-            <img loading="lazy" decoding="async" src="img/room-twin.webp" alt="Säng med vitt linne bredvid ett vitt nattduksbord">
-            <figcaption>02</figcaption>
+          <figure class="room-fig room-plan">
+            <svg class="plan" viewBox="0 0 400 500" role="img" aria-label="Planritning: Tvåbäddsrum">
+              <g class="floor"><path d="M80 72 V428"/><path d="M100 72 V428"/><path d="M120 72 V428"/><path d="M140 72 V428"/><path d="M160 72 V428"/><path d="M180 72 V428"/><path d="M200 72 V428"/><path d="M220 72 V428"/><path d="M240 72 V428"/><path d="M260 72 V428"/><path d="M280 72 V428"/><path d="M300 72 V428"/><path d="M320 72 V428"/></g>
+              <path class="wall" d="M60 70 H150 M250 70 H340 V430 H320 M270 430 H60 Z"/>
+              <path class="window" d="M150 66 H250 M150 74 H250"/>
+              <path class="door" d="M270 430 V380 A50 50 0 0 1 320 430"/>
+              <rect class="bed" x="76" y="90" width="92" height="200" rx="4"/><rect class="pillow" x="84" y="98" width="76" height="26" rx="6"/><path class="fold" d="M78 148 H166"/><rect class="stand" x="187" y="92" width="26" height="26" rx="3"/><rect class="bed" x="232" y="90" width="92" height="200" rx="4"/><rect class="pillow" x="240" y="98" width="76" height="26" rx="6"/><path class="fold" d="M234 148 H322"/>
+              <text class="plan-label" x="60" y="466">RUM 02 · TVÅBÄDDSRUM</text>
+              <path class="scale" d="M290 462 H340 M290 458 V466 M340 458 V466"/><text class="plan-scale" x="315" y="482" text-anchor="middle">1 m</text>
+            </svg>
           </figure>
           <div class="room-body">
             <p class="room-count" data-i18n="room.twin.count">1 rum</p>
@@ -219,9 +233,16 @@
           </div>
         </article>
         <article class="room">
-          <figure class="room-fig ph" style="--ph: linear-gradient(160deg, #E9E3D8, #C4B7A2)">
-            <img loading="lazy" decoding="async" src="img/room-triple.webp" alt="Säng i ett ljust sovrum bredvid ett fönster">
-            <figcaption>03</figcaption>
+          <figure class="room-fig room-plan">
+            <svg class="plan" viewBox="0 0 400 500" role="img" aria-label="Planritning: Trebäddsrum">
+              <g class="floor"><path d="M80 72 V428"/><path d="M100 72 V428"/><path d="M120 72 V428"/><path d="M140 72 V428"/><path d="M160 72 V428"/><path d="M180 72 V428"/><path d="M200 72 V428"/><path d="M220 72 V428"/><path d="M240 72 V428"/><path d="M260 72 V428"/><path d="M280 72 V428"/><path d="M300 72 V428"/><path d="M320 72 V428"/></g>
+              <path class="wall" d="M60 70 H150 M250 70 H340 V430 H320 M270 430 H60 Z"/>
+              <path class="window" d="M150 66 H250 M150 74 H250"/>
+              <path class="door" d="M270 430 V380 A50 50 0 0 1 320 430"/>
+              <rect class="bed" x="72" y="90" width="80" height="190" rx="4"/><rect class="pillow" x="80" y="98" width="64" height="26" rx="6"/><path class="fold" d="M74 148 H150"/><rect class="stand" x="187" y="92" width="26" height="26" rx="3"/><rect class="bed" x="248" y="90" width="80" height="190" rx="4"/><rect class="pillow" x="256" y="98" width="64" height="26" rx="6"/><path class="fold" d="M250 148 H326"/><rect class="bed" x="72" y="334" width="190" height="80" rx="4"/><rect class="pillow" x="80" y="342" width="26" height="64" rx="6"/><path class="fold" d="M130 336 V412"/>
+              <text class="plan-label" x="60" y="466">RUM 03 · TREBÄDDSRUM</text>
+              <path class="scale" d="M290 462 H340 M290 458 V466 M340 458 V466"/><text class="plan-scale" x="315" y="482" text-anchor="middle">1 m</text>
+            </svg>
           </figure>
           <div class="room-body">
             <p class="room-count" data-i18n="room.triple.count">3 rum</p>
@@ -232,9 +253,16 @@
           </div>
         </article>
         <article class="room">
-          <figure class="room-fig ph" style="--ph: linear-gradient(160deg, #E4DFD6, #ADA595)">
-            <img loading="lazy" decoding="async" src="img/room-bunk.webp" alt="Bäddad säng med vitt överkast">
-            <figcaption>04</figcaption>
+          <figure class="room-fig room-plan">
+            <svg class="plan" viewBox="0 0 400 500" role="img" aria-label="Planritning: Våningssäng">
+              <g class="floor"><path d="M80 72 V428"/><path d="M100 72 V428"/><path d="M120 72 V428"/><path d="M140 72 V428"/><path d="M160 72 V428"/><path d="M180 72 V428"/><path d="M200 72 V428"/><path d="M220 72 V428"/><path d="M240 72 V428"/><path d="M260 72 V428"/><path d="M280 72 V428"/><path d="M300 72 V428"/><path d="M320 72 V428"/></g>
+              <path class="wall" d="M60 70 H150 M250 70 H340 V430 H320 M270 430 H60 Z"/>
+              <path class="window" d="M150 66 H250 M150 74 H250"/>
+              <path class="door" d="M270 430 V380 A50 50 0 0 1 320 430"/>
+              <rect class="bed" x="80" y="90" width="92" height="200" rx="4"/><rect class="pillow" x="88" y="98" width="76" height="26" rx="6"/><path class="fold" d="M82 148 H170"/><rect class="upper" x="86" y="96" width="80" height="188" rx="3"/><path class="ladder" d="M176 150 V250 M188 150 V250 M176 170 H188 M176 195 H188 M176 220 H188 M176 245 H188"/><rect class="stand" x="270" y="140" width="56" height="110" rx="3"/>
+              <text class="plan-label" x="60" y="466">RUM 04 · VÅNINGSSÄNG</text>
+              <path class="scale" d="M290 462 H340 M290 458 V466 M340 458 V466"/><text class="plan-scale" x="315" y="482" text-anchor="middle">1 m</text>
+            </svg>
           </figure>
           <div class="room-body">
             <p class="room-count" data-i18n="room.bunk.count">3 rum</p>
@@ -245,9 +273,16 @@
           </div>
         </article>
         <article class="room">
-          <figure class="room-fig ph" style="--ph: linear-gradient(160deg, #E8E4DD, #B5AEA2)">
-            <img loading="lazy" decoding="async" src="img/room-four.webp" alt="Vitt sänglinne på en bäddad säng">
-            <figcaption>05</figcaption>
+          <figure class="room-fig room-plan">
+            <svg class="plan" viewBox="0 0 400 500" role="img" aria-label="Planritning: Fyrbäddsrum">
+              <g class="floor"><path d="M80 72 V428"/><path d="M100 72 V428"/><path d="M120 72 V428"/><path d="M140 72 V428"/><path d="M160 72 V428"/><path d="M180 72 V428"/><path d="M200 72 V428"/><path d="M220 72 V428"/><path d="M240 72 V428"/><path d="M260 72 V428"/><path d="M280 72 V428"/><path d="M300 72 V428"/><path d="M320 72 V428"/></g>
+              <path class="wall" d="M60 70 H150 M250 70 H340 V430 H320 M270 430 H60 Z"/>
+              <path class="window" d="M150 66 H250 M150 74 H250"/>
+              <path class="door" d="M270 430 V380 A50 50 0 0 1 320 430"/>
+              <rect class="bed" x="68" y="90" width="62" height="180" rx="4"/><rect class="pillow" x="76" y="98" width="46" height="26" rx="6"/><path class="fold" d="M70 148 H128"/><rect class="bed" x="136" y="90" width="62" height="180" rx="4"/><rect class="pillow" x="144" y="98" width="46" height="26" rx="6"/><path class="fold" d="M138 148 H196"/><rect class="bed" x="204" y="90" width="62" height="180" rx="4"/><rect class="pillow" x="212" y="98" width="46" height="26" rx="6"/><path class="fold" d="M206 148 H264"/><rect class="bed" x="272" y="90" width="62" height="180" rx="4"/><rect class="pillow" x="280" y="98" width="46" height="26" rx="6"/><path class="fold" d="M274 148 H332"/>
+              <text class="plan-label" x="60" y="466">RUM 05 · FYRBÄDDSRUM</text>
+              <path class="scale" d="M290 462 H340 M290 458 V466 M340 458 V466"/><text class="plan-scale" x="315" y="482" text-anchor="middle">1 m</text>
+            </svg>
           </figure>
           <div class="room-body">
             <p class="room-count" data-i18n="room.four.count">1 rum</p>
@@ -294,7 +329,7 @@
     <div class="greb-hero ph" style="--ph: linear-gradient(180deg, #5E7784, #A8B5B5 55%, #3B4A50)">
       <img data-parallax loading="lazy" decoding="async"
         src="img/harbour.webp"
-        alt="Båtar i en hamn med hus och träd">
+        alt="Grebbestads hamn med båtar, hus och kyrkan">
       <div class="greb-shade"></div>
       <div class="container greb-hero-inner">
         <p class="eyebrow eyebrow-light" data-i18n="greb.eyebrow">Orten</p>
@@ -305,19 +340,19 @@
 
     <div class="container greb-list">
       <article class="spot reveal">
-        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #D9DCD6, #8F9A96)"><img loading="lazy" decoding="async" src="img/oysters.webp" alt="Ostron på is med citronklyftor"></figure>
+        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #D9DCD6, #8F9A96)"><img loading="lazy" decoding="async" src="img/oysters.webp" alt="Ostron på is med citron och persilja"></figure>
         <div class="spot-body"><span class="spot-num">01</span><h3 class="h3" data-i18n="spot.oyster">Ostronen</h3><p data-i18n="spot.oysterT">Ungefär nio av tio svenska ostron kommer från Grebbestad och Tanum. Ostronakademin har sitt säte här, och säsongen är som bäst under månaderna med R.</p></div>
       </article>
       <article class="spot reveal">
-        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #A6503C, #5C2A20)"><img loading="lazy" decoding="async" src="img/boathouse.webp" alt="Röd sjöbod vid vattnet"></figure>
+        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #A6503C, #5C2A20)"><img loading="lazy" decoding="async" src="img/pier.webp" alt="Båtar vid bryggorna, en röd sjöbod och granithällar i Tanumstrand"></figure>
         <div class="spot-body"><span class="spot-num">02</span><h3 class="h3" data-i18n="spot.pier">Bryggan</h3><p data-i18n="spot.pierT">Grebbestads långa brygga med fiskrestauranger, sjöbodar och båtar. Allt ligger en kort promenad från Nedre Långgatan.</p></div>
       </article>
       <article class="spot reveal">
-        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #B9C6CC, #50636C)"><img loading="lazy" decoding="async" src="img/swim.webp" alt="Badstege i trä som leder ner i stilla vatten"></figure>
+        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #B9C6CC, #50636C)"><img loading="lazy" decoding="async" src="img/swim.webp" alt="Glittrande hav och klippor vid Tanumstrand"></figure>
         <div class="spot-body"><span class="spot-num">03</span><h3 class="h3" data-i18n="spot.swim">Morgondoppet</h3><p data-i18n="spot.swimT">Hällar, badstegar och Kolholmens sandstrand en kort cykeltur bort. Västerhavet är kallt, klart och helt oemotståndligt.</p></div>
       </article>
       <article class="spot reveal">
-        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #E3B98A, #6B4A3A)"><img loading="lazy" decoding="async" src="img/sunset.webp" alt="Solnedgång över havet med klippor i förgrunden"></figure>
+        <figure class="spot-fig ph" style="--ph: linear-gradient(160deg, #E3B98A, #6B4A3A)"><img loading="lazy" decoding="async" src="img/sunset.webp" alt="Solnedgång över båtarna vid Tanumstrand"></figure>
         <div class="spot-body"><span class="spot-num">04</span><h3 class="h3" data-i18n="spot.taube">Otterön och Taube</h3><p data-i18n="spot.taubeT">Evert Taube sommarbodde gärna på Otterön, där visan "Så länge skutan kan gå" kom till. I dag är ön ett naturreservat med skalbankar och orkidéer.</p></div>
       </article>
     </div>
@@ -335,7 +370,7 @@
   <!-- Booking -->
   <section class="section book" id="boka" aria-labelledby="book-title">
     <div class="book-bg ph" style="--ph: linear-gradient(180deg, #1E3440, #0E1820)" aria-hidden="true">
-      <img data-parallax loading="lazy" decoding="async" src="img/pier.webp" alt="">
+      <img data-parallax loading="lazy" decoding="async" src="img/dusk.webp" alt="">
     </div>
     <div class="container book-grid">
       <div class="book-intro">
